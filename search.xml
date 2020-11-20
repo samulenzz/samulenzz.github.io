@@ -19,6 +19,114 @@
 ]]></content>
   </entry>
   <entry>
+    <title>markdown_writer</title>
+    <url>/2020/09/09/markdown-writer/</url>
+    <content><![CDATA[<h2 id="这是二级标题，front-matter里的值为一级标题"><a href="#这是二级标题，front-matter里的值为一级标题" class="headerlink" title="这是二级标题，front matter里的值为一级标题"></a>这是二级标题，front matter里的值为一级标题</h2><p>这是正文部分，如果想换行的话在每行后面敲两个空格再按回车<br>这是换行</p>
+<p>如何换段落呢？如在第10行和第12行之间敲回车，这是换段落<br>第12行后面没有按回车，显示的是不换行的格式</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">接下来<span class="emphasis">*这是斜体文字*</span>  </span><br></pre></td></tr></table></figure>
+
+<p>接下来<em>这是斜体文字</em>  </p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">接下来<span class="strong">**这是粗体文字**</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来<strong>这是粗体文字</strong></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">接下来<span class="strong">**<span class="emphasis">*这是斜粗体文字<span class="strong">**<span class="emphasis">*</span></span></span></span></span><br></pre></td></tr></table></figure>
+
+<p>接下来**<em>这是斜粗体文字**</em></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是~~删除线~~</span><br></pre></td></tr></table></figure>
+
+<p>这是<del>删除线</del></p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是==高亮==</span><br></pre></td></tr></table></figure>
+
+<p>这是==高亮==</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">我是^上标^</span><br></pre></td></tr></table></figure>
+
+<p>我是^上标^</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">我是~下标~  </span><br></pre></td></tr></table></figure>
+
+<p>我是<del>下标</del>  </p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">下划线采用html语法<span class="xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>hhh(command+u)<span class="xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>下划线采用html语法<u>hhh(command+u)</u></p>
+<h2 id="这也是二级标题"><a href="#这也是二级标题" class="headerlink" title="这也是二级标题"></a>这也是二级标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">采取<span class="xml"><span class="comment">&lt;!--more--&gt;</span></span>来隐藏本文中剩下的内容</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h3 id="如何建立列表"><a href="#如何建立列表" class="headerlink" title="如何建立列表"></a>如何建立列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 列表1</span><br><span class="line"><span class="bullet">2.</span> 列表2</span><br><span class="line"><span class="bullet">3.</span> 列表3</span><br><span class="line"><span class="bullet">   1.</span> 层次3.1</span><br><span class="line"><span class="bullet">      1.</span> 层次3.1.1</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>列表1</li>
+<li>列表2</li>
+<li>列表3<ol>
+<li>层次3.1<ol>
+<li>层次3.1.1</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="如何建立不带数字的列表"><a href="#如何建立不带数字的列表" class="headerlink" title="如何建立不带数字的列表"></a>如何建立不带数字的列表</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">*</span> 列表1</span><br><span class="line"><span class="bullet">*</span> 列表2</span><br><span class="line"><span class="bullet">*</span> 列表3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列表1</li>
+<li>列表2</li>
+<li>列表3</li>
+</ul>
+<h3 id="如何插入图片"><a href="#如何插入图片" class="headerlink" title="如何插入图片"></a>如何插入图片</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">这是图片的替代文字</span>](<span class="link">markdown-writer/jienijieni.png &quot;这是图片的title&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="markdown-writer/jienijieni.png" alt="这是图片的替代文字" title="这是图片的title"></p>
+<h3 id="如何进行latex公式的插入"><a href="#如何进行latex公式的插入" class="headerlink" title="如何进行latex公式的插入"></a>如何进行latex公式的插入</h3><p>快捷键command+m可以在文字中插入公式<br>快捷键command+两次m可以生成公式的段落，如下</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">$$</span><br><span class="line">\lim<span class="emphasis">_&#123;x \to \infin&#125;\frac&#123; sin(x) &#125; &#123; x &#125; = 1</span></span><br><span class="line"><span class="emphasis">$$</span></span><br></pre></td></tr></table></figure>
+
+<p>$$<br>\lim_{x \to \infin}\frac{ sin(x) } { x } = 1<br>$$</p>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 小红 | 小明 | 小白 |</span><br><span class="line">| :---- | :----: | ----: |</span><br><span class="line">| a    | b    | c    |</span><br><span class="line">| e    | f    | g    |</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">小红</th>
+<th align="center">小明</th>
+<th align="right">小白</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">a</td>
+<td align="center">b</td>
+<td align="right">c</td>
+</tr>
+<tr>
+<td align="left">e</td>
+<td align="center">f</td>
+<td align="right">g</td>
+</tr>
+</tbody></table>
+<h3 id="插入链接"><a href="#插入链接" class="headerlink" title="插入链接"></a>插入链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是一个链接 [<span class="string">链接的描述，如百度</span>](<span class="link">www.baidu.com</span>)</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">www.baidu.com</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>这是一个链接 <a href="www.baidu.com">链接的描述，如百度</a></p>
+<p>&lt;<a href="http://www.baidu.com&gt;/">www.baidu.com&gt;</a></p>
+<h3 id="插入代码块"><a href="#插入代码块" class="headerlink" title="插入代码块"></a>插入代码块</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如一段C++语言代码</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//这是一段注释</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">这是<span class="emphasis">*斜体*</span>文字</span><br></pre></td></tr></table></figure>
+
+<p>这是一个代码块<code>abcd 这是代码块</code></p>
+<p>hexo中应该也能运用tag plugin来实现代码的添加  </p>
+<figure class="highlight plain"><figcaption><span>C++</span></figcaption><table><tr><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="引用段落"><a href="#引用段落" class="headerlink" title="引用段落"></a>引用段落</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="quote">&gt; 这是一段引用</span></span><br><span class="line"><span class="quote">&gt; 22233344455</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这是一段引用<br>22233344455</p>
+</blockquote>
+<p>分隔线  </p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="strong">**<span class="emphasis">*</span></span></span><br><span class="line"><span class="strong"><span class="emphasis"><span class="strong">__<span class="emphasis">_</span></span></span></span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+]]></content>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇博客文章</title>
     <url>/2020/08/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
