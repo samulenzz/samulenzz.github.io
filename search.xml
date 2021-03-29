@@ -229,4 +229,48 @@
         <tag>markdown</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ITK-SNAP使用方法简介</title>
+    <url>/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p>最近在准备毕设，基于CT影像来对胃癌肿瘤进行分割。首先要打开<code>.nii</code>格式的CT影像。在软件选择方面，简单查阅后了解到，可以使用ITK-SNAP，MITK（貌似是VTK和ITK的综合），Pairs（一个国内开发的软件，在导师朋友圈里看到，还没有下）。</p>
+<h2 id="几种医学影像文件的格式"><a href="#几种医学影像文件的格式" class="headerlink" title="几种医学影像文件的格式"></a>几种医学影像文件的格式</h2><p><a href="https://www.jiqizhixin.com/articles/2017-07-31">使用深度学习进行医疗影像分析：文件格式篇</a></p>
+<p><a href="https://wenku.baidu.com/view/0660f81e48d7c1c708a14579.html">常见医学图像格式</a></p>
+<a id="more"></a>
+<p>针对常见医学影像格式，我参照了上面的两篇文章。DICOM和NIFTI（.nii文件）是最常见的两种格式。据我自己的理解，这两种格式的主要差别为，NIFTI是包含头文件和一个图像文件，而且图像是三维的。DICOM是文件头部，以及每层的二维图像都存储为一个单独的文件。</p>
+<h2 id="ITK-SNAP软件的简单使用"><a href="#ITK-SNAP软件的简单使用" class="headerlink" title="ITK-SNAP软件的简单使用"></a>ITK-SNAP软件的简单使用</h2><p>ITJ-SNAP文件的官网为<a href="http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.HomePage">http://www.itksnap.org/pmwiki/pmwiki.php?n=Main.HomePage</a>选择右上角DOWNLOADS即可下载，支持windows,Macos和Linux三大平台。</p>
+<p>其中官方的文档为<a href="http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3">http://www.itksnap.org/pmwiki/pmwiki.php?n=Documentation.SNAP3</a></p>
+<h3 id="调整以及查看图像信息"><a href="#调整以及查看图像信息" class="headerlink" title="调整以及查看图像信息"></a>调整以及查看图像信息</h3><p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.05.17.png" alt="截屏2021-03-29 23.05.17"></p>
+<p>调整窗宽窗位，level与windows，即大于max均为max的值，小于min均为min的值<img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.05.56.png" alt="截屏2021-03-29 23.05.56"></p>
+<p>查看图像信息，箭头1 Dimensions，表示x方向有512张图片，y方向有512张图片，z方向有60张图片 </p>
+<p>箭头2Voxel Spacing表示，一个体素，x方向代表0.7031毫米，其余方向类似</p>
+<p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.13.06.png" alt="截屏2021-03-29 23.13.06"></p>
+<h3 id="工具栏1——十字架"><a href="#工具栏1——十字架" class="headerlink" title="工具栏1——十字架"></a>工具栏1——十字架</h3><p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.17.02-7031098.png" alt="截屏2021-03-29 23.17.02"></p>
+<p>按照他提示中的功能：左键移动十字，右键并进行拖拽可以进行放大缩小（zoom），option键+鼠标左键可以平移（pan）图像，滚动鼠标滚轮查看不同的slices</p>
+<p>左侧面板中的<code>cursor position</code>可以查看当前十字在三维中的位置。<code>Intensity under cursor</code>显示当前灰度值的强度，如果当前图像有标注的话，<code>Label under cursor</code>可以显示是哪一种标注</p>
+<h3 id="套索工具"><a href="#套索工具" class="headerlink" title="套索工具"></a>套索工具</h3><p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.27.57.png" alt="截屏2021-03-29 23.27.57"></p>
+<p>这个套索工具的功能和photoshop中的几种套索功能几乎是完全一样的。</p>
+<p><code>Smooth curve</code>模式，用连续的曲线勾画一个选区。</p>
+<p><code>Polygon</code>模式，用鼠标左边的点击不断的选择点，最后勾画出选区。</p>
+<p><code>Invert polygon</code>反转当前的选区</p>
+<h3 id="画笔工具"><a href="#画笔工具" class="headerlink" title="画笔工具"></a>画笔工具</h3><p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.31.29.png" alt="截屏2021-03-29 23.31.29"></p>
+<p>这个画笔和photoshop的魔术棒那一栏工具很相似，特别是最后一个画笔风格。按照他的说明，鼠标左键勾画选区，鼠标右键擦除选区。</p>
+<p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.44.26.png" alt="截屏2021-03-29 23.44.26"></p>
+<p>他提供了三种笔刷的格式，前两种只是形状不一样，一个正方形一个是圆形。</p>
+<p><code>Brush Options</code>中的选项，<code>3D</code>代表，不止在当前这一个slices中建立选区，其他图层中也会建立选区。<em>但是3d功能，有一个坏处，他在每一个图层中的选区是一样的，而器官在不同的CT切片上是会变化的。</em><code>Cursor chases brush</code>在移动画笔时，十字也会跟着移动，这样在四个视图的情况下会比较有用。<code>Isotropic</code>的功能不是很清楚。</p>
+<p>第三种笔刷是自适应的笔刷，类似photoshop中的魔术棒。他有两个特别的参数。Granularity类似容忍度，考虑当前灰度与周围灰度的差异。Smoothness确定了画笔的光滑度。</p>
+<p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.52.02.png" alt="截屏2021-03-29 23.52.02"></p>
+<h3 id="对标记进行管理"><a href="#对标记进行管理" class="headerlink" title="对标记进行管理"></a>对标记进行管理</h3><p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-29%2023.58.26.png" alt="截屏2021-03-29 23.58.26"></p>
+<p>箭头1——进行标记管理</p>
+<p>箭头2——在3D窗口隐藏红色标记1</p>
+<p>箭头3——在所有窗口隐藏红色标记2</p>
+<p>箭头4——删除当前的标记</p>
+<h3 id="其余小功能介绍"><a href="#其余小功能介绍" class="headerlink" title="其余小功能介绍"></a>其余小功能介绍</h3><p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-30%2000.02.55.png" alt="截屏2021-03-30 00.02.55"></p>
+<p>箭头1——全屏显示当前角度</p>
+<p>箭头2——更新3D图像</p>
+<p>箭头3——调整label的不透明度</p>
+<h3 id="如何载入已经标注好的label"><a href="#如何载入已经标注好的label" class="headerlink" title="如何载入已经标注好的label"></a>如何载入已经标注好的label</h3><p>可以直接将文件拖拽到ITK-SNAP的页面，选择load as segmentation</p>
+<p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-30%2000.08.17.png" alt="截屏2021-03-30 00.08.17"></p>
+<p>也可以选择load as additional image来和当前的图片进行一个比较</p>
+]]></content>
+  </entry>
 </search>
