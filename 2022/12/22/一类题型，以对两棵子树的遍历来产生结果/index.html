@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-circle.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"samulenzz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一类题型，以对两棵子树的遍历来产生结果这一类问题的特点是对树进行递归遍历时，往往是对两棵树同时递归，这就产生了，同一时刻会有对应关系的两个节点，针对不同的题意，采取对两棵树的不同遍历顺序（或者叫对两个节点的不同选择策略），入口如下 1traverse(TreeNode* l, TreeNode* r)  leetcode 101 迭代法首先以leetcode 101. 对称的树为例子 按照上面的说">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一类题型，以对两棵子树的遍历来产生结果">
+<meta property="og:url" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/index.html">
+<meta property="og:site_name" content="Sam&#39;s blog">
+<meta property="og:description" content="一类题型，以对两棵子树的遍历来产生结果这一类问题的特点是对树进行递归遍历时，往往是对两棵树同时递归，这就产生了，同一时刻会有对应关系的两个节点，针对不同的题意，采取对两棵树的不同遍历顺序（或者叫对两个节点的不同选择策略），入口如下 1traverse(TreeNode* l, TreeNode* r)  leetcode 101 迭代法首先以leetcode 101. 对称的树为例子 按照上面的说">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221225216709.png">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221231000499.png">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221232819926.png">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221233046877.png">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221235831445.png">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221222001340003.png">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/2022-12-2222.15.06.png">
+<meta property="og:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221222222358349.png">
+<meta property="article:published_time" content="2022-12-22T14:42:46.000Z">
+<meta property="article:modified_time" content="2022-12-22T14:49:41.431Z">
+<meta property="article:author" content="samule">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221225216709.png">
+
+<link rel="canonical" href="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一类题型，以对两棵子树的遍历来产生结果 | Sam's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Sam's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Keep learning. Keep coding.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">0</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/samulenzz" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/baobao.jpg">
+      <meta itemprop="name" content="samule">
+      <meta itemprop="description" content="记录一点学习轨迹">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sam's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一类题型，以对两棵子树的遍历来产生结果
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-12-22 22:42:46 / 修改时间：22:49:41" itemprop="dateCreated datePublished" datetime="2022-12-22T22:42:46+08:00">2022-12-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="一类题型，以对两棵子树的遍历来产生结果"><a href="#一类题型，以对两棵子树的遍历来产生结果" class="headerlink" title="一类题型，以对两棵子树的遍历来产生结果"></a>一类题型，以对两棵子树的遍历来产生结果</h1><p>这一类问题的特点是对树进行递归遍历时，往往是对两棵树同时递归，这就产生了，同一时刻会有对应关系的两个节点，针对不同的题意，采取对两棵树的不同遍历顺序（或者叫对两个节点的不同选择策略），入口如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">traverse</span>(TreeNode* l, TreeNode* r)</span><br></pre></td></tr></table></figure>
+
+<h2 id="leetcode-101-迭代法"><a href="#leetcode-101-迭代法" class="headerlink" title="leetcode 101 迭代法"></a>leetcode 101 迭代法</h2><p>首先以<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/symmetric-tree/description/">leetcode 101. 对称的树为例子</a></p>
+<p>按照上面的说法，这题的本质，是判断一对对对应位置的节点是否是一致的。如题目中的示例树，一共要判断3对节点位置是否相等，<code>2-&gt;2</code>，<code>3-&gt;3</code>，<code>4-&gt;4</code></p>
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221225216709.png" alt="image-20221221225216709"></p>
+<span id="more"></span>
+
+<p>先说一个容易帮助我们理解的方法，类似层序法。利用两个队列（其实一个队列也行），分别取两个子树中的对应节点对，首先应该将左子树节点压入队列1，右子树节点压入队列2。这是图中两个黄色节点，已经压入两个对应的队列中，在while循环中，先出队，对两个节点进行比较</p>
+<blockquote>
+<p>对两个节点的比较有三种情况</p>
+<ol>
+<li>其中一个节点为空，另一个不空，这是已经可以返回false</li>
+<li>两个节点都空（由于这两个节点没有子节点了，我们可以continue了）</li>
+<li>两个节点都不空，但是值不等，显然可以判断不对称了</li>
+</ol>
+<p>两个节点相等，默认继续往下走</p>
+</blockquote>
+<p>两个输入的左右节点的判断逻辑很简单，如何判断图中的蓝色节点和红色节点的位置呢。</p>
+<p><strong>这里的逻辑是整个题目的关键。</strong>队列1压入左节点的左节点，队列2压入右节点的右节点；（这两个节点，在队列里有对应关系）；队列1压入左节点的右节点，队列2压入右节点的左节点。（同样形成了对应关系）</p>
+<p>这样不仅保证了，两个队列每次取出的元素是期望的对应位置的，而且也保证了遍历到了所有的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 队列法，其实比较直观的</span></span><br><span class="line">    <span class="comment">// 用一个队列就行了，我还用了两个队列</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        queue&lt;TreeNode*&gt; q1;</span><br><span class="line">        queue&lt;TreeNode*&gt; q2;</span><br><span class="line">        q1.<span class="built_in">push</span>(root-&gt;left);  <span class="comment">// 左节点压入队列1</span></span><br><span class="line">        q2.<span class="built_in">push</span>(root-&gt;right); <span class="comment">// 右节点压入队列2</span></span><br><span class="line">        <span class="keyword">while</span>(!q1.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            TreeNode* n1 = q1.<span class="built_in">front</span>();</span><br><span class="line">            q1.<span class="built_in">pop</span>();</span><br><span class="line">            TreeNode* n2 = q2.<span class="built_in">front</span>();</span><br><span class="line">            q2.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="keyword">if</span>((!n1 &amp;&amp; n2) || (n1 &amp;&amp; !n2)) &#123;  <span class="comment">// 有一个是空的</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n1 &amp;&amp; n2 &amp;&amp; (n1-&gt;val)!=(n2-&gt;val)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!n1 &amp;&amp; !n2) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            q1.<span class="built_in">push</span>(n1-&gt;left);</span><br><span class="line">            q1.<span class="built_in">push</span>(n1-&gt;right);</span><br><span class="line">            q2.<span class="built_in">push</span>(n2-&gt;right);</span><br><span class="line">            q2.<span class="built_in">push</span>(n2-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221231000499.png" alt="image-20221221231000499"></p>
+<p><strong>这个方法是迭代法，接下来介绍递归的方法</strong>.</p>
+<p>递归法我习惯按照labuladong的想法<a target="_blank" rel="noopener" href="https://labuladong.gitee.io/algo/1/6/">labuladong二叉树</a>，将二叉树的问题分为自顶向下遍历解决的问题，和后序遍历，要获取子节点信息后才能解决的问题。</p>
+<h2 id="leetcode-101-前序遍历法"><a href="#leetcode-101-前序遍历法" class="headerlink" title="leetcode 101 前序遍历法"></a>leetcode 101 前序遍历法</h2><p>我们先不讨论剪枝的问题（这里的剪枝即为，遇到了不匹配的情况，接下来的树，我们并不需要遍历了，结束即可），剪枝的情况与dfs中只找到一种满足条件的解类似。</p>
+<p>我们先对左右两棵树做完整的遍历，遍历的顺序完全与上面一致。</p>
+<p>左子树遍历顺序为<strong>中左右</strong>，右子树遍历顺序为<strong>中右左</strong>，在两棵树的同时遍历体现在<code>traverse</code>的调用上。同样的，我们还是要先在前序的位置判断本层的情况。这里我们设置了一个全局的变量来存储是否对称</p>
+<blockquote>
+<p>两个节点的情况与上面几乎完全一样</p>
+<ol>
+<li>其中一个节点为空，另一个不空，变量为false，返回。<strong>注意，这里的返回并不是一路直接返回到根节点，只是返回上一层，当前节点的后续的遍历步骤不做了，上一层未做完的遍历还是要做的，如，继续遍历上一层的右子树（显示这步没有意义）</strong></li>
+<li>两个节点都空，直接return，没有子节点了，不必往下</li>
+<li>两个节点都不空，但是值不等，还是遍历为false，返回。</li>
+</ol>
+<p>两个节点相等，暗含在没写的else里，相等就要继续往下走了。</p>
+</blockquote>
+<p>下一层如何遍历，按照我们刚刚提到的。左子树先遍历左节点，右子树先遍历右节点。左子树再遍历右节点，右子树再遍历左节点。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">traverse</span>(l-&gt;left, r-&gt;right);  <span class="comment">// 这两行是这题的本质</span></span><br><span class="line"><span class="built_in">traverse</span>(l-&gt;right, r-&gt;left);</span><br></pre></td></tr></table></figure>
+
+<p>为了更直观的看出dfs的遍历顺序，如下图，我们用一颗更深的树</p>
+<p>先展示一下，递归法入队列的节点顺序</p>
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221232819926.png" alt="image-20221221232819926"></p>
+<p>dfs的遍历顺序</p>
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221233046877.png" alt="image-20221221233046877"></p>
+<p>通过对遍历顺序的设置，我们得到了左右两棵子树，在对称位置的一个节点对应关系，还遍历了整棵树。完整代码如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 使用前序的遍历来实现</span></span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* l, TreeNode* r)</span> </span>&#123;  <span class="comment">// 对左右子树来遍历，只不过遍历顺序不同</span></span><br><span class="line">        <span class="keyword">if</span> ((!l &amp;&amp; r) || (l &amp;&amp; !r)) &#123;  <span class="comment">// 其中一个空</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!l &amp;&amp; !r) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((l-&gt;val) != (r-&gt;val)) &#123;  <span class="comment">// 这时已经非空了</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">traverse</span>(l-&gt;left, r-&gt;right);  <span class="comment">// 这两行是这题的本质</span></span><br><span class="line">        <span class="built_in">traverse</span>(l-&gt;right, r-&gt;left);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left, root-&gt;right);  <span class="comment">// 题目保证了，一定会有一个节点</span></span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果要进行剪枝呢，如果不感兴趣，可以直接看下一节。剪枝（dfs中只取一个满足条件的情况），要设置返回值。在期望的地方return true。<em>注意，这里的return值，并不是判断是不是对称树的return值</em></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 使用前序的遍历来实现</span></span><br><span class="line">    <span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">traverse</span><span class="params">(TreeNode* l, TreeNode* r)</span> </span>&#123;  <span class="comment">// 对左右子树来遍历，只不过遍历顺序不同</span></span><br><span class="line">        <span class="keyword">if</span> ((!l &amp;&amp; r) || (l &amp;&amp; !r)) &#123;  <span class="comment">// 其中一个空</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!l &amp;&amp; !r) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((l-&gt;val) != (r-&gt;val)) &#123;  <span class="comment">// 这时已经非空了</span></span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">traverse</span>(l-&gt;left, r-&gt;right)) <span class="keyword">return</span> <span class="literal">true</span>;  <span class="comment">// 一路往上</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">traverse</span>(l-&gt;right, r-&gt;left)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left, root-&gt;right);  <span class="comment">// 题目保证了，一定会有一个节点</span></span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="leetcode-101-后序遍历法"><a href="#leetcode-101-后序遍历法" class="headerlink" title="leetcode 101 后序遍历法"></a>leetcode 101 后序遍历法</h2><p>其实我这里不太愿意称呼这种方法为后序遍历法，因为与前序遍历的代码几乎是一模一样的，不过为函数添加了返回值。<strong>只有在后续的位置通过&amp;操作，得到“对应节点对”是否对称之后，才能判断本棵树是否对称</strong>。也就是说，本方法只能在遍历完所有的节点才能得到结果。</p>
+<p>这里先看完整代码，在前序位置，判断节点的三种情况一样，就是在后序的位置修改了代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 实际上还是labuladong说的遍历法的应用</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(TreeNode* left, TreeNode* right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ((!left &amp;&amp; right) || (left &amp;&amp; !right)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!left &amp;&amp; !right) &#123;  <span class="comment">// 其实叶子蕴含在里面</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;  <span class="comment">// 这里要好好理解</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (left &amp;&amp; right &amp;&amp; (left-&gt;val)!=(right-&gt;val)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 为什么值相等的情况不return ture呢？</span></span><br><span class="line">        <span class="comment">// 因为这样没法继续往下走了</span></span><br><span class="line"></span><br><span class="line">        <span class="type">bool</span> flag1 = <span class="built_in">cmp</span>(left-&gt;left, right-&gt;right);  <span class="comment">// 左； 右</span></span><br><span class="line">        <span class="type">bool</span> flag2 = <span class="built_in">cmp</span>(left-&gt;right, right-&gt;left);  <span class="comment">// 右； 左</span></span><br><span class="line">        <span class="keyword">return</span> flag1 &amp;&amp; flag2;  <span class="comment">// 这其实是在后续遍历的位置</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSymmetric</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">cmp</span>(root-&gt;left, root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>return的结果，代表以<code>l</code>为根的这棵树，和以<code>r</code>为根的这棵树是否是镜像（对称关系）.</p>
+<p>这是宏观上的一个理解，也就是说，以1为根的树是否对称，取决于以2为根的两棵树是否是镜像关系。而以2为根的两棵树是否镜像，取决于以1的左节点的左节点为根的树和以1的右节点的右节点为根的树镜像，以及1的左节点的右节点为根的树和以1的右节点的左节点为根的树镜像，如图</p>
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221235831445.png" alt="image-20221221235831445"></p>
+<p>本质上我觉得还是在比较对应的节点对，特别是在前序位置的比较。</p>
+<p>这里还有一个问题，为什么不在前序的位置做相等的比较，然后return true呢？一个直观的回答是，即使两个节点值相同，也不能代表接下来的也相同。也可以理解为，相等这个判断已经隐式表现在了三个if中，这三个if都不是，肯定就相等了，接下来还得满足上图中，树的对称关系（也就是最后的与操作，相等就是&amp;true）</p>
+<p>解决这一题并不是本次讲解的核心，本笔记的核心，<strong>是如何通过有效的递归（遍历的一个顺序），取到期望的节点对。</strong></p>
+<p>==我们核心代码那两行的顺序是可以交换的，只不过会造成遍历的顺序不一样，不会影响结果。==</p>
+<p>接下来，以<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/same-tree/">leetcode 100 相同的树</a>为例子，讲解如何取到两棵树完全一样的位置。</p>
+<h2 id="leetcode-100"><a href="#leetcode-100" class="headerlink" title="leetcode 100"></a>leetcode 100</h2><p>这题写迭代法，用两个队列当然也是可行的，和上面的代码变化不大，不再写了。</p>
+<p>前序法其实变化和上面的方法也不大，只改动了两行核心代码。</p>
+<p>也就是左子树的遍历顺序是<strong>中左右</strong>，右子树保持完全一样的遍历顺序<strong>中左右</strong>。这里其实非常简单啊，就是对两棵树同时进行前序遍历即可。判断函数本层的三种情况，仍然如上。<strong>着重注意20行修改的部分</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">bool</span> ans = <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">// 按前序的方法来写写看，这样可以剪枝</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ((!p &amp;&amp; q) || (p &amp;&amp; !q)) &#123;</span><br><span class="line">            ans = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!p &amp;&amp; !q) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((p-&gt;val) != (q-&gt;val)) &#123;  <span class="comment">// 这时候已经可以确保非空了</span></span><br><span class="line">            ans = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">traverse</span>(p-&gt;left, q-&gt;left);  <span class="comment">// 修改的部分</span></span><br><span class="line">        <span class="built_in">traverse</span>(p-&gt;right, q-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode* p, TreeNode* q)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(p, q);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>后序法，我也不写了，也是同上，只要修改两行核心代码即可。展示一下，遍历的图，有人可能疑惑，这个遍历图一眼都会。我画的目的是强调，我们这里每次取到的是对应的节点对</p>
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221222001340003.png" alt="image-20221222001340003"></p>
+<p>同样，核心代码那两行也是可以交换的。</p>
+<h2 id="leetcode116-填充每个节点的下一个右侧节点指针"><a href="#leetcode116-填充每个节点的下一个右侧节点指针" class="headerlink" title="leetcode116. 填充每个节点的下一个右侧节点指针"></a>leetcode116. 填充每个节点的下一个右侧节点指针</h2><p>接下来，我介绍这一题，我认为也完全可以归结到取左右子树的节点对这一题型里来。</p>
+<p>这一题最直观的方法，使用层序遍历，保存每一层的第一个节点作为头节点，这样就可以像链表一样串起来了。这里我就不详细介绍这一个方法了。</p>
+<h3 id="leetcode-116-遍历法"><a href="#leetcode-116-遍历法" class="headerlink" title="leetcode 116 遍历法"></a>leetcode 116 遍历法</h3><p>注意我这里没有叫他前序或者后序之类，因为按照labuladong的理解，这是一棵三叉树。</p>
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/2022-12-2222.15.06.png" alt="截屏2022-12-22 22.15.06"></p>
+<p>其实我们也可以按照上面的思路来考虑。这里的题意其实可以理解为，每次取一个节点对，让左节点的next指针指向右节点。按照这样的思路，我们还是同样先画一下取节点的示意图：</p>
+<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221222222358349.png" alt="image-20221222222358349"></p>
+<p>按照三叉树的遍历，或者按照取节点对的方式来理解都可以，最关键的部分，还是核心代码，在这里核心代码为</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">traverse</span>(p-&gt;left, p-&gt;right);  <span class="comment">// 对应三叉树最左边的节点</span></span><br><span class="line"><span class="built_in">traverse</span>(p-&gt;right, q-&gt;left);  <span class="comment">// 对应三叉树中间节点</span></span><br><span class="line"><span class="built_in">traverse</span>(q-&gt;left, q-&gt;right);  <span class="comment">// 对应三叉树最右边的节点</span></span><br></pre></td></tr></table></figure>
+
+<p>开始第一遍看到这个代码，我其实是没有理解的，但是从节点对的角度，按照遍历顺序模拟一遍应该会好很多。这里和之前两题不同的是，这里取节点出现了同时在一棵树上的情况，要好好理解。</p>
+<p>类似的，这题当然能用队列来完成。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">Node* <span class="title">connect</span><span class="params">(Node* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="keyword">return</span> root;</span><br><span class="line">        queue&lt;Node*&gt; q1;</span><br><span class="line">        queue&lt;Node*&gt; q2;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;left) q1.<span class="built_in">push</span>(root-&gt;left);</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;right) q2.<span class="built_in">push</span>(root-&gt;right);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span> (!q1.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            Node* n1 = q1.<span class="built_in">front</span>();</span><br><span class="line">            q1.<span class="built_in">pop</span>();</span><br><span class="line">            Node* n2 = q2.<span class="built_in">front</span>();</span><br><span class="line">            q2.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            n1-&gt;next = n2;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (n1-&gt;left) &#123;</span><br><span class="line">                q1.<span class="built_in">push</span>(n1-&gt;left);  <span class="comment">// 这里对应核心代码部分</span></span><br><span class="line">                q2.<span class="built_in">push</span>(n1-&gt;right);</span><br><span class="line">                q1.<span class="built_in">push</span>(n1-&gt;right);</span><br><span class="line">                q2.<span class="built_in">push</span>(n2-&gt;left);</span><br><span class="line">                q1.<span class="built_in">push</span>(n2-&gt;left);</span><br><span class="line">                q2.<span class="built_in">push</span>(n2-&gt;right);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>其实这些题目的本质，还是dfs，或者说还是二叉树的前序遍历，但是在这里是在两棵树同时遍历。</p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>samule
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/" title="一类题型，以对两棵子树的遍历来产生结果">https://samulenzz.github.io/2022/12/22/一类题型，以对两棵子树的遍历来产生结果/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/12/16/dfs%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E9%87%8F%EF%BC%88%E5%85%A8%E5%B1%80%E8%BF%98%E6%98%AF%E5%B1%80%E9%83%A8%EF%BC%8C%E5%BD%93%E5%B1%82%E8%BF%98%E6%98%AF%E4%B8%8B%E4%B8%80%E5%B1%82%EF%BC%89/" rel="prev" title="dfs中的状态变量（全局还是局部，当层还是下一层）">
+      <i class="fa fa-chevron-left"></i> dfs中的状态变量（全局还是局部，当层还是下一层）
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">一类题型，以对两棵子树的遍历来产生结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-101-%E8%BF%AD%E4%BB%A3%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">leetcode 101 迭代法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-101-%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">leetcode 101 前序遍历法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-101-%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">leetcode 101 后序遍历法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-100"><span class="nav-number">1.4.</span> <span class="nav-text">leetcode 100</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode116-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88"><span class="nav-number">1.5.</span> <span class="nav-text">leetcode116. 填充每个节点的下一个右侧节点指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#leetcode-116-%E9%81%8D%E5%8E%86%E6%B3%95"><span class="nav-number">1.5.1.</span> <span class="nav-text">leetcode 116 遍历法</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="samule"
+      src="/images/baobao.jpg">
+  <p class="site-author-name" itemprop="name">samule</p>
+  <div class="site-description" itemprop="description">记录一点学习轨迹</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/samulenzz" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;samulenzz" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">samule</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
