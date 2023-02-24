@@ -922,4 +922,29 @@
 
 ]]></content>
   </entry>
+  <entry>
+    <title>计算属性 和 通过闭包给存储属性赋默认值 的区别</title>
+    <url>/2023/02/24/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-%E5%92%8C-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E7%BB%99%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E8%B5%8B%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>swift中的计算属性computated properties 和 通过闭包来给存储属性赋默认值这一行为，看起来很像，写一篇记录一下。这里的计算属性主要是针对，只读的计算属性（也就是没有set，同时对get和花括号进行了缩写）。</p>
+<p>先总结一下区别：</p>
+<ol>
+<li>计算属性不需要初始化，闭包赋值针对是默认初始化的赋值</li>
+<li>计算属性的花括号里可以访问self即其相关属性或方法，闭包赋值的花括号里是不能访问self的。（我的理解，property initializer里面都不能访问self）</li>
+<li>计算属性后面没有<code>=</code>，也有末尾的<code>()</code></li>
+</ol>
+<p>相同点，花括号里都能定义局部变量等。</p>
+<p>举一个只读计算变量例子起，很简单。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;  <span class="comment">// 这里没有等号</span></span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="number">2</span> <span class="operator">*</span> width  <span class="comment">// 可以访问self</span></span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    &#125;  <span class="comment">// 不需要代表立即执行的()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 0.0”</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来举一个正确的利用闭包给存储属性赋默认值</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;  <span class="comment">// 有等号</span></span><br><span class="line">        <span class="comment">// 不能访问self</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()  <span class="comment">// 需要立即执行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 10.0”</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来演示几个错误</p>
+<p>错误1，在闭包内访问<code>self</code></p>
+<p>报错<code>Cannot find &#39;self&#39; in scope</code></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="keyword">self</span>.width  <span class="comment">// 错误1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>错误2，没有写代表立即执行的<code>()</code>，这样就相当于把一个类型为<code>()-&gt;Double</code>的闭包赋给一个变量。</p>
+]]></content>
+  </entry>
 </search>

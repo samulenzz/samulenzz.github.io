@@ -22,26 +22,19 @@
     var CONFIG = {"hostname":"samulenzz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。本文会介绍根据仓库名字，readme内容，description内容，star数，语言以及最近推送时间做限制条件来进行搜索。首先以一个仓库的页面来介绍上述名字的意思">
+  <meta name="description" content="swift中的计算属性computated properties 和 通过闭包来给存储属性赋默认值这一行为，看起来很像，写一篇记录一下。这里的计算属性主要是针对，只读的计算属性（也就是没有set，同时对get和花括号进行了缩写）。 先总结一下区别：  计算属性不需要初始化，闭包赋值针对是默认初始化的赋值 计算属性的花括号里可以访问self即其相关属性或方法，闭包赋值的花括号里是不能访问self的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub搜索开源项目技巧">
-<meta property="og:url" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:title" content="计算属性 和 通过闭包给存储属性赋默认值 的区别">
+<meta property="og:url" content="https://samulenzz.github.io/2023/02/24/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-%E5%92%8C-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E7%BB%99%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E8%B5%8B%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Sam&#39;s blog">
-<meta property="og:description" content="本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。本文会介绍根据仓库名字，readme内容，description内容，star数，语言以及最近推送时间做限制条件来进行搜索。首先以一个仓库的页面来介绍上述名字的意思">
+<meta property="og:description" content="swift中的计算属性computated properties 和 通过闭包来给存储属性赋默认值这一行为，看起来很像，写一篇记录一下。这里的计算属性主要是针对，只读的计算属性（也就是没有set，同时对get和花括号进行了缩写）。 先总结一下区别：  计算属性不需要初始化，闭包赋值针对是默认初始化的赋值 计算属性的花括号里可以访问self即其相关属性或方法，闭包赋值的花括号里是不能访问self的。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic2.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic3.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic4.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic5.png">
-<meta property="article:published_time" content="2021-01-23T08:34:34.000Z">
-<meta property="article:modified_time" content="2022-02-08T14:25:13.951Z">
+<meta property="article:published_time" content="2023-02-24T12:19:56.000Z">
+<meta property="article:modified_time" content="2023-02-24T12:33:51.323Z">
 <meta property="article:author" content="samule">
-<meta property="article:tag" content="GitHub">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png">
 
-<link rel="canonical" href="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/">
+<link rel="canonical" href="https://samulenzz.github.io/2023/02/24/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-%E5%92%8C-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E7%BB%99%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E8%B5%8B%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
 
 <script id="page-configurations">
@@ -54,7 +47,7 @@
   };
 </script>
 
-  <title>GitHub搜索开源项目技巧 | Sam's blog</title>
+  <title>计算属性 和 通过闭包给存储属性赋默认值 的区别 | Sam's blog</title>
   
 
 
@@ -200,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/02/24/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-%E5%92%8C-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E7%BB%99%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E8%B5%8B%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/baobao.jpg">
@@ -213,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GitHub搜索开源项目技巧
+          计算属性 和 通过闭包给存储属性赋默认值 的区别
         </h1>
 
         <div class="post-meta">
@@ -222,16 +215,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-01-23 16:34:34" itemprop="dateCreated datePublished" datetime="2021-01-23T16:34:34+08:00">2021-01-23</time>
+              <time title="创建时间：2023-02-24 20:19:56 / 修改时间：20:33:51" itemprop="dateCreated datePublished" datetime="2023-02-24T20:19:56+08:00">2023-02-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-08 22:25:13" itemprop="dateModified" datetime="2022-02-08T22:25:13+08:00">2022-02-08</time>
-              </span>
 
           
 
@@ -244,19 +231,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。<br>本文会介绍根据<strong>仓库名字，readme内容，description内容，star数，语言以及最近推送时间</strong>做限制条件来进行搜索。<br>首先以一个仓库的页面来介绍上述名字的意思<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png" alt="spring_boot仓库界面"></p>
-<span id="more"></span>
-<p>接下来介绍在搜索框中的操作</p>
-<h2 id="根据仓库名字进行搜索"><a href="#根据仓库名字进行搜索" class="headerlink" title="根据仓库名字进行搜索"></a>根据仓库名字进行搜索</h2><p><code>in:name spring boot</code>表示仓库的名字中带有spring boot</p>
-<h2 id="根据readme内中的内容来进行搜索"><a href="#根据readme内中的内容来进行搜索" class="headerlink" title="根据readme内中的内容来进行搜索"></a>根据readme内中的内容来进行搜索</h2><p><code>in:readme 微服务</code>readme中含有“微服务”的仓库会被搜索</p>
-<h2 id="根据description的内容来进行搜索"><a href="#根据description的内容来进行搜索" class="headerlink" title="根据description的内容来进行搜索"></a>根据description的内容来进行搜索</h2><p>description内容一般是对项目的简单描述，根据description来进行搜索会更加的准确<br><code>in:description spring boot stars:&gt;3000</code>表示在限定仓库描述中含有spring boot的同时，stars数大于3000</p>
-<hr>
-<h2 id="搜索时限定stars数"><a href="#搜索时限定stars数" class="headerlink" title="搜索时限定stars数"></a>搜索时限定stars数</h2><p><code>in:name spring boot stars:&gt;3000</code>表示在限定仓库名字中含有spring boot的同时，要求仓库的stars数大于3000</p>
-<h2 id="搜索时限定语言"><a href="#搜索时限定语言" class="headerlink" title="搜索时限定语言"></a>搜索时限定语言</h2><p><code>in:description spring boot language:Java</code>在限定仓库的description中含有spring boot的同时，限定语言为Java来进行搜索</p>
-<h2 id="搜索时限定最近推送时间"><a href="#搜索时限定最近推送时间" class="headerlink" title="搜索时限定最近推送时间"></a>搜索时限定最近推送时间</h2><p><code>in:description spring boot language:Java pushed:&gt;2019-09-03</code>搜索description中含有spring boot且使用Java语言，且最近一次更新时间在2019-09-03之前进行搜索。</p>
-<hr>
-<h2 id="简单演示"><a href="#简单演示" class="headerlink" title="简单演示"></a>简单演示</h2><p>单独搜索spring boot<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic2.png" alt="pic2"><br>在description中搜索spring boot基础，可以看到spring boot官方那个仓库已被筛除<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic3.png" alt="pic3"><br>加上限制条件，stars数要求大于1000，可以看到上一张图的最后一个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic4.png" alt="pic4"><br>再加上限制条件，要求最后一个push时间要晚于2019-01-01号，可以看到更新与18年的那个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic5.png" alt="pic5"></p>
-<p>本文完全参考了B站up主codesheep的视频，来源如下<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yJ411S7Wu?from=search&seid=13430377427568355855">如何高效地在网上找开源项目做！在职程序员实际演示一波视频教程操作</a><br>另，在github的advanced search中有更多的高级搜索选项。</p>
+        <p>swift中的计算属性computated properties 和 通过闭包来给存储属性赋默认值这一行为，看起来很像，写一篇记录一下。这里的计算属性主要是针对，只读的计算属性（也就是没有set，同时对get和花括号进行了缩写）。</p>
+<p>先总结一下区别：</p>
+<ol>
+<li>计算属性不需要初始化，闭包赋值针对是默认初始化的赋值</li>
+<li>计算属性的花括号里可以访问self即其相关属性或方法，闭包赋值的花括号里是不能访问self的。（我的理解，property initializer里面都不能访问self）</li>
+<li>计算属性后面没有<code>=</code>，也有末尾的<code>()</code></li>
+</ol>
+<p>相同点，花括号里都能定义局部变量等。</p>
+<p>举一个只读计算变量例子起，很简单。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;  <span class="comment">// 这里没有等号</span></span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="number">2</span> <span class="operator">*</span> width  <span class="comment">// 可以访问self</span></span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    &#125;  <span class="comment">// 不需要代表立即执行的()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 0.0”</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来举一个正确的利用闭包给存储属性赋默认值</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;  <span class="comment">// 有等号</span></span><br><span class="line">        <span class="comment">// 不能访问self</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()  <span class="comment">// 需要立即执行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 10.0”</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来演示几个错误</p>
+<p>错误1，在闭包内访问<code>self</code></p>
+<p>报错<code>Cannot find &#39;self&#39; in scope</code></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="keyword">self</span>.width  <span class="comment">// 错误1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>错误2，没有写代表立即执行的<code>()</code>，这样就相当于把一个类型为<code>()-&gt;Double</code>的闭包赋给一个变量。</p>
 
     </div>
 
@@ -272,7 +266,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/" title="GitHub搜索开源项目技巧">https://samulenzz.github.io/2021/01/23/GitHub搜索开源项目技巧/</a>
+    <a href="https://samulenzz.github.io/2023/02/24/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-%E5%92%8C-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E7%BB%99%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E8%B5%8B%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9A%84%E5%8C%BA%E5%88%AB/" title="计算属性 和 通过闭包给存储属性赋默认值 的区别">https://samulenzz.github.io/2023/02/24/计算属性-和-通过闭包给存储属性赋默认值-的区别/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -282,10 +276,6 @@
 
 
       <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
-          </div>
 
         
 
@@ -293,13 +283,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/20/2020%E5%8C%97%E8%88%AA%EF%BC%8C%E5%8D%97%E5%A4%A7%E8%BD%AF%E9%99%A2%EF%BC%8C%E8%AE%A1%E7%AE%97%E6%89%80%E5%A4%8F%E4%BB%A4%E8%90%A5%EF%BC%8C%E5%8C%97%E9%82%AE%EF%BC%8C%E8%A5%BF%E4%BA%A4%E4%BA%BA%E6%9C%BA%E6%89%80%E9%A2%84%E6%8E%A8%E5%85%8D%E8%AE%B0%E5%BD%95/" rel="prev" title="2020北航，南大软院，计算所夏令营，北邮，西交人机所预推免记录">
-      <i class="fa fa-chevron-left"></i> 2020北航，南大软院，计算所夏令营，北邮，西交人机所预推免记录
+    <a href="/2023/02/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%9A%84%E7%90%86%E8%A7%A3/" rel="prev" title="二分查找的理解">
+      <i class="fa fa-chevron-left"></i> 二分查找的理解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" rel="next" title="LaTex在毕设论文中的简单使用">
-      LaTex在毕设论文中的简单使用 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -358,7 +345,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E4%BB%93%E5%BA%93%E5%90%8D%E5%AD%97%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2"><span class="nav-number">1.</span> <span class="nav-text">根据仓库名字进行搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AEreadme%E5%86%85%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2"><span class="nav-number">2.</span> <span class="nav-text">根据readme内中的内容来进行搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AEdescription%E7%9A%84%E5%86%85%E5%AE%B9%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2"><span class="nav-number">3.</span> <span class="nav-text">根据description的内容来进行搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%97%B6%E9%99%90%E5%AE%9Astars%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">搜索时限定stars数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%97%B6%E9%99%90%E5%AE%9A%E8%AF%AD%E8%A8%80"><span class="nav-number">5.</span> <span class="nav-text">搜索时限定语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%97%B6%E9%99%90%E5%AE%9A%E6%9C%80%E8%BF%91%E6%8E%A8%E9%80%81%E6%97%B6%E9%97%B4"><span class="nav-number">6.</span> <span class="nav-text">搜索时限定最近推送时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%BC%94%E7%A4%BA"><span class="nav-number">7.</span> <span class="nav-text">简单演示</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
