@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">16</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -186,6 +186,76 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/03/05/self-captured-by-a-closure-before-all-members-were-initialized%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/baobao.jpg">
+      <meta itemprop="name" content="samule">
+      <meta itemprop="description" content="记录一点学习轨迹">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sam's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/03/05/self-captured-by-a-closure-before-all-members-were-initialized%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-title-link" itemprop="url">self captured by a closure before all members were initialized错误解决</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-05 20:10:19 / 修改时间：20:11:29" itemprop="dateCreated datePublished" datetime="2023-03-05T20:10:19+08:00">2023-03-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>问题1</p>
+<p><em>代码1</em></p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        c <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>.a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>问题可以简化成这样，初始化器里，对c用闭包复制的那一行报了错误<code>&#39;self&#39; captured by a closure before all members were initialized</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/03/05/self-captured-by-a-closure-before-all-members-were-initialized%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -833,80 +903,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/baobao.jpg">
-      <meta itemprop="name" content="samule">
-      <meta itemprop="description" content="记录一点学习轨迹">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sam's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">ITK-SNAP使用方法简介</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-03-30 00:13:31" itemprop="dateCreated datePublished" datetime="2021-03-30T00:13:31+08:00">2021-03-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-08 22:25:13" itemprop="dateModified" datetime="2022-02-08T22:25:13+08:00">2022-02-08</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近在准备毕设，基于CT影像来对胃癌肿瘤进行分割。首先要打开<code>.nii</code>格式的CT影像。在软件选择方面，简单查阅后了解到，可以使用ITK-SNAP，MITK（貌似是VTK和ITK的综合），Pairs（一个国内开发的软件，在导师朋友圈里看到，还没有下）。</p>
-<h2 id="几种医学影像文件的格式"><a href="#几种医学影像文件的格式" class="headerlink" title="几种医学影像文件的格式"></a>几种医学影像文件的格式</h2><p><a target="_blank" rel="noopener" href="https://www.jiqizhixin.com/articles/2017-07-31">使用深度学习进行医疗影像分析：文件格式篇</a></p>
-<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/0660f81e48d7c1c708a14579.html">常见医学图像格式</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -978,7 +974,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
