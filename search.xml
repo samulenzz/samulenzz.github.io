@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>GitHub搜索开源项目技巧</title>
-    <url>/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<p>本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。<br>本文会介绍根据<strong>仓库名字，readme内容，description内容，star数，语言以及最近推送时间</strong>做限制条件来进行搜索。<br>首先以一个仓库的页面来介绍上述名字的意思<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png" alt="spring_boot仓库界面"></p>
-<span id="more"></span>
-<p>接下来介绍在搜索框中的操作</p>
-<h2 id="根据仓库名字进行搜索"><a href="#根据仓库名字进行搜索" class="headerlink" title="根据仓库名字进行搜索"></a>根据仓库名字进行搜索</h2><p><code>in:name spring boot</code>表示仓库的名字中带有spring boot</p>
-<h2 id="根据readme内中的内容来进行搜索"><a href="#根据readme内中的内容来进行搜索" class="headerlink" title="根据readme内中的内容来进行搜索"></a>根据readme内中的内容来进行搜索</h2><p><code>in:readme 微服务</code>readme中含有“微服务”的仓库会被搜索</p>
-<h2 id="根据description的内容来进行搜索"><a href="#根据description的内容来进行搜索" class="headerlink" title="根据description的内容来进行搜索"></a>根据description的内容来进行搜索</h2><p>description内容一般是对项目的简单描述，根据description来进行搜索会更加的准确<br><code>in:description spring boot stars:&gt;3000</code>表示在限定仓库描述中含有spring boot的同时，stars数大于3000</p>
-<hr>
-<h2 id="搜索时限定stars数"><a href="#搜索时限定stars数" class="headerlink" title="搜索时限定stars数"></a>搜索时限定stars数</h2><p><code>in:name spring boot stars:&gt;3000</code>表示在限定仓库名字中含有spring boot的同时，要求仓库的stars数大于3000</p>
-<h2 id="搜索时限定语言"><a href="#搜索时限定语言" class="headerlink" title="搜索时限定语言"></a>搜索时限定语言</h2><p><code>in:description spring boot language:Java</code>在限定仓库的description中含有spring boot的同时，限定语言为Java来进行搜索</p>
-<h2 id="搜索时限定最近推送时间"><a href="#搜索时限定最近推送时间" class="headerlink" title="搜索时限定最近推送时间"></a>搜索时限定最近推送时间</h2><p><code>in:description spring boot language:Java pushed:&gt;2019-09-03</code>搜索description中含有spring boot且使用Java语言，且最近一次更新时间在2019-09-03之前进行搜索。</p>
-<hr>
-<h2 id="简单演示"><a href="#简单演示" class="headerlink" title="简单演示"></a>简单演示</h2><p>单独搜索spring boot<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic2.png" alt="pic2"><br>在description中搜索spring boot基础，可以看到spring boot官方那个仓库已被筛除<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic3.png" alt="pic3"><br>加上限制条件，stars数要求大于1000，可以看到上一张图的最后一个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic4.png" alt="pic4"><br>再加上限制条件，要求最后一个push时间要晚于2019-01-01号，可以看到更新与18年的那个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic5.png" alt="pic5"></p>
-<p>本文完全参考了B站up主codesheep的视频，来源如下<a href="https://www.bilibili.com/video/BV1yJ411S7Wu?from=search&seid=13430377427568355855">如何高效地在网上找开源项目做！在职程序员实际演示一波视频教程操作</a><br>另，在github的advanced search中有更多的高级搜索选项。</p>
-]]></content>
-      <tags>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2020北航，南大软院，计算所夏令营，北邮，西交人机所预推免记录</title>
     <url>/2020/11/20/2020%E5%8C%97%E8%88%AA%EF%BC%8C%E5%8D%97%E5%A4%A7%E8%BD%AF%E9%99%A2%EF%BC%8C%E8%AE%A1%E7%AE%97%E6%89%80%E5%A4%8F%E4%BB%A4%E8%90%A5%EF%BC%8C%E5%8C%97%E9%82%AE%EF%BC%8C%E8%A5%BF%E4%BA%A4%E4%BA%BA%E6%9C%BA%E6%89%80%E9%A2%84%E6%8E%A8%E5%85%8D%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h2 id="北航夏令营流程"><a href="#北航夏令营流程" class="headerlink" title="北航夏令营流程"></a>北航夏令营流程</h2><h3 id="大致情况"><a href="#大致情况" class="headerlink" title="大致情况"></a>大致情况</h3><p>北航夏令营一共就两天，节奏非常的快。有大约600个人入营，最后170人左右优营。600个人里，应该还有不少没有参加北航夏令营，去参加那天冲突的其他学校去了。</p>
@@ -71,6 +50,27 @@
 ]]></content>
   </entry>
   <entry>
+    <title>GitHub搜索开源项目技巧</title>
+    <url>/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<p>本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。<br>本文会介绍根据<strong>仓库名字，readme内容，description内容，star数，语言以及最近推送时间</strong>做限制条件来进行搜索。<br>首先以一个仓库的页面来介绍上述名字的意思<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png" alt="spring_boot仓库界面"></p>
+<span id="more"></span>
+<p>接下来介绍在搜索框中的操作</p>
+<h2 id="根据仓库名字进行搜索"><a href="#根据仓库名字进行搜索" class="headerlink" title="根据仓库名字进行搜索"></a>根据仓库名字进行搜索</h2><p><code>in:name spring boot</code>表示仓库的名字中带有spring boot</p>
+<h2 id="根据readme内中的内容来进行搜索"><a href="#根据readme内中的内容来进行搜索" class="headerlink" title="根据readme内中的内容来进行搜索"></a>根据readme内中的内容来进行搜索</h2><p><code>in:readme 微服务</code>readme中含有“微服务”的仓库会被搜索</p>
+<h2 id="根据description的内容来进行搜索"><a href="#根据description的内容来进行搜索" class="headerlink" title="根据description的内容来进行搜索"></a>根据description的内容来进行搜索</h2><p>description内容一般是对项目的简单描述，根据description来进行搜索会更加的准确<br><code>in:description spring boot stars:&gt;3000</code>表示在限定仓库描述中含有spring boot的同时，stars数大于3000</p>
+<hr>
+<h2 id="搜索时限定stars数"><a href="#搜索时限定stars数" class="headerlink" title="搜索时限定stars数"></a>搜索时限定stars数</h2><p><code>in:name spring boot stars:&gt;3000</code>表示在限定仓库名字中含有spring boot的同时，要求仓库的stars数大于3000</p>
+<h2 id="搜索时限定语言"><a href="#搜索时限定语言" class="headerlink" title="搜索时限定语言"></a>搜索时限定语言</h2><p><code>in:description spring boot language:Java</code>在限定仓库的description中含有spring boot的同时，限定语言为Java来进行搜索</p>
+<h2 id="搜索时限定最近推送时间"><a href="#搜索时限定最近推送时间" class="headerlink" title="搜索时限定最近推送时间"></a>搜索时限定最近推送时间</h2><p><code>in:description spring boot language:Java pushed:&gt;2019-09-03</code>搜索description中含有spring boot且使用Java语言，且最近一次更新时间在2019-09-03之前进行搜索。</p>
+<hr>
+<h2 id="简单演示"><a href="#简单演示" class="headerlink" title="简单演示"></a>简单演示</h2><p>单独搜索spring boot<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic2.png" alt="pic2"><br>在description中搜索spring boot基础，可以看到spring boot官方那个仓库已被筛除<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic3.png" alt="pic3"><br>加上限制条件，stars数要求大于1000，可以看到上一张图的最后一个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic4.png" alt="pic4"><br>再加上限制条件，要求最后一个push时间要晚于2019-01-01号，可以看到更新与18年的那个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic5.png" alt="pic5"></p>
+<p>本文完全参考了B站up主codesheep的视频，来源如下<a href="https://www.bilibili.com/video/BV1yJ411S7Wu?from=search&seid=13430377427568355855">如何高效地在网上找开源项目做！在职程序员实际演示一波视频教程操作</a><br>另，在github的advanced search中有更多的高级搜索选项。</p>
+]]></content>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ITK-SNAP使用方法简介</title>
     <url>/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p>最近在准备毕设，基于CT影像来对胃癌肿瘤进行分割。首先要打开<code>.nii</code>格式的CT影像。在软件选择方面，简单查阅后了解到，可以使用ITK-SNAP，MITK（貌似是VTK和ITK的综合），Pairs（一个国内开发的软件，在导师朋友圈里看到，还没有下）。</p>
@@ -113,28 +113,6 @@
 <p><img src="/2021/03/30/ITK-SNAP%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E7%AE%80%E4%BB%8B/%E6%88%AA%E5%B1%8F2021-03-30%2000.08.17.png" alt="截屏2021-03-30 00.08.17"></p>
 <p>也可以选择load as additional image来和当前的图片进行一个比较</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>LaTex在毕设论文中的简单使用</title>
-    <url>/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>最近毕设论文准备利用LaTex模板来写，因此介绍一些LaTex的基础使用知识。（本篇的软件的使用均基于Mac os）。Windows下可以安装官方软件TexLive，Mac os可以安装官方软件MacTex 2019，也可以使用vscode或Texpad来进行LaTeX的书写。<br>如果你不愿意下载软件的话，也可以使用在线网站，overleaf来进行LaTeX的书写。</p>
-<span id="more"></span>
-
-<h2 id="LaTex的配置"><a href="#LaTex的配置" class="headerlink" title="LaTex的配置"></a>LaTex的配置</h2><h3 id="通过Vscode进行LaTex的书写（方法一）"><a href="#通过Vscode进行LaTex的书写（方法一）" class="headerlink" title="通过Vscode进行LaTex的书写（方法一）"></a>通过Vscode进行LaTex的书写（方法一）</h3><p>首先在Vscode的扩展市场中，下载两个插件LaTex Workshop，LTex。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic1.png" alt="两个扩展" title="两个扩展"><br>接着点击左下角的管理齿轮，选择设置（也可以使用<u>command + ,</u>)，点击右上角所示符号，进入json格式的配置。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic2.png" alt="vscode配置页面" title="vscode配置页面"></p>
-<p>将以下配置粘入json配置文件的两个大括号之间。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;latex-workshop.latex.tools&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-pdf&quot;</span>,</span><br><span class="line">        <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">        ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">        <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;,          </span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">        <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">        ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;%DOCFILE%&quot;</span></span><br><span class="line">        ]</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line"><span class="string">&quot;latex-workshop.latex.recipes&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">        <span class="string">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;latexmk&quot;</span></span><br><span class="line">                    ]</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;pdflatex -&gt; bibtex -&gt; pdflatex*2&quot;</span>,</span><br><span class="line">        <span class="string">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">                    ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;  </span><br><span class="line">          <span class="string">&quot;name&quot;</span>: <span class="string">&quot;xelatex-&gt;bibtex-&gt;xelatex-&gt;xelatex&quot;</span>,  </span><br><span class="line">          <span class="string">&quot;tools&quot;</span>: [  </span><br><span class="line">            <span class="string">&quot;xelatex&quot;</span>,  </span><br><span class="line">            <span class="string">&quot;bibtex&quot;</span>,  </span><br><span class="line">            <span class="string">&quot;xelatex&quot;</span>,  </span><br><span class="line">          ]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line"><span class="string">&quot;latex-workshop.view.pdf.viewer&quot;</span>: <span class="string">&quot;browser&quot;</span>,  </span><br><span class="line"><span class="string">&quot;latex-workshop.latex.clean.fileTypes&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;*.aux&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.bbl&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.blg&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.idx&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.ind&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.lof&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.lot&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.out&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.toc&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.acn&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.acr&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.alg&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.glg&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.glo&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.gls&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.ist&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.fls&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.log&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.fdb_latexmk&quot;</span></span><br><span class="line">    ],</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"><span class="comment">//下面这段是语法检查模块</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="string">&quot;ltex.enabled&quot;</span>: <span class="literal">true</span>, <span class="comment">// 设置语言，这里是德语</span></span><br><span class="line"><span class="comment">// 要英语就下载对应 English Support，然后这里填 en, 或者 en-US,en-GB 等*/</span></span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接下来，新建一个文件夹（如latex_tutoial），用来测试Latex的书写。新建hello_world.tex文件，输入一个基本的LaTeX代码.</p>
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">    Hello World</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在新建一个.tex文件之后，vscode左侧边栏会出现图示Tex选项，点击该选项，选择Build LaTex project-&gt;Recipe xelatex。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic3.png" alt="vscode页面截图" title="pic3"><br>编译完成之后，latex_tutoial文件夹会出现编译生成的文件。接着选择uild LaTex project-&gt;Clean up auxiliary files。可以清除编译生成的多余的文件。<br>点击右上键的预览按钮，可以预览latex对应生成的pdf文件。</p>
-<h3 id="通过付费软件Texpad来进行LaTex的书写（方法二）"><a href="#通过付费软件Texpad来进行LaTex的书写（方法二）" class="headerlink" title="通过付费软件Texpad来进行LaTex的书写（方法二）"></a>通过付费软件Texpad来进行LaTex的书写（方法二）</h3><p>Texpad为Mac上的付费软件。它有着更为简洁的页面，以下标注出几个重点区域。软件其他按键区域，在鼠标悬停时有相应的中文提示。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic4.png" alt="Texpad页面" title="Texpad页面"></p>
-<p>以上内容参考了B站视频<a href="https://www.bilibili.com/video/BV1eQ4y1M7rQ">mac系统下LaTex快速配置与各种使用技巧</a></p>
-<h2 id="LaTex的基本语法"><a href="#LaTex的基本语法" class="headerlink" title="LaTex的基本语法"></a>LaTex的基本语法</h2><p><code>待续。。。</code></p>
-]]></content>
-      <tags>
-        <tag>LaTex</tag>
-      </tags>
   </entry>
   <entry>
     <title>Python中赋值,浅拷贝,深拷贝理解</title>
@@ -194,6 +172,137 @@
 <li>如果元祖变量只包含原子类型对象，则不能深拷贝</li>
 </ul>
 <p>本文参考搬运了以下博客：<br><a href="https://www.jianshu.com/p/b3157c9751d0">https://www.jianshu.com/p/b3157c9751d0</a><br><a href="https://www.jianshu.com/p/521bdd67790e">https://www.jianshu.com/p/521bdd67790e</a><br><a href="https://www.cnblogs.com/eczhou/p/7860668.html">https://www.cnblogs.com/eczhou/p/7860668.html</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>LaTex在毕设论文中的简单使用</title>
+    <url>/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>最近毕设论文准备利用LaTex模板来写，因此介绍一些LaTex的基础使用知识。（本篇的软件的使用均基于Mac os）。Windows下可以安装官方软件TexLive，Mac os可以安装官方软件MacTex 2019，也可以使用vscode或Texpad来进行LaTeX的书写。<br>如果你不愿意下载软件的话，也可以使用在线网站，overleaf来进行LaTeX的书写。</p>
+<span id="more"></span>
+
+<h2 id="LaTex的配置"><a href="#LaTex的配置" class="headerlink" title="LaTex的配置"></a>LaTex的配置</h2><h3 id="通过Vscode进行LaTex的书写（方法一）"><a href="#通过Vscode进行LaTex的书写（方法一）" class="headerlink" title="通过Vscode进行LaTex的书写（方法一）"></a>通过Vscode进行LaTex的书写（方法一）</h3><p>首先在Vscode的扩展市场中，下载两个插件LaTex Workshop，LTex。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic1.png" alt="两个扩展" title="两个扩展"><br>接着点击左下角的管理齿轮，选择设置（也可以使用<u>command + ,</u>)，点击右上角所示符号，进入json格式的配置。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic2.png" alt="vscode配置页面" title="vscode配置页面"></p>
+<p>将以下配置粘入json配置文件的两个大括号之间。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;latex-workshop.latex.tools&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-pdf&quot;</span>,</span><br><span class="line">        <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">        ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">        <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;,          </span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;-synctex=1&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-interaction=nonstopmode&quot;</span>,</span><br><span class="line">        <span class="string">&quot;-file-line-error&quot;</span>,</span><br><span class="line">        <span class="string">&quot;%DOC%&quot;</span></span><br><span class="line">        ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;command&quot;</span>: <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;args&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;%DOCFILE%&quot;</span></span><br><span class="line">        ]</span><br><span class="line">        &#125;</span><br><span class="line">    ],</span><br><span class="line"><span class="string">&quot;latex-workshop.latex.recipes&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;xelatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;xelatex&quot;</span></span><br><span class="line">                    ]</span><br><span class="line">                &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;latexmk&quot;</span>,</span><br><span class="line">        <span class="string">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;latexmk&quot;</span></span><br><span class="line">                    ]</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="string">&quot;name&quot;</span>: <span class="string">&quot;pdflatex -&gt; bibtex -&gt; pdflatex*2&quot;</span>,</span><br><span class="line">        <span class="string">&quot;tools&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;bibtex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span>,</span><br><span class="line">        <span class="string">&quot;pdflatex&quot;</span></span><br><span class="line">                    ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;  </span><br><span class="line">          <span class="string">&quot;name&quot;</span>: <span class="string">&quot;xelatex-&gt;bibtex-&gt;xelatex-&gt;xelatex&quot;</span>,  </span><br><span class="line">          <span class="string">&quot;tools&quot;</span>: [  </span><br><span class="line">            <span class="string">&quot;xelatex&quot;</span>,  </span><br><span class="line">            <span class="string">&quot;bibtex&quot;</span>,  </span><br><span class="line">            <span class="string">&quot;xelatex&quot;</span>,  </span><br><span class="line">          ]  </span><br><span class="line">        &#125;  </span><br><span class="line">    ],</span><br><span class="line">    </span><br><span class="line"><span class="string">&quot;latex-workshop.view.pdf.viewer&quot;</span>: <span class="string">&quot;browser&quot;</span>,  </span><br><span class="line"><span class="string">&quot;latex-workshop.latex.clean.fileTypes&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;*.aux&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.bbl&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.blg&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.idx&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.ind&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.lof&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.lot&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.out&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.toc&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.acn&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.acr&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.alg&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.glg&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.glo&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.gls&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.ist&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.fls&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.log&quot;</span>,</span><br><span class="line">    <span class="string">&quot;*.fdb_latexmk&quot;</span></span><br><span class="line">    ],</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line"><span class="comment">//下面这段是语法检查模块</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="string">&quot;ltex.enabled&quot;</span>: <span class="literal">true</span>, <span class="comment">// 设置语言，这里是德语</span></span><br><span class="line"><span class="comment">// 要英语就下载对应 English Support，然后这里填 en, 或者 en-US,en-GB 等*/</span></span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，新建一个文件夹（如latex_tutoial），用来测试Latex的书写。新建hello_world.tex文件，输入一个基本的LaTeX代码.</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">    Hello World</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在新建一个.tex文件之后，vscode左侧边栏会出现图示Tex选项，点击该选项，选择Build LaTex project-&gt;Recipe xelatex。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic3.png" alt="vscode页面截图" title="pic3"><br>编译完成之后，latex_tutoial文件夹会出现编译生成的文件。接着选择uild LaTex project-&gt;Clean up auxiliary files。可以清除编译生成的多余的文件。<br>点击右上键的预览按钮，可以预览latex对应生成的pdf文件。</p>
+<h3 id="通过付费软件Texpad来进行LaTex的书写（方法二）"><a href="#通过付费软件Texpad来进行LaTex的书写（方法二）" class="headerlink" title="通过付费软件Texpad来进行LaTex的书写（方法二）"></a>通过付费软件Texpad来进行LaTex的书写（方法二）</h3><p>Texpad为Mac上的付费软件。它有着更为简洁的页面，以下标注出几个重点区域。软件其他按键区域，在鼠标悬停时有相应的中文提示。<br><img src="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/pic4.png" alt="Texpad页面" title="Texpad页面"></p>
+<p>以上内容参考了B站视频<a href="https://www.bilibili.com/video/BV1eQ4y1M7rQ">mac系统下LaTex快速配置与各种使用技巧</a></p>
+<h2 id="LaTex的基本语法"><a href="#LaTex的基本语法" class="headerlink" title="LaTex的基本语法"></a>LaTex的基本语法</h2><p><code>待续。。。</code></p>
+]]></content>
+      <tags>
+        <tag>LaTex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu下挂载的机械硬盘写权限问题</title>
+    <url>/2022/02/08/Ubuntu%E4%B8%8B%E6%8C%82%E8%BD%BD%E7%9A%84%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98%E5%86%99%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>实验室主机下有一块4T机械盘，设置成了exfat格式，平时只能以<code>root</code>用户的权限来跑，现在想设置成usr权限可以操作。使用了<code>chmod -R 777</code>和<code>chown usrname</code>均不成功，<code>chmod</code>运行结束后，使用<code>ls -al</code>查看权限并没有修改；<code>chown usrname</code>直接提示没有权限。记录一下，解决的过程。</p>
+<span id="more"></span>
+<p>==通过查资料发现<code>ntfs,exfat,fat32</code>等文件系统都是windows下的文件系统，因此有不能用过chmod来改权限的问题。==这个问题还是挺久远的，google上十几年前就有人问了，又要吐槽一下CSDN，大家抄来抄去，还有百度搜索一个问题，直接给你推荐一个不相关的CSDN合集，真是有够恶心人的。</p>
+<h2 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a>问题发现</h2><p>（说一点废话，不想看的可以看下一段）因为，今天跑程序固态硬盘不够用，想在机械盘中存数据来跑nnunet，但是nnunet使用的不是如<code>python xxx.py</code>d的形式运行数据，而是用<code>nnUnet_</code>开头的命令行形式运行。因为使用<code>sudo</code>运行命令时，使用的是root用户下的环境变量，所以<code>sudo nnUnet_</code>命令虽然解决了写权限的问题，但是环境变量的设置又出错了。因此，想到了解决方法</p>
+<ol>
+<li>把usr下的<code>.bashrc</code>复制到<code>/root</code>下，再<code>source</code>，感觉后续有其他的问题，没有试。</li>
+<li>解决硬盘的写权限问题</li>
+</ol>
+<h2 id="解决写权限"><a href="#解决写权限" class="headerlink" title="解决写权限"></a>解决写权限</h2><p>首先在CSDN这个垃圾堆找了一圈，跳转到了一篇知乎的文章<a href="https://www.zhihu.com/people/ni-da-pao-46%EF%BC%8C%E6%9C%89%E4%B8%80%E5%AE%9A%E7%9A%84%E5%8F%82%E8%80%83%E4%BB%B7%E5%80%BC%EF%BC%8C%E5%89%8D%E5%BA%8F%E7%9A%84%E6%AD%A5%E9%AA%A4%E5%9D%87%E5%8F%AF%E4%BB%A5%E6%8C%89%E7%85%A7%E8%BF%99%E4%B8%AA%E8%BF%9B%E8%A1%8C%E3%80%82">https://www.zhihu.com/people/ni-da-pao-46，有一定的参考价值，前序的步骤均可以按照这个进行。</a></p>
+<h3 id="查看硬盘信息"><a href="#查看硬盘信息" class="headerlink" title="查看硬盘信息"></a>查看硬盘信息</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+
+<p>查看已经挂载的硬盘的信息，第一列我理解为硬盘名，如<code>/dev/sda2</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>查看所有硬盘的信息，有可能自己的硬盘还没挂载</p>
+<h3 id="挂载硬盘"><a href="#挂载硬盘" class="headerlink" title="挂载硬盘"></a>挂载硬盘</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mount /dev/sda2 /mnt  <span class="comment">#sda2后面不要加/，那mnt后面也别加吧，不知道为什么</span></span><br></pre></td></tr></table></figure>
+
+<p>补充一下，卸载硬盘的命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">umount /dev/sda2</span><br></pre></td></tr></table></figure>
+
+<p>如果显示硬盘正忙，无法卸载，最好就是重启再弄</p>
+<h3 id="查看硬盘分区id"><a href="#查看硬盘分区id" class="headerlink" title="查看硬盘分区id"></a>查看硬盘分区id</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure>
+
+<p>找到对应硬盘的<code>UUID=XXXX-XXXX</code>和<code>TYPE=&quot;exfat&quot;</code>，每个人的type可能不一样，关系到后面的的修改</p>
+<h3 id="编辑-etc-fstab文件"><a href="#编辑-etc-fstab文件" class="headerlink" title="编辑/etc/fstab文件"></a>编辑<code>/etc/fstab</code>文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/fstab</span><br><span class="line"><span class="comment"># 在启动或在终端中输入mount -a时自动挂载，或者为noauto</span></span><br><span class="line"><span class="comment"># user 允许任何用户挂载设备,可选nouser，这样仅仅允许root用户挂载</span></span><br><span class="line"><span class="comment"># rw 挂载为读写权限，可选ro挂载为只读权限</span></span><br><span class="line">UUID=xxx /mnt/disk1 ext4 auto,user,rw,uid=1000,gid=1000 0 0</span><br></pre></td></tr></table></figure>
+
+<p>我在作者的基础上加了另一个方法的解决方案<a href="https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive">https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive</a>，加上了<code>uid=1000</code>,<code>gid=1000</code></p>
+<p>如果你不知道你的<code>uid</code>，可以通过下面的命令来获得</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">id</span> yourusername</span><br><span class="line">uid=1000(yourusername) gid=1000(yourusername) <span class="built_in">groups</span>=1000(yourusername),4(adm),24(cdrom),...</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>其他方法中的<code>umask=000</code>在我的实验中，并不好用</p>
+<p>如果你的分区硬盘还没接触挂载，先执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo umount /dev/sda2 <span class="comment">#你的硬盘名</span></span><br></pre></td></tr></table></figure>
+
+<p>Make systemd happy（我的理解，就是激活了/etc/fstab等这些开机启动程序的配置)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
+
+<p>重新挂载硬盘即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mount -a</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>最后纪念一下几个失败的修改（注释中全部失败了)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 共享的机械盘，挂载在/mnt下</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /mnt exfat auto,user,rw 0 0</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat auto,user,rw 0 0</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat auto,user,rw,umasks=000 0 0</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat defaults,umasks=000 0 0</span></span><br><span class="line">UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat auto,user,rw,uid=1000,gid=1000 0 0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="参考的文章"><a href="#参考的文章" class="headerlink" title="参考的文章"></a>参考的文章</h2><p>==成功的解决方案==<a href="https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive">https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive</a></p>
+<p>失败的，但是很有参考价值的一篇<a href="https://www.zhihu.com/people/ni-da-pao-46">https://www.zhihu.com/people/ni-da-pao-46</a></p>
+<p>指出为什么不能写的原因的一篇<a href="https://askubuntu.com/questions/1111542/cant-change-ownership-of-mounted-device">https://askubuntu.com/questions/1111542/cant-change-ownership-of-mounted-device</a></p>
+<p>指出为什么不能用<code>chomod</code>在ubuntu下修改NTFS(or FAT32)分区的很多解决方案<a href="https://askubuntu.com/questions/11840/how-do-i-use-chmod-on-an-ntfs-or-fat32-partition/956072#956072">https://askubuntu.com/questions/11840/how-do-i-use-chmod-on-an-ntfs-or-fat32-partition/956072#956072</a></p>
+<p>这是介绍了umask=000解决方案的，对我失效<a href="https://askubuntu.com/questions/1255907/20-04-chmod-not-working-on-exfat-mount">https://askubuntu.com/questions/1255907/20-04-chmod-not-working-on-exfat-mount</a></p>
+<p>一个人的非常的多尝试，可以看看<a href="https://www.reddit.com/r/linux4noobs/comments/kbpsex/cant_get_write_permissions_on_mounted_usb_hdd/">https://www.reddit.com/r/linux4noobs/comments/kbpsex/cant_get_write_permissions_on_mounted_usb_hdd/</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>dfs中的状态变量（全局还是局部，当层还是下一层）</title>
+    <url>/2022/12/16/dfs%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E9%87%8F%EF%BC%88%E5%85%A8%E5%B1%80%E8%BF%98%E6%98%AF%E5%B1%80%E9%83%A8%EF%BC%8C%E5%BD%93%E5%B1%82%E8%BF%98%E6%98%AF%E4%B8%8B%E4%B8%80%E5%B1%82%EF%BC%89/</url>
+    <content><![CDATA[<p>如标题所示。我们主要讨论了两个问题，本文中是以二叉树为例子（dfs中也是等价）。</p>
+<blockquote>
+<ol>
+<li>状态变量是作为全局变量来写，还是作为局部变量来写</li>
+<li>无论作为全局变量，还是局部变量而言，状态变量的意义，是当前层函数的状态，还是下一层函数的状态（类比DFS中问题的写法，如八皇后）</li>
+</ol>
+</blockquote>
+<p>首先解答第一个问题，两种写法都可以，我们将框架分为如下</p>
+<p><img src="/2022/12/16/dfs%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E9%87%8F%EF%BC%88%E5%85%A8%E5%B1%80%E8%BF%98%E6%98%AF%E5%B1%80%E9%83%A8%EF%BC%8C%E5%BD%93%E5%B1%82%E8%BF%98%E6%98%AF%E4%B8%8B%E4%B8%80%E5%B1%82%EF%BC%89/image-20221216154210641.png" alt="image-20221216154210641"></p>
+<span id="more"></span>
+
+<p>我们使用全局的状态变量或者局部的状态变量都是可行的，这两种方法其实是等价的（我们在dfs中其实讨论过，在函数参数里局部变量的加法，蕴含了出函数之后，局部变量的减法）。</p>
+<p>我们仍然以，一棵树的最深深度为例子。</p>
+<p>首先是，全局状态变量，且是记录本层状态。这里初始化为0，且在记录本层状态之前++。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> depth = <span class="number">0</span>;  <span class="comment">// 状态变量对于本层而言</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root  == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        depth++;  <span class="comment">// 注意这一行</span></span><br><span class="line">        <span class="keyword">if</span> (depth &gt; ans) &#123;  <span class="comment">// 记录本层值</span></span><br><span class="line">            ans = depth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left);</span><br><span class="line">        <span class="comment">// print是当前的值</span></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right);</span><br><span class="line">        depth--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>全局状态变量记录下一层，初始化为1，在记录本层状态之后++.  注意，这里要特判空的情况，上一种情况不用。（为什么，我叫这种情况为记录下一层位置，因为和dfs中一样，这里的第14行depth++之后，比如从1变为了2，对应的是下一层的值）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> depth = <span class="number">1</span>;  <span class="comment">// 状态变量对于下一层而言</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root  == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (depth &gt; ans) &#123;</span><br><span class="line">            ans = depth;</span><br><span class="line">        &#125;</span><br><span class="line">        depth++;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left);</span><br><span class="line">        <span class="comment">// 如果不先减减的话，print是下一层的值</span></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right);</span><br><span class="line">        depth--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">// 因为默认有根，我要让状态变量相对于下一层</span></span><br><span class="line">        <span class="built_in">traverse</span>(root);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>当然，把这种情况理解成记录当前层情况也行（毕竟，采取局部变量时，也进行了特判，和初始化为1）==毋容置疑的是，第11行if所处的位置，记录的一定是当前函数的状态值，其他地方，这两种方法是存在差异的。==如，在中序的位置，前一种方法打印depth，确实是对应当前的值，而当前方法，打印depth，对应的是下一层的值，这样的说法可能更为妥当一点。</p>
+<p>当我们使用局部变量时，往往是<strong>已经可以做出一个选择了，</strong>如这里是默认存在根节点（并把根节点的值，作为函数的局部变量），==所以需要进行特判，并传入第一个值（节点蕴含的值，或者节点的地址）==</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 这次我们把状态变量写在函数里面取</span></span><br><span class="line">    <span class="comment">// 这里的话，状态变量写成当层的，比较make sense一点，先写当层的吧</span></span><br><span class="line">    <span class="type">int</span> ans = <span class="number">-1</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, <span class="type">int</span> depth)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (depth &gt; ans) &#123;</span><br><span class="line">            ans = depth;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left, depth+<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 中序的位置print，depth仍然为本层的值</span></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right, depth+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">// 状态变量写成当层，需要特判断</span></span><br><span class="line">        <span class="built_in">traverse</span>(root, <span class="number">1</span>);  <span class="comment">// 这里写成当前层，我们传入反而是1？</span></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>与全局变量的第二种情况不同，因为局部变量自动蕴含了<code>--</code>的含义，所以这里的位置位置，打印depth，仍然是当前的一个深度状态。</p>
+<ul>
+<li><p>在使用全局变量时，我们需要在中序的位置对全局变量先<code>--</code>再<code>++</code>吗？</p>
+<p>  如果我们想要在中序的位置打印当前变量的深度</p>
+<ol>
+<li><p>如果全局变量记录的是本层的值，我们可以直接打印（为什么？因为我们从子节点回来时，已经对全局变量经过先加加，再减减了）</p>
+</li>
+<li><p>如果全局变量记录的事下一层的值，我们需要先<code>--</code>再<code>++</code>。这里的做法和dfs里for循环里的做法一直</p>
+ <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">depth++;  <span class="comment">// 下一层的层深</span></span><br><span class="line"><span class="built_in">traverse</span>(root-&gt;left);</span><br><span class="line">depth--;</span><br><span class="line"><span class="built_in">print</span>(depth);  <span class="comment">// 本层的层深</span></span><br><span class="line">depth++;</span><br><span class="line"><span class="built_in">travese</span>(root-&gt;right);</span><br><span class="line">depth--;  <span class="comment">// 恢复本层</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>我们需要使用if特判是否存在左右子树吗</p>
+  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(root-&gt;left) traverse(root-&gt;left);</span><br></pre></td></tr></table></figure>
+
+<p>  这里是一个提前的剪枝，使得叶子节点无需再往下走一步了。</p>
+</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -305,50 +414,53 @@
       </tags>
   </entry>
   <entry>
-    <title>云服务器可视化和内网穿透</title>
-    <url>/2021/11/23/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E8%A7%86%E5%8C%96%E5%92%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
-    <content><![CDATA[<p>很久没有更新博客了，开学两个多月一直太懒了，从大四的惰性大概延续了整整一年吧。<br>最近双十一在阿里云购置了一个100元3年的云服务器，简单介绍一下自己搜索的使用教程。  </p>
-<h2 id="云服务器的可视化连接（VNC）"><a href="#云服务器的可视化连接（VNC）" class="headerlink" title="云服务器的可视化连接（VNC）"></a>云服务器的可视化连接（VNC）</h2><p>云服务器的可视化连接主要是参考了阿里云的这篇官方文档。<br><a href="https://help.aliyun.com/knowledge_detail/59330.html?spm=a2c6h.13066369.0.0.6b957f94089Pc8&userCode=28kqeewo">通过VNC搭建Ubuntu 18.04和20.04图形界面</a></p>
+    <title>ssh断开保持程序运行</title>
+    <url>/2022/02/08/ssh%E6%96%AD%E5%BC%80%E4%BF%9D%E6%8C%81%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/</url>
+    <content><![CDATA[<p>ssh断开后，程序运行的进程就会中断了，因此要在后台保持运行。中文的资料查阅，有两种方法。1. nohup &amp;命令 2. screen命令</p>
 <span id="more"></span>
-
-<h2 id="通过drp实现内网穿透"><a href="#通过drp实现内网穿透" class="headerlink" title="通过drp实现内网穿透"></a>通过drp实现内网穿透</h2><p>因为有在远端连接实验室电脑的需求，简单了解了一下frp的配置。首先要利用到具有公网ip的云服务器作为跳转，就可以访问在内网的实验室主机了。  </p>
-<p>这是frp的官方文档<a href="https://gofrp.org/docs/examples/ssh/">通过 SSH 访问内网机器</a>  </p>
+<h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><p>先介绍screen的用法吧，具体原理也不是很清楚，拿来就用。</p>
+<p>比较实用的一点</p>
 <ol>
-<li><p>在服务器端（此处为阿里云），安装drps。在frp的github的release中，选择适合的版本的。我这里选择的是linux_amd64，右键复制链接。在合适的目录下，进行下载解压。或者手动下载和解压。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_amd64.tar.gz</span><br><span class="line"></span><br><span class="line">tar -xzvf frp_0.38.0_linux_amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> frp_0.38.0_linux_amd64 frp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑服务器端的配置文件<code>frps.ini</code>。</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br></pre></td></tr></table></figure>
-
-<p> 设置了 frp 服务器用户接收客户端连接的端口。<strong>记得在阿里云的安全组中，打开对应的端口</strong></p>
-</li>
-<li><p>启动服务器端。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接下来配置客户端，也就是要访问的远端服务器。下载解压重命名，同上操作，这里不再重复。</p>
-</li>
-<li><p>配置客服端文件<code>frpc.ini</code>  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line"> server_addr = x.x.x.x</span><br><span class="line"> server_port = 7000</span><br><span class="line"></span><br><span class="line"> [ssh]</span><br><span class="line"> <span class="built_in">type</span> = tcp</span><br><span class="line"> local_ip = 127.0.0.1</span><br><span class="line"> local_port = 22</span><br><span class="line"> remote_port = 6000</span><br></pre></td></tr></table></figure>
-
-<p>frps 所在服务器的公网 IP 为 x.x.x.x。<br>local_ip 和 local_port 配置为本地需要暴露到公网的服务地址和端口。remote_port 表示在 frp 服务端监听的端口，访问此端口的流量将会被转发到本地服务对应的端口。</p>
-</li>
-<li><p>启动客户端。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>ssh -oPort=6000 test@x.x.x.x</code>.。通过访问，你设置的远端端口，即可访问到内网的主机。<strong>test为本机用户名，密码为本机密码!!</strong></p>
-</li>
+<li>在非计算节点上screen -S gpu新建session，然后再里面申请到GPU节点后，再screen -S train训练节点</li>
+<li>在最内层train上面, ctrl a d返回的事最外层非计算节点，按<code>crtl a a d</code>即可从最内层返回上一层</li>
 </ol>
-<p>可以参考的b站配置视频<a href="https://www.bilibili.com/video/BV16441187zf">https://www.bilibili.com/video/BV16441187zf</a></p>
+<h3 id="screen的常见操作"><a href="#screen的常见操作" class="headerlink" title="screen的常见操作"></a>screen的常见操作</h3><p><a href="https://www.vpser.net/manage/screen.html">https://www.vpser.net/manage/screen.html</a></p>
+<p>创建一个 screen: <code>screen -S screen_name</code><br>删除一个 screen: <code>screen -S screen_name -X quit</code></p>
+<p>或者在其中<code>exit</code>来退出当前的会话</p>
+<p>回到一个 screen: <code>screen -x screen_name</code></p>
+<p>或者 <code>screen -r screen_name</code></p>
+<p>当然也可以通过<code>screen -ls</code>查看每个回话的id号，以及是否attach。</p>
+<p>可以通过<code>id</code>来替换<code>screen_name</code>，如<code>screen -r 11791</code></p>
+<p>从 screen 返回 <code>ctrl+a</code>+<code>d</code>,先按下ctrl a再按下d即可</p>
+<p>如何上下滚动鼠标</p>
+<p>Ctrl + a然后按[，进入复制模式，就可以用鼠标滚轮了</p>
+<p><a href="https://ubuntuqa.com/article/6360.html">https://ubuntuqa.com/article/6360.html</a></p>
+<p><code>ctrl + a</code>+<code>ctrl + a</code>可以切换当前会话下的不同窗口，莫名奇妙在一个会话下，弄了两个窗口来申请了GPU节点，在这里记录一下这个切换。</p>
+<h4 id="一种常见的情况，screen的嵌套"><a href="#一种常见的情况，screen的嵌套" class="headerlink" title="一种常见的情况，screen的嵌套"></a>一种常见的情况，screen的嵌套</h4><p>如，我遇到的情况是，在使用服务器时，首先新建一个screen的会话，在其中利用<code>srun -n16 --gres=gpu:V100:1 --pty bash </code>申请一个GPU节点。再在当前的GPU节点的主机上，新建一个screen会话，再其中运行程序。这样就可以返回上一级GPU节点，使用<code>htop</code>和<code>nvidia-smi</code>查看相关的信息。</p>
+<p>但是，直接使用<code>ctrl a d</code>回直接返回最外面一层的会话。正确的方法应该为<code>ctrl a </code> + <code>a d</code>这样可以从最内侧来返回上一层的会话。</p>
+<p>参考链接为ssh嵌套的情况<a href="https://wiki.archlinux.org/title/GNU_Screen">https://wiki.archlinux.org/title/GNU_Screen</a></p>
+<blockquote>
+<p>It is possible to get stuck in a nested screen session. A common scenario: you start an SSH session from within a screen session. Within the SSH session, you start screen. By default, the outer screen session that was launched first responds to <code>Ctrl+a</code> commands. To send a command to the inner screen session, use <code>Ctrl+a</code> <code>a</code>, followed by your command. For example:</p>
+<p><code>Ctrl+a</code> <code>a</code> <code>d</code> Detaches the inner screen session.</p>
+<p><code>Ctrl+a</code> <code>a</code> <code>K</code> Kills the inner screen session.</p>
+</blockquote>
+<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>除了使用screen之外，也可以使用nohup来保持程序在ssh断开之后的持续运行。查询到常见命令如下。</p>
+<p><code>nohup command &gt; myout.file 2&gt;&amp;1 &amp; </code></p>
+<p>在使用<code>command</code>之后，将输出的相关日志信息重定向到<code>myout.file</code>。其中，<code>&gt;</code>为覆盖式的写入，<code>&gt;&gt;</code>为在文件后面继续写入。如，使用nohup运行一测试程序。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> /home/ubuntu-4/anaconda3/bin/python3.8 /home/ubuntu-4/COVID19/test_nohup.py &gt;&gt; hello.log 2&gt;&amp;1 &amp; </span><br></pre></td></tr></table></figure>
+
+<p>可以通过<code>tail hello.log</code>来查看输出的信息。但是，如果使用hello.log来保存python中的print信息的话，由于python中使用缓存机制，所输出的语句并不会实时显示。可以通过在print语句中加入flush来实现实时的输出。</p>
+<p>==最后会显示Done==（not sure），在测试程序中实验的时候，在程序跑完之后确实可以看到进程打印了Done。但是，在ssh断开之后，父进程丢失。运行程序的进程变成了孤儿进程，我也不知道怎么恢复，只能从log信息中来获取。由于，我是在nnunet程序上做的实验，没有成功，这个方法就作罢了。</p>
+<p>nnUNet_plan_and_preprocess -t 101 -tf 2 -tl 2 –verify_dataset_integrity | tee nnunet_pre_2nd.log</p>
+<p>nohup nnUNet_plan_and_preprocess -t 101 –verify_dataset_integrity &gt;&gt; nnunet_pre.log 2&gt;&amp;1 &amp;</p>
+<p>==最后执行完会显示Done==</p>
+<p>nohup nnUNet_plan_and_preprocess -t 101 –verify_dataset_integrity &gt;&gt; /home/ubuntu-4/COVID19/nnunet_pre.log 2&gt;&amp;1 &amp;</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于一般的情况而言，我觉得使用<strong>screen</strong>加上，python中的<strong>logger</strong>输出到指定文件中是比较好的方法，直接使用print进行打印，并不是一个很好的方法。</p>
+<p>但是在nnunet中，由于我不是很懂这份代码，我采用的策略是，新建一个screen会话，将程序中的print结果保留到result.log当中。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python xxx.py | <span class="built_in">tee</span> result.log</span><br></pre></td></tr></table></figure>
+
+<p>我最后并没有采用<code>nohup</code>和<code>tmux</code>，简单地掌握了<code>screen</code>的这几个命令，应该足够使用了，再遇到新的问题的时候，再去谷歌查screen的用户手册吧。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2020/08/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<hr>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2>]]></content>
   </entry>
   <entry>
     <title>nnUnet的使用</title>
@@ -575,161 +687,207 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Ubuntu下挂载的机械硬盘写权限问题</title>
-    <url>/2022/02/08/Ubuntu%E4%B8%8B%E6%8C%82%E8%BD%BD%E7%9A%84%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98%E5%86%99%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><p>实验室主机下有一块4T机械盘，设置成了exfat格式，平时只能以<code>root</code>用户的权限来跑，现在想设置成usr权限可以操作。使用了<code>chmod -R 777</code>和<code>chown usrname</code>均不成功，<code>chmod</code>运行结束后，使用<code>ls -al</code>查看权限并没有修改；<code>chown usrname</code>直接提示没有权限。记录一下，解决的过程。</p>
-<span id="more"></span>
-<p>==通过查资料发现<code>ntfs,exfat,fat32</code>等文件系统都是windows下的文件系统，因此有不能用过chmod来改权限的问题。==这个问题还是挺久远的，google上十几年前就有人问了，又要吐槽一下CSDN，大家抄来抄去，还有百度搜索一个问题，直接给你推荐一个不相关的CSDN合集，真是有够恶心人的。</p>
-<h2 id="问题发现"><a href="#问题发现" class="headerlink" title="问题发现"></a>问题发现</h2><p>（说一点废话，不想看的可以看下一段）因为，今天跑程序固态硬盘不够用，想在机械盘中存数据来跑nnunet，但是nnunet使用的不是如<code>python xxx.py</code>d的形式运行数据，而是用<code>nnUnet_</code>开头的命令行形式运行。因为使用<code>sudo</code>运行命令时，使用的是root用户下的环境变量，所以<code>sudo nnUnet_</code>命令虽然解决了写权限的问题，但是环境变量的设置又出错了。因此，想到了解决方法</p>
-<ol>
-<li>把usr下的<code>.bashrc</code>复制到<code>/root</code>下，再<code>source</code>，感觉后续有其他的问题，没有试。</li>
-<li>解决硬盘的写权限问题</li>
-</ol>
-<h2 id="解决写权限"><a href="#解决写权限" class="headerlink" title="解决写权限"></a>解决写权限</h2><p>首先在CSDN这个垃圾堆找了一圈，跳转到了一篇知乎的文章<a href="https://www.zhihu.com/people/ni-da-pao-46%EF%BC%8C%E6%9C%89%E4%B8%80%E5%AE%9A%E7%9A%84%E5%8F%82%E8%80%83%E4%BB%B7%E5%80%BC%EF%BC%8C%E5%89%8D%E5%BA%8F%E7%9A%84%E6%AD%A5%E9%AA%A4%E5%9D%87%E5%8F%AF%E4%BB%A5%E6%8C%89%E7%85%A7%E8%BF%99%E4%B8%AA%E8%BF%9B%E8%A1%8C%E3%80%82">https://www.zhihu.com/people/ni-da-pao-46，有一定的参考价值，前序的步骤均可以按照这个进行。</a></p>
-<h3 id="查看硬盘信息"><a href="#查看硬盘信息" class="headerlink" title="查看硬盘信息"></a>查看硬盘信息</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+    <title>self captured by a closure before all members were initialized错误解决</title>
+    <url>/2023/03/05/self-captured-by-a-closure-before-all-members-were-initialized%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/</url>
+    <content><![CDATA[<p>问题1</p>
+<p><em>代码1</em></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        c <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>.a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>查看已经挂载的硬盘的信息，第一列我理解为硬盘名，如<code>/dev/sda2</code>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
-
-<p>查看所有硬盘的信息，有可能自己的硬盘还没挂载</p>
-<h3 id="挂载硬盘"><a href="#挂载硬盘" class="headerlink" title="挂载硬盘"></a>挂载硬盘</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mount /dev/sda2 /mnt  <span class="comment">#sda2后面不要加/，那mnt后面也别加吧，不知道为什么</span></span><br></pre></td></tr></table></figure>
-
-<p>补充一下，卸载硬盘的命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">umount /dev/sda2</span><br></pre></td></tr></table></figure>
-
-<p>如果显示硬盘正忙，无法卸载，最好就是重启再弄</p>
-<h3 id="查看硬盘分区id"><a href="#查看硬盘分区id" class="headerlink" title="查看硬盘分区id"></a>查看硬盘分区id</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure>
-
-<p>找到对应硬盘的<code>UUID=XXXX-XXXX</code>和<code>TYPE=&quot;exfat&quot;</code>，每个人的type可能不一样，关系到后面的的修改</p>
-<h3 id="编辑-etc-fstab文件"><a href="#编辑-etc-fstab文件" class="headerlink" title="编辑/etc/fstab文件"></a>编辑<code>/etc/fstab</code>文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/fstab</span><br><span class="line"><span class="comment"># 在启动或在终端中输入mount -a时自动挂载，或者为noauto</span></span><br><span class="line"><span class="comment"># user 允许任何用户挂载设备,可选nouser，这样仅仅允许root用户挂载</span></span><br><span class="line"><span class="comment"># rw 挂载为读写权限，可选ro挂载为只读权限</span></span><br><span class="line">UUID=xxx /mnt/disk1 ext4 auto,user,rw,uid=1000,gid=1000 0 0</span><br></pre></td></tr></table></figure>
-
-<p>我在作者的基础上加了另一个方法的解决方案<a href="https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive">https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive</a>，加上了<code>uid=1000</code>,<code>gid=1000</code></p>
-<p>如果你不知道你的<code>uid</code>，可以通过下面的命令来获得</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">id</span> yourusername</span><br><span class="line">uid=1000(yourusername) gid=1000(yourusername) <span class="built_in">groups</span>=1000(yourusername),4(adm),24(cdrom),...</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>其他方法中的<code>umask=000</code>在我的实验中，并不好用</p>
-<p>如果你的分区硬盘还没接触挂载，先执行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo umount /dev/sda2 <span class="comment">#你的硬盘名</span></span><br></pre></td></tr></table></figure>
-
-<p>Make systemd happy（我的理解，就是激活了/etc/fstab等这些开机启动程序的配置)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-
-<p>重新挂载硬盘即可</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mount -a</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>最后纪念一下几个失败的修改（注释中全部失败了)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 共享的机械盘，挂载在/mnt下</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /mnt exfat auto,user,rw 0 0</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat auto,user,rw 0 0</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat auto,user,rw,umasks=000 0 0</span></span><br><span class="line"><span class="comment"># UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat defaults,umasks=000 0 0</span></span><br><span class="line">UUID=1EE8-C12A /media/ubuntu-4/新加卷 exfat auto,user,rw,uid=1000,gid=1000 0 0</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="参考的文章"><a href="#参考的文章" class="headerlink" title="参考的文章"></a>参考的文章</h2><p>==成功的解决方案==<a href="https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive">https://askubuntu.com/questions/923691/ownership-permission-problem-with-automounting-exfat-drive</a></p>
-<p>失败的，但是很有参考价值的一篇<a href="https://www.zhihu.com/people/ni-da-pao-46">https://www.zhihu.com/people/ni-da-pao-46</a></p>
-<p>指出为什么不能写的原因的一篇<a href="https://askubuntu.com/questions/1111542/cant-change-ownership-of-mounted-device">https://askubuntu.com/questions/1111542/cant-change-ownership-of-mounted-device</a></p>
-<p>指出为什么不能用<code>chomod</code>在ubuntu下修改NTFS(or FAT32)分区的很多解决方案<a href="https://askubuntu.com/questions/11840/how-do-i-use-chmod-on-an-ntfs-or-fat32-partition/956072#956072">https://askubuntu.com/questions/11840/how-do-i-use-chmod-on-an-ntfs-or-fat32-partition/956072#956072</a></p>
-<p>这是介绍了umask=000解决方案的，对我失效<a href="https://askubuntu.com/questions/1255907/20-04-chmod-not-working-on-exfat-mount">https://askubuntu.com/questions/1255907/20-04-chmod-not-working-on-exfat-mount</a></p>
-<p>一个人的非常的多尝试，可以看看<a href="https://www.reddit.com/r/linux4noobs/comments/kbpsex/cant_get_write_permissions_on_mounted_usb_hdd/">https://www.reddit.com/r/linux4noobs/comments/kbpsex/cant_get_write_permissions_on_mounted_usb_hdd/</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>ssh断开保持程序运行</title>
-    <url>/2022/02/08/ssh%E6%96%AD%E5%BC%80%E4%BF%9D%E6%8C%81%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C/</url>
-    <content><![CDATA[<p>ssh断开后，程序运行的进程就会中断了，因此要在后台保持运行。中文的资料查阅，有两种方法。1. nohup &amp;命令 2. screen命令</p>
-<span id="more"></span>
-<h2 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h2><p>先介绍screen的用法吧，具体原理也不是很清楚，拿来就用。</p>
-<p>比较实用的一点</p>
-<ol>
-<li>在非计算节点上screen -S gpu新建session，然后再里面申请到GPU节点后，再screen -S train训练节点</li>
-<li>在最内层train上面, ctrl a d返回的事最外层非计算节点，按<code>crtl a a d</code>即可从最内层返回上一层</li>
-</ol>
-<h3 id="screen的常见操作"><a href="#screen的常见操作" class="headerlink" title="screen的常见操作"></a>screen的常见操作</h3><p><a href="https://www.vpser.net/manage/screen.html">https://www.vpser.net/manage/screen.html</a></p>
-<p>创建一个 screen: <code>screen -S screen_name</code><br>删除一个 screen: <code>screen -S screen_name -X quit</code></p>
-<p>或者在其中<code>exit</code>来退出当前的会话</p>
-<p>回到一个 screen: <code>screen -x screen_name</code></p>
-<p>或者 <code>screen -r screen_name</code></p>
-<p>当然也可以通过<code>screen -ls</code>查看每个回话的id号，以及是否attach。</p>
-<p>可以通过<code>id</code>来替换<code>screen_name</code>，如<code>screen -r 11791</code></p>
-<p>从 screen 返回 <code>ctrl+a</code>+<code>d</code>,先按下ctrl a再按下d即可</p>
-<p>如何上下滚动鼠标</p>
-<p>Ctrl + a然后按[，进入复制模式，就可以用鼠标滚轮了</p>
-<p><a href="https://ubuntuqa.com/article/6360.html">https://ubuntuqa.com/article/6360.html</a></p>
-<p><code>ctrl + a</code>+<code>ctrl + a</code>可以切换当前会话下的不同窗口，莫名奇妙在一个会话下，弄了两个窗口来申请了GPU节点，在这里记录一下这个切换。</p>
-<h4 id="一种常见的情况，screen的嵌套"><a href="#一种常见的情况，screen的嵌套" class="headerlink" title="一种常见的情况，screen的嵌套"></a>一种常见的情况，screen的嵌套</h4><p>如，我遇到的情况是，在使用服务器时，首先新建一个screen的会话，在其中利用<code>srun -n16 --gres=gpu:V100:1 --pty bash </code>申请一个GPU节点。再在当前的GPU节点的主机上，新建一个screen会话，再其中运行程序。这样就可以返回上一级GPU节点，使用<code>htop</code>和<code>nvidia-smi</code>查看相关的信息。</p>
-<p>但是，直接使用<code>ctrl a d</code>回直接返回最外面一层的会话。正确的方法应该为<code>ctrl a </code> + <code>a d</code>这样可以从最内侧来返回上一层的会话。</p>
-<p>参考链接为ssh嵌套的情况<a href="https://wiki.archlinux.org/title/GNU_Screen">https://wiki.archlinux.org/title/GNU_Screen</a></p>
-<blockquote>
-<p>It is possible to get stuck in a nested screen session. A common scenario: you start an SSH session from within a screen session. Within the SSH session, you start screen. By default, the outer screen session that was launched first responds to <code>Ctrl+a</code> commands. To send a command to the inner screen session, use <code>Ctrl+a</code> <code>a</code>, followed by your command. For example:</p>
-<p><code>Ctrl+a</code> <code>a</code> <code>d</code> Detaches the inner screen session.</p>
-<p><code>Ctrl+a</code> <code>a</code> <code>K</code> Kills the inner screen session.</p>
-</blockquote>
-<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>除了使用screen之外，也可以使用nohup来保持程序在ssh断开之后的持续运行。查询到常见命令如下。</p>
-<p><code>nohup command &gt; myout.file 2&gt;&amp;1 &amp; </code></p>
-<p>在使用<code>command</code>之后，将输出的相关日志信息重定向到<code>myout.file</code>。其中，<code>&gt;</code>为覆盖式的写入，<code>&gt;&gt;</code>为在文件后面继续写入。如，使用nohup运行一测试程序。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">nohup</span> /home/ubuntu-4/anaconda3/bin/python3.8 /home/ubuntu-4/COVID19/test_nohup.py &gt;&gt; hello.log 2&gt;&amp;1 &amp; </span><br></pre></td></tr></table></figure>
-
-<p>可以通过<code>tail hello.log</code>来查看输出的信息。但是，如果使用hello.log来保存python中的print信息的话，由于python中使用缓存机制，所输出的语句并不会实时显示。可以通过在print语句中加入flush来实现实时的输出。</p>
-<p>==最后会显示Done==（not sure），在测试程序中实验的时候，在程序跑完之后确实可以看到进程打印了Done。但是，在ssh断开之后，父进程丢失。运行程序的进程变成了孤儿进程，我也不知道怎么恢复，只能从log信息中来获取。由于，我是在nnunet程序上做的实验，没有成功，这个方法就作罢了。</p>
-<p>nnUNet_plan_and_preprocess -t 101 -tf 2 -tl 2 –verify_dataset_integrity | tee nnunet_pre_2nd.log</p>
-<p>nohup nnUNet_plan_and_preprocess -t 101 –verify_dataset_integrity &gt;&gt; nnunet_pre.log 2&gt;&amp;1 &amp;</p>
-<p>==最后执行完会显示Done==</p>
-<p>nohup nnUNet_plan_and_preprocess -t 101 –verify_dataset_integrity &gt;&gt; /home/ubuntu-4/COVID19/nnunet_pre.log 2&gt;&amp;1 &amp;</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于一般的情况而言，我觉得使用<strong>screen</strong>加上，python中的<strong>logger</strong>输出到指定文件中是比较好的方法，直接使用print进行打印，并不是一个很好的方法。</p>
-<p>但是在nnunet中，由于我不是很懂这份代码，我采用的策略是，新建一个screen会话，将程序中的print结果保留到result.log当中。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python xxx.py | <span class="built_in">tee</span> result.log</span><br></pre></td></tr></table></figure>
-
-<p>我最后并没有采用<code>nohup</code>和<code>tmux</code>，简单地掌握了<code>screen</code>的这几个命令，应该足够使用了，再遇到新的问题的时候，再去谷歌查screen的用户手册吧。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>dfs中的状态变量（全局还是局部，当层还是下一层）</title>
-    <url>/2022/12/16/dfs%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E9%87%8F%EF%BC%88%E5%85%A8%E5%B1%80%E8%BF%98%E6%98%AF%E5%B1%80%E9%83%A8%EF%BC%8C%E5%BD%93%E5%B1%82%E8%BF%98%E6%98%AF%E4%B8%8B%E4%B8%80%E5%B1%82%EF%BC%89/</url>
-    <content><![CDATA[<p>如标题所示。我们主要讨论了两个问题，本文中是以二叉树为例子（dfs中也是等价）。</p>
-<blockquote>
-<ol>
-<li>状态变量是作为全局变量来写，还是作为局部变量来写</li>
-<li>无论作为全局变量，还是局部变量而言，状态变量的意义，是当前层函数的状态，还是下一层函数的状态（类比DFS中问题的写法，如八皇后）</li>
-</ol>
-</blockquote>
-<p>首先解答第一个问题，两种写法都可以，我们将框架分为如下</p>
-<p><img src="/2022/12/16/dfs%E4%B8%AD%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E9%87%8F%EF%BC%88%E5%85%A8%E5%B1%80%E8%BF%98%E6%98%AF%E5%B1%80%E9%83%A8%EF%BC%8C%E5%BD%93%E5%B1%82%E8%BF%98%E6%98%AF%E4%B8%8B%E4%B8%80%E5%B1%82%EF%BC%89/image-20221216154210641.png" alt="image-20221216154210641"></p>
+<p>问题可以简化成这样，初始化器里，对c用闭包复制的那一行报了错误<code>&#39;self&#39; captured by a closure before all members were initialized</code></p>
 <span id="more"></span>
 
-<p>我们使用全局的状态变量或者局部的状态变量都是可行的，这两种方法其实是等价的（我们在dfs中其实讨论过，在函数参数里局部变量的加法，蕴含了出函数之后，局部变量的减法）。</p>
-<p>我们仍然以，一棵树的最深深度为例子。</p>
-<p>首先是，全局状态变量，且是记录本层状态。这里初始化为0，且在记录本层状态之前++。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> depth = <span class="number">0</span>;  <span class="comment">// 状态变量对于本层而言</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root  == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        depth++;  <span class="comment">// 注意这一行</span></span><br><span class="line">        <span class="keyword">if</span> (depth &gt; ans) &#123;  <span class="comment">// 记录本层值</span></span><br><span class="line">            ans = depth;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left);</span><br><span class="line">        <span class="comment">// print是当前的值</span></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right);</span><br><span class="line">        depth--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">traverse</span>(root);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>原因，我大概明白了。在于Swift文档，闭包那一章里的值捕获那一节。因为在这个闭包里，使用了<code>self.a</code>或者隐式<code>a</code>，这样就捕获了<code>self</code>instance，而<strong>重点来了</strong>，<code>self</code>这个实例，我们没有对<code>c</code>实例化，而矛盾的是，我们正要对<code>c</code>实例化。其实写成以下<em>代码2</em>形式也是错的。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span>  <span class="comment">// 还是报同样的错误</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">        c <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>全局状态变量记录下一层，初始化为1，在记录本层状态之后++.  注意，这里要特判空的情况，上一种情况不用。（为什么，我叫这种情况为记录下一层位置，因为和dfs中一样，这里的第14行depth++之后，比如从1变为了2，对应的是下一层的值）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> depth = <span class="number">1</span>;  <span class="comment">// 状态变量对于下一层而言</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root  == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (depth &gt; ans) &#123;</span><br><span class="line">            ans = depth;</span><br><span class="line">        &#125;</span><br><span class="line">        depth++;</span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left);</span><br><span class="line">        <span class="comment">// 如果不先减减的话，print是下一层的值</span></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right);</span><br><span class="line">        depth--;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">// 因为默认有根，我要让状态变量相对于下一层</span></span><br><span class="line">        <span class="built_in">traverse</span>(root);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>当然，把这种情况理解成记录当前层情况也行（毕竟，采取局部变量时，也进行了特判，和初始化为1）==毋容置疑的是，第11行if所处的位置，记录的一定是当前函数的状态值，其他地方，这两种方法是存在差异的。==如，在中序的位置，前一种方法打印depth，确实是对应当前的值，而当前方法，打印depth，对应的是下一层的值，这样的说法可能更为妥当一点。</p>
-<p>当我们使用局部变量时，往往是<strong>已经可以做出一个选择了，</strong>如这里是默认存在根节点（并把根节点的值，作为函数的局部变量），==所以需要进行特判，并传入第一个值（节点蕴含的值，或者节点的地址）==</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 这次我们把状态变量写在函数里面取</span></span><br><span class="line">    <span class="comment">// 这里的话，状态变量写成当层的，比较make sense一点，先写当层的吧</span></span><br><span class="line">    <span class="type">int</span> ans = <span class="number">-1</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">traverse</span><span class="params">(TreeNode* root, <span class="type">int</span> depth)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (depth &gt; ans) &#123;</span><br><span class="line">            ans = depth;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;left, depth+<span class="number">1</span>);</span><br><span class="line">        <span class="comment">// 中序的位置print，depth仍然为本层的值</span></span><br><span class="line">        <span class="built_in">traverse</span>(root-&gt;right, depth+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxDepth</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;  <span class="comment">// 状态变量写成当层，需要特判断</span></span><br><span class="line">        <span class="built_in">traverse</span>(root, <span class="number">1</span>);  <span class="comment">// 这里写成当前层，我们传入反而是1？</span></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>与全局变量的第二种情况不同，因为局部变量自动蕴含了<code>--</code>的含义，所以这里的位置位置，打印depth，仍然是当前的一个深度状态。</p>
+<p><strong>也就是说，在这个闭包里，假如捕获（使用）了self的属性，则必须满足self instance已经完全被实例化</strong></p>
+<p>所以针对<em>代码2</em>，自然想到有以下解决方法。</p>
 <ul>
-<li><p>在使用全局变量时，我们需要在中序的位置对全局变量先<code>--</code>再<code>++</code>吗？</p>
-<p>  如果我们想要在中序的位置打印当前变量的深度</p>
-<ol>
-<li><p>如果全局变量记录的是本层的值，我们可以直接打印（为什么？因为我们从子节点回来时，已经对全局变量经过先加加，再减减了）</p>
-</li>
-<li><p>如果全局变量记录的事下一层的值，我们需要先<code>--</code>再<code>++</code>。这里的做法和dfs里for循环里的做法一直</p>
- <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">depth++;  <span class="comment">// 下一层的层深</span></span><br><span class="line"><span class="built_in">traverse</span>(root-&gt;left);</span><br><span class="line">depth--;</span><br><span class="line"><span class="built_in">print</span>(depth);  <span class="comment">// 本层的层深</span></span><br><span class="line">depth++;</span><br><span class="line"><span class="built_in">travese</span>(root-&gt;right);</span><br><span class="line">depth--;  <span class="comment">// 恢复本层</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>我们需要使用if特判是否存在左右子树吗</p>
-  <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(root-&gt;left) traverse(root-&gt;left);</span><br></pre></td></tr></table></figure>
+<li>方法1，在初始化器中把c的值提前赋上（在闭包捕获<code>self</code>实例前）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        c <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>  这里是一个提前的剪枝，使得叶子节点无需再往下走一步了。</p>
+<ul>
+<li>方法2 给c一个默认值</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span> <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法1，2都保证了，在闭包捕获<code>self</code>实例前，已经完全初始化完成。</p>
+<p>方法3，设成optional类型，或者隐式的optional类型。这样保证了，在初始化实例时，暂时可以不管<code>c</code>。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span>?</span><br><span class="line">    <span class="comment">// 或者写成</span></span><br><span class="line">    <span class="comment">// var c: Int!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>针对代码1，方法1显然很多余，我既然能对c赋值，为什么要用闭包复制。方法2，也显得累赘。我觉得使用<code>c!</code>，在一次初始化之后，<code>c</code>就一直会有值，满足我的需求。</p>
+<p>另一种想法是把闭包写成函数是不是，就没有问题啦呢？示例如下</p>
+<p>如果写成类的method，仍然是一样的效果</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">toy</span>() -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy()</span><br><span class="line">        c <span class="operator">=</span> <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第13行<code>let d = toy()</code>报错，<code>&#39;self&#39; used before all stored properties are initialized</code>，错误类似。</p>
+<p>如果我们执意要使用函数，可以把设定成<code>static</code>类型，应该就没有问题了。如下：</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">toy</span>() -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        c <span class="operator">=</span> <span class="type">Element</span>.toy()  <span class="comment">// 使用type method</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>二分查找的理解</title>
+    <url>/2023/02/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<p>二分查找很容易出现混淆的写法，本文从常见的二分查找的三种情况（查找特定元素，找第一个大于等于某个数的位置，找第一个大于某个数的位置），和以两道例题引出二分查找需要注意的细节问题，即关于中点的选择（偶数时，向左偏还是向右偏）。</p>
+<p>二分算法的<strong>难点是</strong>，对于while循环中几个难以区分的点。</p>
+<ol>
+<li><code>left &lt; right</code>还是<code>left &lt;= right</code></li>
+<li><code>left = mid + 1</code>还是<code>right = mid</code>或者其他划分区间的方法也可以</li>
+<li>输入是<code>0 ~ n-1</code>还是<code>0 ~ n</code></li>
+</ol>
+<span id="more"></span>
+
+<h2 id="查找某个具体的元素"><a href="#查找某个具体的元素" class="headerlink" title="查找某个具体的元素"></a>查找某个具体的元素</h2><p>对于升序的数组，查找每个具体的元素。</p>
+<p>以我个人的角度，我习惯输入<code>[0, n-1]</code>这个闭区间，从直观上来理解，这个区间的每个数，都有可能是我们要查找的答案。</p>
+<p><code>left &lt;= right</code>，这样选择的原因，一个角度是，<code>left == right</code>时，<code>mid</code>取到<code>left</code>，这个数仍然没有被判断到，这个等号是有意义的。另一个角度是，和<code>left &lt; right</code>不同，我们并不是要夹出某个具体的位置，如果<code>left</code>和<code>right</code>，交错开来，我们就返回-1。</p>
+<p>区间的划分，如果<code>a[mid]</code>不是我们要查找的数，那<code>mid</code>位置一定不是我们想要的。所以我们将区间<code>[left, right]</code>划分为<code>[left, mid - 1]</code>和<code>mid</code>（已排除）和<code>[mid + 1, right]</code>。换个同样表达的意思，<code>left = mid + 1</code>，<code>right = mid - 1</code></p>
+<p>示例代码，这里采取迭代的形式，递归形式可以很简单的转化，就不写了</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>;  <span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">while</span> (left &lt;= right) &#123;  <span class="comment">// 取等号</span></span><br><span class="line">    <span class="type">int</span> mid = left + (right - left)  <span class="comment">// 中点向左偏移</span></span><br><span class="line">    <span class="keyword">if</span> (a[mid] == target) &#123;</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">-1</span>;  <span class="comment">//找不到</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="找第一个大于等于某个元素的位置"><a href="#找第一个大于等于某个元素的位置" class="headerlink" title="找第一个大于等于某个元素的位置"></a>找第一个大于等于某个元素的位置</h2><p>可以针对非降序序列，如<code>[1,2,3,3,4]</code>找第一个大于等于3的位置，就是位置2。</p>
+<p>对应C++中标准库的</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>(), target)  <span class="comment">//返回迭代器</span></span><br><span class="line"><span class="built_in">lower_bound</span>(a, a + <span class="number">10</span>, target) <span class="comment">//数组</span></span><br></pre></td></tr></table></figure>
+
+<p>输入为<code>[0, n]</code>，为什么选<code>n</code>呢？因为最后一个位置的下一个，仍然可能是第一个大于等于的位置，如针对上面的序列，我们要找第一个大于等于10的位置，则是最后一个位置下一个。</p>
+<p><code>left &lt; right</code>如同上文所说，这样写的目的是<strong>夹出某个具体的位置</strong>，最后<code>left == right</code>时，返回<code>left</code>即是我们想要的答案。（当然<code>right</code>也一样）</p>
+<p>区间的划分：这里要加上理解才更好写。</p>
+<ol>
+<li><code>a[mid] == target</code>时，区间应该向<code>[left, mid]</code>收缩，因为<code>mid</code>这个位置有可能是第一个大于等于targeet的位置</li>
+<li><code>a[mid] &gt; target</code>时，同上，区间应该向<code>[left, mid]</code>收缩，因为<code>mid</code>这个位置有可能是第一个大于等于targeet的位置</li>
+<li><code>a[mid] &lt; target</code>时，区间应该向<code>[mid + 1, right]</code>收缩，因为<code>mid</code>一定不满足我们的要求。</li>
+</ol>
+<p>综上，也就是将区间<code>[left, right]</code>划分为<code>[left, mid]</code>和<code>[mid + 1, right]</code>。换个同样表达的意思，<code>left = mid + 1</code>，<code>right = mid</code></p>
+<p>示例代码</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = n;  <span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">while</span> (left &lt; right) &#123;  <span class="comment">// 取 &lt;</span></span><br><span class="line">    <span class="type">int</span> mid = left + (right - left)  <span class="comment">// 中点向左偏移</span></span><br><span class="line">    <span class="keyword">if</span> (a[mid] == target) &#123;</span><br><span class="line">        right = mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right = mid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> left;  <span class="comment">//找到期望的位置</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="找第一个大于某个元素的位置"><a href="#找第一个大于某个元素的位置" class="headerlink" title="找第一个大于某个元素的位置"></a>找第一个大于某个元素的位置</h2><p>可以针对非降序序列，如<code>[1,2,3,3,4]</code>找第一个大于等于3的位置，就是位置4。</p>
+<p>对于C++标准库</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">upper_bound</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>(), target);  <span class="comment">// 返回迭代器</span></span><br><span class="line"><span class="built_in">upper_bound</span>(a, a + n, target);  <span class="comment">// 返回位置吧</span></span><br></pre></td></tr></table></figure>
+
+<p>输入为<code>[0, n]</code>，为什么选<code>n</code>呢？因为最后一个位置的下一个，仍然可能是第一个等于的位置，如针对上面的序列，我们要找第一个大于10的位置，则是最后一个位置下一个。接下来，说些重复的话，但是区间划分的分析部分有所不同。</p>
+<p><code>left &lt; right</code>如同上文所说，这样写的目的是<strong>夹出某个具体的位置</strong>，最后<code>left == right</code>时，返回<code>left</code>即是我们想要的答案。（当然<code>right</code>也一样）</p>
+<p>区间的划分：这里要加上理解才更好写。</p>
+<ol>
+<li><code>a[mid] == target</code>时，区间应该向<code>[mid + 1, right]</code>收缩，因为<code>mid</code>一定不满足我们的要求。</li>
+<li><code>a[mid] &gt; target</code>时，同上，区间应该向<code>[left, mid]</code>收缩，因为<code>mid</code>这个位置有可能是第一个大于等于targeet的位置</li>
+<li><code>a[mid] &lt; target</code>时，区间应该向<code>[mid + 1, right]</code>收缩，因为<code>mid</code>一定不满足我们的要求。</li>
+</ol>
+<p>综上，也就是将区间<code>[left, right]</code>划分为<code>[left, mid]</code>和<code>[mid + 1, right]</code>。换个同样表达的意思，<code>left = mid + 1</code>，<code>right = mid</code></p>
+<p>示例代码</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = n;  <span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">while</span> (left &lt; right) &#123;  <span class="comment">// 取 &lt;</span></span><br><span class="line">    <span class="type">int</span> mid = left + (right - left)  <span class="comment">// 中点向左偏移</span></span><br><span class="line">    <span class="keyword">if</span> (a[mid] == target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right = mid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> left;  <span class="comment">//找到期望的位置</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="关于中点选择的注意事项"><a href="#关于中点选择的注意事项" class="headerlink" title="关于中点选择的注意事项"></a>关于中点选择的注意事项</h2><p>对于偶数个项的数组，中点的选择有两种。如<code>[0, 1, 2, 3]</code>，中点位置可以选择位置1（向左偏移）和位置2（向右便宜）。这两种方式并不是随意选的，接下来将详细解释。</p>
+<ol>
+<li><p>偶数个数时，靠左取中间节点还是靠右取中间节点。</p>
+<p> 首先需要明确的是，对于奇数个数，两种写法都是取到中间节点。</p>
+<ul>
+<li><p>最常规的写法，取靠左的节点，如<code>0 1 2 3</code>，取节点1</p>
+<p>  以下两种写法完全等价</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> mid = (a + b) / <span class="number">2</span></span><br><span class="line"><span class="comment">// 为了防止溢出</span></span><br><span class="line"><span class="type">int</span> mid = a + (b - a) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>取靠右的节点，如<code>0 1 2 3</code>，取节点2</p>
+<p>  以下两种写法完全等价，推荐写法2来防止溢出</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> mid = (a + b + <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line"><span class="comment">// 为了防止溢出</span></span><br><span class="line"><span class="type">int</span> mid = a + (b - a + <span class="number">1</span>) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+</li>
+<li><p>以上两种写法，都是为了搜索区间只有两个元素的特殊情况服务的。</p>
+<ul>
+<li><p>当区间的更新逻辑为<code>left = mid + 1</code>和<code>right = mid</code>，也就是将原区间划分为<code>[left, mid]</code>和<code>[mid+1, right]</code>，<code>while(left &lt; right)</code>退出循环后，<code>left == right</code>成立，<code>mid</code>向==左==取可取。（这也是最常见的二种二分的写法）</p>
+<p>  ==原因==，如区间<code>[1,2]</code>，向左取中点，也就是<code>mid</code>更新为1，<code>left</code>更新为2，这样区间划分为<code>[1,1]</code>和<code>[2,2]</code>，夹出了我们想要的区间。</p>
+</li>
+<li><p>当区间的更新逻辑为<code>left = mid </code>和<code>right = mid-1</code>，也就是将原区间划分为<code>[left, mid-1]</code>和<code>[mid, right]</code>，<code>while(left &lt; right)</code>退出循环后，<code>left == right</code>成立，<code>mid</code>向==右==取可取。</p>
+<p>  ==原因==，如区间<code>[1,2]</code>，仍然继续向左取中间，也就是<code>mid</code>更新为1，<code>left</code>更新为==1==，区间更新为<code>[1, 0]</code>和<code>[1,2]</code>，有可能导致<code>left != right</code>或者陷入了更新的死循环。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>例题1<a href="https://leetcode.cn/problems/sqrtx/">x 的平方根</a></p>
+<p>注意点夹出答案，特殊判断，向右取中点</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 这题我觉得有两点</span></span><br><span class="line">    <span class="comment">// 一个是输入边界的选择，我感觉[1, n]就可以了，n/2不知道又没有特殊情况（n&gt;4时适用）</span></span><br><span class="line">    <span class="comment">// 但是从数值角度来说，当右边为n/2，区间[1,1]对2，3也是成立的</span></span><br><span class="line">    <span class="comment">// 再一个int范围不够，要到long long才行</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = x;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="comment">// 向右取，不过说实话，这得后面更新策略出来了，才能知道</span></span><br><span class="line">            <span class="type">int</span> mid = left + (right - left + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid == x) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid &lt; x) &#123;</span><br><span class="line">                left = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>例题2<a href="https://leetcode.cn/problems/valid-perfect-square/">有效的完全平方数</a></p>
+<p>与查找具体某个元素完全类似</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = num;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid == num) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid &lt; num) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>云服务器可视化和内网穿透</title>
+    <url>/2021/11/23/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%AF%E8%A7%86%E5%8C%96%E5%92%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+    <content><![CDATA[<p>很久没有更新博客了，开学两个多月一直太懒了，从大四的惰性大概延续了整整一年吧。<br>最近双十一在阿里云购置了一个100元3年的云服务器，简单介绍一下自己搜索的使用教程。  </p>
+<h2 id="云服务器的可视化连接（VNC）"><a href="#云服务器的可视化连接（VNC）" class="headerlink" title="云服务器的可视化连接（VNC）"></a>云服务器的可视化连接（VNC）</h2><p>云服务器的可视化连接主要是参考了阿里云的这篇官方文档。<br><a href="https://help.aliyun.com/knowledge_detail/59330.html?spm=a2c6h.13066369.0.0.6b957f94089Pc8&userCode=28kqeewo">通过VNC搭建Ubuntu 18.04和20.04图形界面</a></p>
+<span id="more"></span>
+
+<h2 id="通过drp实现内网穿透"><a href="#通过drp实现内网穿透" class="headerlink" title="通过drp实现内网穿透"></a>通过drp实现内网穿透</h2><p>因为有在远端连接实验室电脑的需求，简单了解了一下frp的配置。首先要利用到具有公网ip的云服务器作为跳转，就可以访问在内网的实验室主机了。  </p>
+<p>这是frp的官方文档<a href="https://gofrp.org/docs/examples/ssh/">通过 SSH 访问内网机器</a>  </p>
+<ol>
+<li><p>在服务器端（此处为阿里云），安装drps。在frp的github的release中，选择适合的版本的。我这里选择的是linux_amd64，右键复制链接。在合适的目录下，进行下载解压。或者手动下载和解压。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_amd64.tar.gz</span><br><span class="line"></span><br><span class="line">tar -xzvf frp_0.38.0_linux_amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">mv</span> frp_0.38.0_linux_amd64 frp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑服务器端的配置文件<code>frps.ini</code>。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br></pre></td></tr></table></figure>
+
+<p> 设置了 frp 服务器用户接收客户端连接的端口。<strong>记得在阿里云的安全组中，打开对应的端口</strong></p>
+</li>
+<li><p>启动服务器端。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接下来配置客户端，也就是要访问的远端服务器。下载解压重命名，同上操作，这里不再重复。</p>
+</li>
+<li><p>配置客服端文件<code>frpc.ini</code>  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[common]</span><br><span class="line"> server_addr = x.x.x.x</span><br><span class="line"> server_port = 7000</span><br><span class="line"></span><br><span class="line"> [ssh]</span><br><span class="line"> <span class="built_in">type</span> = tcp</span><br><span class="line"> local_ip = 127.0.0.1</span><br><span class="line"> local_port = 22</span><br><span class="line"> remote_port = 6000</span><br></pre></td></tr></table></figure>
+
+<p>frps 所在服务器的公网 IP 为 x.x.x.x。<br>local_ip 和 local_port 配置为本地需要暴露到公网的服务地址和端口。remote_port 表示在 frp 服务端监听的端口，访问此端口的流量将会被转发到本地服务对应的端口。</p>
+</li>
+<li><p>启动客户端。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>ssh -oPort=6000 test@x.x.x.x</code>.。通过访问，你设置的远端端口，即可访问到内网的主机。<strong>test为本机用户名，密码为本机密码!!</strong></p>
+</li>
+</ol>
+<p>可以参考的b站配置视频<a href="https://www.bilibili.com/video/BV16441187zf">https://www.bilibili.com/video/BV16441187zf</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2020/08/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+<hr>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<hr>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2>]]></content>
+  </entry>
+  <entry>
+    <title>计算属性 和 通过闭包给存储属性赋默认值 的区别</title>
+    <url>/2023/02/24/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-%E5%92%8C-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E7%BB%99%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E8%B5%8B%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<p>swift中的计算属性computated properties 和 通过闭包来给存储属性赋默认值这一行为，看起来很像，写一篇记录一下。这里的计算属性主要是针对，只读的计算属性（也就是没有set，同时对get和花括号进行了缩写）。</p>
+<p>先总结一下区别：</p>
+<ol>
+<li>计算属性不需要初始化，闭包赋值针对是默认初始化的赋值</li>
+<li>计算属性的花括号里可以访问self即其相关属性或方法，闭包赋值的花括号里是不能访问self的。（我的理解，property initializer里面都不能访问self）</li>
+<li>计算属性后面没有<code>=</code>，也有末尾的<code>()</code></li>
+</ol>
+<p>相同点，花括号里都能定义局部变量等。</p>
+<p>举一个只读计算变量例子起，很简单。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;  <span class="comment">// 这里没有等号</span></span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="number">2</span> <span class="operator">*</span> width  <span class="comment">// 可以访问self</span></span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    &#125;  <span class="comment">// 不需要代表立即执行的()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 0.0”</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来举一个正确的利用闭包给存储属性赋默认值</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;  <span class="comment">// 有等号</span></span><br><span class="line">        <span class="comment">// 不能访问self</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()  <span class="comment">// 需要立即执行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 10.0”</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来演示几个错误</p>
+<p>错误1，在闭包内访问<code>self</code></p>
+<p>报错<code>Cannot find &#39;self&#39; in scope</code></p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="keyword">self</span>.width  <span class="comment">// 错误1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>错误2，没有写代表立即执行的<code>()</code>，这样就相当于把一个类型为<code>()-&gt;Double</code>的闭包赋给一个变量。</p>
 ]]></content>
   </entry>
   <entry>
@@ -827,164 +985,6 @@
 <p>其实这些题目的本质，还是dfs，或者说还是二叉树的前序遍历，但是在这里是在两棵树同时遍历。</p>
 <h2 id="leetcode-617同种题型"><a href="#leetcode-617同种题型" class="headerlink" title="leetcode 617同种题型"></a>leetcode 617同种题型</h2><p>补充：</p>
 <p><a href="https://leetcode.cn/problems/merge-two-binary-trees/description/">leetcode 617 合并二叉树</a>同种题型</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>二分查找的理解</title>
-    <url>/2023/02/15/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%9A%84%E7%90%86%E8%A7%A3/</url>
-    <content><![CDATA[<p>二分查找很容易出现混淆的写法，本文从常见的二分查找的三种情况（查找特定元素，找第一个大于等于某个数的位置，找第一个大于某个数的位置），和以两道例题引出二分查找需要注意的细节问题，即关于中点的选择（偶数时，向左偏还是向右偏）。</p>
-<p>二分算法的<strong>难点是</strong>，对于while循环中几个难以区分的点。</p>
-<ol>
-<li><code>left &lt; right</code>还是<code>left &lt;= right</code></li>
-<li><code>left = mid + 1</code>还是<code>right = mid</code>或者其他划分区间的方法也可以</li>
-<li>输入是<code>0 ~ n-1</code>还是<code>0 ~ n</code></li>
-</ol>
-<span id="more"></span>
-
-<h2 id="查找某个具体的元素"><a href="#查找某个具体的元素" class="headerlink" title="查找某个具体的元素"></a>查找某个具体的元素</h2><p>对于升序的数组，查找每个具体的元素。</p>
-<p>以我个人的角度，我习惯输入<code>[0, n-1]</code>这个闭区间，从直观上来理解，这个区间的每个数，都有可能是我们要查找的答案。</p>
-<p><code>left &lt;= right</code>，这样选择的原因，一个角度是，<code>left == right</code>时，<code>mid</code>取到<code>left</code>，这个数仍然没有被判断到，这个等号是有意义的。另一个角度是，和<code>left &lt; right</code>不同，我们并不是要夹出某个具体的位置，如果<code>left</code>和<code>right</code>，交错开来，我们就返回-1。</p>
-<p>区间的划分，如果<code>a[mid]</code>不是我们要查找的数，那<code>mid</code>位置一定不是我们想要的。所以我们将区间<code>[left, right]</code>划分为<code>[left, mid - 1]</code>和<code>mid</code>（已排除）和<code>[mid + 1, right]</code>。换个同样表达的意思，<code>left = mid + 1</code>，<code>right = mid - 1</code></p>
-<p>示例代码，这里采取迭代的形式，递归形式可以很简单的转化，就不写了</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = n - <span class="number">1</span>;  <span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">while</span> (left &lt;= right) &#123;  <span class="comment">// 取等号</span></span><br><span class="line">    <span class="type">int</span> mid = left + (right - left)  <span class="comment">// 中点向左偏移</span></span><br><span class="line">    <span class="keyword">if</span> (a[mid] == target) &#123;</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">-1</span>;  <span class="comment">//找不到</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="找第一个大于等于某个元素的位置"><a href="#找第一个大于等于某个元素的位置" class="headerlink" title="找第一个大于等于某个元素的位置"></a>找第一个大于等于某个元素的位置</h2><p>可以针对非降序序列，如<code>[1,2,3,3,4]</code>找第一个大于等于3的位置，就是位置2。</p>
-<p>对应C++中标准库的</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>(), target)  <span class="comment">//返回迭代器</span></span><br><span class="line"><span class="built_in">lower_bound</span>(a, a + <span class="number">10</span>, target) <span class="comment">//数组</span></span><br></pre></td></tr></table></figure>
-
-<p>输入为<code>[0, n]</code>，为什么选<code>n</code>呢？因为最后一个位置的下一个，仍然可能是第一个大于等于的位置，如针对上面的序列，我们要找第一个大于等于10的位置，则是最后一个位置下一个。</p>
-<p><code>left &lt; right</code>如同上文所说，这样写的目的是<strong>夹出某个具体的位置</strong>，最后<code>left == right</code>时，返回<code>left</code>即是我们想要的答案。（当然<code>right</code>也一样）</p>
-<p>区间的划分：这里要加上理解才更好写。</p>
-<ol>
-<li><code>a[mid] == target</code>时，区间应该向<code>[left, mid]</code>收缩，因为<code>mid</code>这个位置有可能是第一个大于等于targeet的位置</li>
-<li><code>a[mid] &gt; target</code>时，同上，区间应该向<code>[left, mid]</code>收缩，因为<code>mid</code>这个位置有可能是第一个大于等于targeet的位置</li>
-<li><code>a[mid] &lt; target</code>时，区间应该向<code>[mid + 1, right]</code>收缩，因为<code>mid</code>一定不满足我们的要求。</li>
-</ol>
-<p>综上，也就是将区间<code>[left, right]</code>划分为<code>[left, mid]</code>和<code>[mid + 1, right]</code>。换个同样表达的意思，<code>left = mid + 1</code>，<code>right = mid</code></p>
-<p>示例代码</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = n;  <span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">while</span> (left &lt; right) &#123;  <span class="comment">// 取 &lt;</span></span><br><span class="line">    <span class="type">int</span> mid = left + (right - left)  <span class="comment">// 中点向左偏移</span></span><br><span class="line">    <span class="keyword">if</span> (a[mid] == target) &#123;</span><br><span class="line">        right = mid;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right = mid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> left;  <span class="comment">//找到期望的位置</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="找第一个大于某个元素的位置"><a href="#找第一个大于某个元素的位置" class="headerlink" title="找第一个大于某个元素的位置"></a>找第一个大于某个元素的位置</h2><p>可以针对非降序序列，如<code>[1,2,3,3,4]</code>找第一个大于等于3的位置，就是位置4。</p>
-<p>对于C++标准库</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">upper_bound</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>(), target);  <span class="comment">// 返回迭代器</span></span><br><span class="line"><span class="built_in">upper_bound</span>(a, a + n, target);  <span class="comment">// 返回位置吧</span></span><br></pre></td></tr></table></figure>
-
-<p>输入为<code>[0, n]</code>，为什么选<code>n</code>呢？因为最后一个位置的下一个，仍然可能是第一个等于的位置，如针对上面的序列，我们要找第一个大于10的位置，则是最后一个位置下一个。接下来，说些重复的话，但是区间划分的分析部分有所不同。</p>
-<p><code>left &lt; right</code>如同上文所说，这样写的目的是<strong>夹出某个具体的位置</strong>，最后<code>left == right</code>时，返回<code>left</code>即是我们想要的答案。（当然<code>right</code>也一样）</p>
-<p>区间的划分：这里要加上理解才更好写。</p>
-<ol>
-<li><code>a[mid] == target</code>时，区间应该向<code>[mid + 1, right]</code>收缩，因为<code>mid</code>一定不满足我们的要求。</li>
-<li><code>a[mid] &gt; target</code>时，同上，区间应该向<code>[left, mid]</code>收缩，因为<code>mid</code>这个位置有可能是第一个大于等于targeet的位置</li>
-<li><code>a[mid] &lt; target</code>时，区间应该向<code>[mid + 1, right]</code>收缩，因为<code>mid</code>一定不满足我们的要求。</li>
-</ol>
-<p>综上，也就是将区间<code>[left, right]</code>划分为<code>[left, mid]</code>和<code>[mid + 1, right]</code>。换个同样表达的意思，<code>left = mid + 1</code>，<code>right = mid</code></p>
-<p>示例代码</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> left = <span class="number">0</span>, right = n;  <span class="comment">//初始化</span></span><br><span class="line"><span class="keyword">while</span> (left &lt; right) &#123;  <span class="comment">// 取 &lt;</span></span><br><span class="line">    <span class="type">int</span> mid = left + (right - left)  <span class="comment">// 中点向左偏移</span></span><br><span class="line">    <span class="keyword">if</span> (a[mid] == target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[mid] &lt; target) &#123;</span><br><span class="line">        left = mid + <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        right = mid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> left;  <span class="comment">//找到期望的位置</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="关于中点选择的注意事项"><a href="#关于中点选择的注意事项" class="headerlink" title="关于中点选择的注意事项"></a>关于中点选择的注意事项</h2><p>对于偶数个项的数组，中点的选择有两种。如<code>[0, 1, 2, 3]</code>，中点位置可以选择位置1（向左偏移）和位置2（向右便宜）。这两种方式并不是随意选的，接下来将详细解释。</p>
-<ol>
-<li><p>偶数个数时，靠左取中间节点还是靠右取中间节点。</p>
-<p> 首先需要明确的是，对于奇数个数，两种写法都是取到中间节点。</p>
-<ul>
-<li><p>最常规的写法，取靠左的节点，如<code>0 1 2 3</code>，取节点1</p>
-<p>  以下两种写法完全等价</p>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> mid = (a + b) / <span class="number">2</span></span><br><span class="line"><span class="comment">// 为了防止溢出</span></span><br><span class="line"><span class="type">int</span> mid = a + (b - a) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>取靠右的节点，如<code>0 1 2 3</code>，取节点2</p>
-<p>  以下两种写法完全等价，推荐写法2来防止溢出</p>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> mid = (a + b + <span class="number">1</span>) / <span class="number">2</span></span><br><span class="line"><span class="comment">// 为了防止溢出</span></span><br><span class="line"><span class="type">int</span> mid = a + (b - a + <span class="number">1</span>) / <span class="number">2</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>以上两种写法，都是为了搜索区间只有两个元素的特殊情况服务的。</p>
-<ul>
-<li><p>当区间的更新逻辑为<code>left = mid + 1</code>和<code>right = mid</code>，也就是将原区间划分为<code>[left, mid]</code>和<code>[mid+1, right]</code>，<code>while(left &lt; right)</code>退出循环后，<code>left == right</code>成立，<code>mid</code>向==左==取可取。（这也是最常见的二种二分的写法）</p>
-<p>  ==原因==，如区间<code>[1,2]</code>，向左取中点，也就是<code>mid</code>更新为1，<code>left</code>更新为2，这样区间划分为<code>[1,1]</code>和<code>[2,2]</code>，夹出了我们想要的区间。</p>
-</li>
-<li><p>当区间的更新逻辑为<code>left = mid </code>和<code>right = mid-1</code>，也就是将原区间划分为<code>[left, mid-1]</code>和<code>[mid, right]</code>，<code>while(left &lt; right)</code>退出循环后，<code>left == right</code>成立，<code>mid</code>向==右==取可取。</p>
-<p>  ==原因==，如区间<code>[1,2]</code>，仍然继续向左取中间，也就是<code>mid</code>更新为1，<code>left</code>更新为==1==，区间更新为<code>[1, 0]</code>和<code>[1,2]</code>，有可能导致<code>left != right</code>或者陷入了更新的死循环。</p>
-</li>
-</ul>
-</li>
-</ol>
-<p>例题1<a href="https://leetcode.cn/problems/sqrtx/">x 的平方根</a></p>
-<p>注意点夹出答案，特殊判断，向右取中点</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 这题我觉得有两点</span></span><br><span class="line">    <span class="comment">// 一个是输入边界的选择，我感觉[1, n]就可以了，n/2不知道又没有特殊情况（n&gt;4时适用）</span></span><br><span class="line">    <span class="comment">// 但是从数值角度来说，当右边为n/2，区间[1,1]对2，3也是成立的</span></span><br><span class="line">    <span class="comment">// 再一个int范围不够，要到long long才行</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = x;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="comment">// 向右取，不过说实话，这得后面更新策略出来了，才能知道</span></span><br><span class="line">            <span class="type">int</span> mid = left + (right - left + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid == x) &#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid &lt; x) &#123;</span><br><span class="line">                left = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>例题2<a href="https://leetcode.cn/problems/valid-perfect-square/">有效的完全平方数</a></p>
-<p>与查找具体某个元素完全类似</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="type">int</span> num)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = num;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid == num) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid &lt; num) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>计算属性 和 通过闭包给存储属性赋默认值 的区别</title>
-    <url>/2023/02/24/%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-%E5%92%8C-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E7%BB%99%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E8%B5%8B%E9%BB%98%E8%AE%A4%E5%80%BC-%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<p>swift中的计算属性computated properties 和 通过闭包来给存储属性赋默认值这一行为，看起来很像，写一篇记录一下。这里的计算属性主要是针对，只读的计算属性（也就是没有set，同时对get和花括号进行了缩写）。</p>
-<p>先总结一下区别：</p>
-<ol>
-<li>计算属性不需要初始化，闭包赋值针对是默认初始化的赋值</li>
-<li>计算属性的花括号里可以访问self即其相关属性或方法，闭包赋值的花括号里是不能访问self的。（我的理解，property initializer里面都不能访问self）</li>
-<li>计算属性后面没有<code>=</code>，也有末尾的<code>()</code></li>
-</ol>
-<p>相同点，花括号里都能定义局部变量等。</p>
-<p>举一个只读计算变量例子起，很简单。</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> &#123;  <span class="comment">// 这里没有等号</span></span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="number">2</span> <span class="operator">*</span> width  <span class="comment">// 可以访问self</span></span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    &#125;  <span class="comment">// 不需要代表立即执行的()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 0.0”</span></span><br></pre></td></tr></table></figure>
-
-<p>接下来举一个正确的利用闭包给存储属性赋默认值</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;  <span class="comment">// 有等号</span></span><br><span class="line">        <span class="comment">// 不能访问self</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()  <span class="comment">// 需要立即执行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> fourByFiveByTwo <span class="operator">=</span> <span class="type">Cuboid</span>(width: <span class="number">4.0</span>, height: <span class="number">5.0</span>, depth: <span class="number">2.0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;the volume of fourByFiveByTwo is <span class="subst">\(fourByFiveByTwo.volume)</span>&quot;</span>)</span><br><span class="line"><span class="comment">// 打印“the volume of fourByFiveByTwo is 10.0”</span></span><br></pre></td></tr></table></figure>
-
-<p>接下来演示几个错误</p>
-<p>错误1，在闭包内访问<code>self</code></p>
-<p>报错<code>Cannot find &#39;self&#39; in scope</code></p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Cuboid</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> width <span class="operator">=</span> <span class="number">0.0</span>, height <span class="operator">=</span> <span class="number">0.0</span>, depth <span class="operator">=</span> <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">var</span> volume: <span class="type">Double</span> <span class="operator">=</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> a <span class="operator">=</span> <span class="keyword">self</span>.width  <span class="comment">// 错误1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">10.0</span></span><br><span class="line">    &#125;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>错误2，没有写代表立即执行的<code>()</code>，这样就相当于把一个类型为<code>()-&gt;Double</code>的闭包赋给一个变量。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>self captured by a closure before all members were initialized错误解决</title>
-    <url>/2023/03/05/self-captured-by-a-closure-before-all-members-were-initialized%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/</url>
-    <content><![CDATA[<p>问题1</p>
-<p><em>代码1</em></p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        c <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>.a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>问题可以简化成这样，初始化器里，对c用闭包复制的那一行报了错误<code>&#39;self&#39; captured by a closure before all members were initialized</code></p>
-<span id="more"></span>
-
-<p>原因，我大概明白了。在于Swift文档，闭包那一章里的值捕获那一节。因为在这个闭包里，使用了<code>self.a</code>或者隐式<code>a</code>，这样就捕获了<code>self</code>instance，而<strong>重点来了</strong>，<code>self</code>这个实例，我们没有对<code>c</code>实例化，而矛盾的是，我们正要对<code>c</code>实例化。其实写成以下<em>代码2</em>形式也是错的。</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span>  <span class="comment">// 还是报同样的错误</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">        c <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>也就是说，在这个闭包里，假如捕获（使用）了self的属性，则必须满足self instance已经完全被实例化</strong></p>
-<p>所以针对<em>代码2</em>，自然想到有以下解决方法。</p>
-<ul>
-<li>方法1，在初始化器中把c的值提前赋上（在闭包捕获<code>self</code>实例前）</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        c <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>方法2 给c一个默认值</li>
-</ul>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span> <span class="operator">=</span> <span class="number">4</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方法1，2都保证了，在闭包捕获<code>self</code>实例前，已经完全初始化完成。</p>
-<p>方法3，设成optional类型，或者隐式的optional类型。这样保证了，在初始化实例时，暂时可以不管<code>c</code>。</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">func</span> <span class="title function_">toy</span>(<span class="params">create</span>: (<span class="type">Int</span>) -&gt; <span class="type">Int</span>) -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span>?</span><br><span class="line">    <span class="comment">// 或者写成</span></span><br><span class="line">    <span class="comment">// var c: Int!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy &#123; <span class="keyword">_</span> <span class="keyword">in</span></span><br><span class="line">            a</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>针对代码1，方法1显然很多余，我既然能对c赋值，为什么要用闭包复制。方法2，也显得累赘。我觉得使用<code>c!</code>，在一次初始化之后，<code>c</code>就一直会有值，满足我的需求。</p>
-<p>另一种想法是把闭包写成函数是不是，就没有问题啦呢？示例如下</p>
-<p>如果写成类的method，仍然是一样的效果</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">func</span> <span class="title function_">toy</span>() -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        <span class="keyword">let</span> d <span class="operator">=</span> toy()</span><br><span class="line">        c <span class="operator">=</span> <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第13行<code>let d = toy()</code>报错，<code>&#39;self&#39; used before all stored properties are initialized</code>，错误类似。</p>
-<p>如果我们执意要使用函数，可以把设定成<code>static</code>类型，应该就没有问题了。如下：</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Element</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> a: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> b: <span class="type">Int</span></span><br><span class="line">    <span class="keyword">var</span> c: <span class="type">Int</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">func</span> <span class="title function_">toy</span>() -&gt; <span class="type">Int</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">12345</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        a <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">        b <span class="operator">=</span> <span class="number">2</span></span><br><span class="line">        c <span class="operator">=</span> <span class="type">Element</span>.toy()  <span class="comment">// 使用type method</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
   </entry>
   <entry>
@@ -2542,6 +2542,168 @@
 <p>  一般见到就是用一个方括号写在函数参数的定义之前<code>[weak self]</code></p>
 </li>
 </ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>回溯问题总结</title>
+    <url>/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<p>排列组合问题总结：</p>
+<p><img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/image-20221209103541562.png" alt="image-20221209103541562"></p>
+<p>注意，**图写错了，是<code>!used[i-1]</code> **，其实在组合数里也可以用这种剪枝手段</p>
+<span id="more"></span>
+
+<h4 id="剪枝手段总结"><a href="#剪枝手段总结" class="headerlink" title="剪枝手段总结"></a>剪枝手段总结</h4><ol>
+<li><p>**图写错了，是<code>!used[i-1]</code> **，其实==在组合数里也可以用这种剪枝手段==</p>
+<p> 这种剪枝手段利用的是，两个数相同的数必须按照规定的顺序出现，否则就剪枝。如$2^{1}, 2^{2}$，这两个$2$，必须按照上标为1的2先出现，否则就剪枝</p>
+</li>
+<li><p><strong>还有一点，还有一种剪枝手段，和组合里剪枝一样，对同一个树枝分叉来剪，也就是同一级的。或者说，前一个（具体看labuladong说的读者的做法</strong></p>
+<p> 这种剪枝手段就是我们写的<code>i &gt; start &amp;&amp; nums[i] == nums[i-1]</code>。我觉得这在树状图上更好理解，也就是说for循环里的是树的同一层，不允许树的同一层中，右边的节点和左边的节点相同。</p>
+</li>
+<li><p>不允许事先排序的剪枝，<a href="https://leetcode.cn/problems/non-decreasing-subsequences/solutions/">491. 递增子序列</a>，因为要保持序列的顺序，和我们第二种取子集的手段不同。</p>
+<p> <strong>这里的本质是，同一层，不允许出现相同值的元素，于是引入一个set，记录本层中已经出现过元素的值，如果for循环里，又再次出现了这个值，则不允许</strong></p>
+ <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unorder_set&lt;<span class="type">int</span>&gt; st; <span class="comment">// 每一层拥有一个</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = start; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (set.<span class="built_in">count</span>(nums[i]) &#123;</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        set.<span class="built_in">insert</span>(nums[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<blockquote>
+<p>这里与《算法笔记》的选/不选的写法不同，那样写可以保证输出的顺序。而leetcode里的输出顺序是任意的，我也没有再继续往下思考了。</p>
+</blockquote>
+<p>今天又看到求组合数中，进一步剪枝的思路。也就是n个数，求K个数的组合。当第一层对K叉树回溯的时候，靠后的节点根本建不出一个到叶子节点长度为K的树，可以进一步剪掉。<a href="https://www.programmercarl.com/0077.%E7%BB%84%E5%90%88%E4%BC%98%E5%8C%96.html#%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%E7%89%88%E6%9C%AC">https://www.programmercarl.com/0077.组合优化.html#其他语言版本</a></p>
+<p><a href="https://labuladong.gitee.io/algo/1/8/">labuladong回溯算法套路框架</a></p>
+<p>回溯，dfs，与递归。我觉得，回溯算法和dfs算法基本是一致的，但是labuladong说，<strong>回溯算法是在遍历「树枝」，DFS 算法是在遍历「节点」</strong>，==暂时没有理解。==对于多叉树的遍历，也有区别</p>
+<p><img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E6%88%AA%E5%B1%8F2022-10-2511.28.03.png" alt="截屏2022-10-25 11.28.03"></p>
+<p>我的理解，回溯算法本质上是对一颗K叉树的遍历，在遍历时会利用约束条件进行剪枝（如，没有重复数字的全排列，要求数字不能重复出现），最终到达叶子节点时，就是到达了递归的边界。从根节点，到叶子节点，所经过的节点，就是最终选择的路径，题目中时常要求输出（如，全排列中的节点，代表一种全排列组合）。</p>
+<p>回溯算法框架：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">result = []</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">backtrack</span>(<span class="params">路径, 选择列表</span>):</span><br><span class="line">    <span class="keyword">if</span> 满足结束条件:</span><br><span class="line">        result.add(路径)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> 选择 <span class="keyword">in</span> 选择列表:</span><br><span class="line">        做选择  <span class="comment"># 前序遍历</span></span><br><span class="line">        backtrack(路径, 选择列表)</span><br><span class="line">        撤销选择  <span class="comment"># 后序遍历</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>这里要理解的几个点：</p>
+<ul>
+<li><p>满足结束条件，我的理解是到达了叶子节点，全排列问题中，是一颗n叉树，n颗子树代表，这一层（也就是第i位），选择哪一个数字。n位数，每次都为第i位选个数字，选到第n个数时（从0开始），即到达叶子节点。</p>
+<p>  八皇后问题，是一颗n叉树，n颗子树代表，这一层（也就是第i行），选择在哪一列放皇后。如果按照从上到下，为每一行选择列来看，选完n行即为到达叶子节点。</p>
+<p>  背包问题的回溯写法==？==是一颗二叉树，左子树代表选择，右子树代表不选择。同样也是选完n个物品，即到达了叶子节点。（这里我疑惑的是，能不能按照for循环的方法来写这个选或者不选的dfs==？==</p>
+<p>  总结步骤，<strong>按照题意构造出K叉树，找到每一层选择的意义，和到达叶子节点的条件</strong></p>
+</li>
+<li><p><code>for 选择 in 选择列表:</code>，在这里选择列表表面意义上是动态更新的，实际实现时，是在做选择之前，进行剪枝。剪枝可以通过两种方式，一种是可以继续，就往下。第二种，不可继续，则continue。</p>
+</li>
+<li><p>对<code>做选择</code>和<code>撤销选择的理解</code></p>
+<p>  <img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E6%88%AA%E5%B1%8F2022-10-2511.28.45.png" alt="截屏2022-10-25 11.28.45"></p>
+<p>  <code>做选择</code>实际上是<code>前序遍历</code>，<code>撤销选择</code>是<code>后序遍历</code></p>
+<p>  <strong>前序遍历的代码在进入某一个节点之前的那个时间点执行，后序遍历代码在离开某个节点之后的那个时间点执行</strong>。==值得注意的是，这里是相对即将进入的节点而言，按照对当前节点理解的话，代码又会做出改变==</p>
+<p>  在即将进入节点之前，如设置isVisited[i]为true，将children节点代表的值，添加进当前遍历的路径之中就可以理解了。</p>
+</li>
+</ul>
+<h4 id="如果只想要一个合法的结果"><a href="#如果只想要一个合法的结果" class="headerlink" title="如果只想要一个合法的结果"></a>如果只想要一个合法的结果</h4><p>好好理解，为什么加上true的返回值，以及何时加。在递归终点加？true的原因，是想就在这里结束了。后面两个加true和false的原因呢？if之后返回true，也就是代表了出这个节点，出这个节点之后，一般要撤销选择的状态，然后继续for循环，在这里直接打断了for循环。最后一个return false，是为了让上一级的for循环继续？？？（==看上面的解释吧==</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">// 函数找到一个答案后就返回 true</span><br><span class="line"><span class="built_in">bool</span> backtrack(vector&lt;string&gt;&amp; board, <span class="built_in">int</span> row) &#123;</span><br><span class="line">    // 触发结束条件</span><br><span class="line">    <span class="keyword">if</span> (row == board.size()) &#123;</span><br><span class="line">        res.push_back(board);</span><br><span class="line">        <span class="keyword">return</span> true;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> col = <span class="number">0</span>; col &lt; n; col++) &#123;</span><br><span class="line">        ...</span><br><span class="line">        board[row][col] = <span class="string">&#x27;Q&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (backtrack(board, row + <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> true;</span><br><span class="line">        </span><br><span class="line">        board[row][col] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="关于for-选择-in-选择列表这一点"><a href="#关于for-选择-in-选择列表这一点" class="headerlink" title="关于for 选择 in 选择列表这一点"></a>关于for 选择 in 选择列表这一点</h4><p>可以把for循环拆分，因为全排列和八皇后写For循环，本质是因为下面要用到诸如w[i]这样的东西。这样我写成n个拆开的trackback(index+1)，本质上应该是一样的。我们再考虑到dfs中，选与不选的二叉树问题，写法如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">DFS</span>(index + <span class="number">1</span>, sumW, sumC);  <span class="comment">// 不选第index</span></span><br><span class="line"><span class="built_in">DFS</span>(index + <span class="number">1</span>, sumW + w[index], sumC + c[index]); <span class="comment">//选</span></span><br></pre></td></tr></table></figure>
+
+<p>这就是展开的写法，在这里如果想要<em>参数列表</em>，变得更加简单，我觉得如下的写法也是等价的，这样我们的框架就变得更加的统一了。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">DFS</span>(index + <span class="number">1</span>);  <span class="comment">// 不选， 前后不需要进行操作，进出节点，都不需要操作</span></span><br><span class="line">sumW += w[index];</span><br><span class="line">sumC += c[index];</span><br><span class="line"><span class="built_in">DFS</span>(index + <span class="number">1</span>);  <span class="comment">// 选</span></span><br><span class="line">sumW -= w[index];</span><br><span class="line">sumC -= c[index];</span><br></pre></td></tr></table></figure>
+
+<p>其实将这两项写在参数里，<strong>隐式</strong>地表明了出操作的意思，出节点时，sum其实自动地减掉了，就不用再手动写了。</p>
+<h4 id="关于有多个边界条件"><a href="#关于有多个边界条件" class="headerlink" title="关于有多个边界条件"></a>关于有多个边界条件</h4><p>有多个边界条件，或者说是约束，什么条件作为最终的输出条件，什么条件作为剪枝的条件呢？也就是说，到达叶子节点并不是唯一，或者说最终的条件。</p>
+<p>如果题中明确指出了，结束的条件，如选择K个数，且和为sum，那么一般这个就是最终的结束条件。其他的边界条件，可以放在最终条件下面那个if判断后return，就是一个剪枝的过程，和在For循环里continue是一个意思。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><a href="https://leetcode.cn/problems/permutations/solutions/9914/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/">leetcode题解的总结</a></p>
+<p>这个总结，我觉得说的不错。可以好好看看</p>
+<p>做题的时候，建议<strong>先画树形图</strong> ，画图能帮助我们想清楚递归结构，想清楚如何剪枝。拿题目中的示例，想一想人是怎么做的，一般这样下来，这棵递归树都不难画出。</p>
+<p>在画图的过程中思考清楚：</p>
+<ul>
+<li><p>分支如何产生；</p>
+</li>
+<li><p>题目需要的解在哪里？是在<strong>叶子结点、还是在非叶子结点、还是在从跟结点到叶子结点的路径？</strong></p>
+</li>
+<li><p>哪些搜索会产生不需要的解的？例如：产生重复是什么原因，如果在浅层就知道这个分支不能产生需要的结果，应该提前剪枝，剪枝的条件是什么，代码怎么写？</p>
+</li>
+</ul>
+<h4 id="回溯算法中的排列，组合，子集问题"><a href="#回溯算法中的排列，组合，子集问题" class="headerlink" title="回溯算法中的排列，组合，子集问题"></a>回溯算法中的排列，组合，子集问题</h4><p><a href="https://labuladong.gitee.io/algo/1/9/">回溯算法秒杀所有排列-组合-子集问题</a></p>
+<p>主要问题是在，目前遇到了两种写法，体现在树的构造不同上。主要有三个问题。</p>
+<ol>
+<li><p>无重复元素，且不可重复选取</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有重复元素，不可重复选取（这里的难点在剪枝上</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span><span class="string">&#x27;]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无重复元素，但是可以重复选取</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h5 id="无重复元素且不可重复选取"><a href="#无重复元素且不可重复选取" class="headerlink" title="无重复元素且不可重复选取"></a>无重复元素且不可重复选取</h5><p>还是以<code>a = [1, 2, 3]</code>为例子，每个类型基本都是三个问题，子集(subset)，组合(combine)，排列(permute)。</p>
+<ol>
+<li><p>子集</p>
+<p> a的子集有 $2^n$ 个，分别是<code>[],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]</code>。</p>
+<p> 第一步，构造树，树的构造方法有两种，一种是基于For循环的，一种是基于选与不选的二叉树的。</p>
+<p> <img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E6%88%AA%E5%B1%8F2022-10-2717.13.58.png" alt="截屏2022-10-27 17.13.58"></p>
+<p> Q: 为什么要这么构造树</p>
+<blockquote>
+<p>因为<code>[1, 2]</code>和<code>[2, 1]</code>是同一子集，为了避免重复。我们可以在枚举的时候，保持原序列的<strong>顺序不变</strong>。即，我们当枚举到2时，只会从3开始往后枚举，不会再看之前的元素。在这里是在for循环时，使用了<code>start</code>来实现</p>
+</blockquote>
+<p> Q: 答案在哪里？</p>
+<blockquote>
+<p>答案是根节点到所有节点的路径，或者说，答案是所有的节点都行</p>
+</blockquote>
+<p> Q: 边界在哪？</p>
+<blockquote>
+<p>代码中并没有像之前的模板一样，在边界处进行返回。这里的边界（并不是答案的边界）暗藏在for循环里，如果不写if返回语句，仍然会在for循环结尾遇到n时，自动返回上一级。</p>
+</blockquote>
+<p> 第二种构造方法，基于选或者不选的二叉树</p>
+<p> <img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/image-20221027191620910.png" alt="image-20221027191620910"></p>
+<p> 不同之处在于，边界（答案边界）在叶子节点</p>
+</li>
+<li><p>组合</p>
+<p> 组合的结果$C_{n}^{k}$，同样是会出现和子集一样的重复枚举的问题，在这种情况下，只需要在子集的情况下，加一个约束k，作为结果的边界来返回。</p>
+<p> <img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E6%88%AA%E5%B1%8F2022-10-2719.09.44.png" alt="截屏2022-10-27 19.09.44"></p>
+<p> 方法二</p>
+<p> 也是基于二叉树的，同样引入约束k，在k=2时返回答案，k&gt;2时剪枝</p>
+</li>
+<li><p>全排列</p>
+<p> 全排列不能像子集和组合一样，它需要看到在a[i]之前的元素。所以不需要<code>start</code>来帮助，同前文中说的一样，这是一颗n叉树，使用<code>used[i]</code>来进行剪枝。</p>
+</li>
+</ol>
+<h5 id="有重复元素且不可重复选取"><a href="#有重复元素且不可重复选取" class="headerlink" title="有重复元素且不可重复选取"></a>有重复元素且不可重复选取</h5><p>需要记住的重要的一点，==重复元素下的剪枝，需要先排序==</p>
+<ol>
+<li><p>子集/组合</p>
+<p> 与前文中所说的无重复元素且不可重复选取不同点在于，对于<strong>重复元素的剪枝</strong>。我们仍然保留，<code>start</code>来进行剪枝，因为都是子集，不需要回头看。接下来，我们需要解决的是，$2$和$2^{‘}$带来的重复问题。也就是说，$[1, 2]$和$[1, 2^{‘}]$是同一个集合。</p>
+<p> <img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E6%88%AA%E5%B1%8F2022-10-2818.36.01.png" alt="截屏2022-10-28 18.36.01"></p>
+<p> 注意剪枝条件中的<code>i &gt; start</code>，这一点非常重要，前万不要写成<code>i &gt; 0</code></p>
+</li>
+<li><p>全排列</p>
+<p> 全排列问题，主要是为了解决在一般排列基础上所带来的的相同数字本身的一个排列所带来的重复问题。如$[1, 2, 2^{‘}]$和$[1, 2^{‘}, 2]$所带来的重复。对于，有三个数字的全排列个数为$\frac{A_{3}^{3}}{A_{2}^{2}}=3$。</p>
+<p> <strong>只要我们保证，$2, 2^{‘}, 2^{‘’}$**只按这个</strong>顺序**出现，那么就可以避免重复的问题。</p>
+<p> ![截屏2022-10-28 18.46.21](回溯问题总结/截屏2022-10-28 18.46.21.png)</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i &gt; <span class="number">0</span> &amp;&amp; num[i] == num[i-<span class="number">1</span>] &amp;&amp; !used[i-<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>在保留前文<code>used[i]</code>对一般情况全排列剪枝的前提下，新增加的剪枝。</p>
+<p>如果没有<code>!used[i-1]</code>，这一条件对顺序的约束，那么会出现什么情况</p>
+<p><img src="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/%E6%88%AA%E5%B1%8F2022-10-2818.47.09.png" alt="截屏2022-10-28 18.47.09"></p>
+<h5 id="元素不重复可复选"><a href="#元素不重复可复选" class="headerlink" title="元素不重复可复选"></a>元素不重复可复选</h5><ol>
+<li><p>子集/组合问题</p>
+<p> 这同样是在元素不重复可复选的基础上，将每次<code>i + 1</code>来控制<code>start</code>，转化为<code>i</code>即可</p>
+</li>
+<li><p>全排列</p>
+<p> 这个全排列问题感觉没有什么意义，就是$2^{n}$枚举</p>
+</li>
+</ol>
+<h5 id="二叉树的建树方式"><a href="#二叉树的建树方式" class="headerlink" title="二叉树的建树方式"></a>二叉树的建树方式</h5><p>树的每一级代表选不选这个元素，左边是不选，右边是选。相对于前面的建树方式，<strong>这种建树方式应该可以保证</strong>==字典序==的输出。这么说来，算法笔记针对PAT用这种建树方式也是可以理解了。</p>
+<ol>
+<li><p>元素不重复不可复选</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DFS(index + <span class="number">1</span>, <span class="built_in">sum</span>)  //不选</span><br><span class="line"></span><br><span class="line">trace.push_back(num[i])</span><br><span class="line">DFS(index + <span class="number">1</span>, <span class="built_in">sum</span> + num[i]) //选</span><br><span class="line">trace.pop_back()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>元素重复不可复选</p>
+<p> 这里我暂时没有想好，用二叉树的方式怎么进行剪枝去除重复</p>
+</li>
+<li><p>元素不重复可复选</p>
+<p> 同前文，将<code>index + 1</code>改为<code>index</code>即可</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DFS(index + <span class="number">1</span>, <span class="built_in">sum</span>)  //不选</span><br><span class="line"></span><br><span class="line">trace.push_back(num[i])</span><br><span class="line">DFS(index, <span class="built_in">sum</span> + num[i]) //选</span><br><span class="line">trace.pop_back()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
 ]]></content>
   </entry>
 </search>
