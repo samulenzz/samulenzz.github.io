@@ -22,17 +22,19 @@
     var CONFIG = {"hostname":"samulenzz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="记录一点学习轨迹">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sam&#39;s blog">
-<meta property="og:url" content="https://samulenzz.github.io/archives/2020/08/index.html">
+  <meta name="description" content="用vscode连接远程服务器时，经常过段时间就出现一个现象。 可以通过终端的命令行正常的连接远程的服务器； 但是通过vscode连接时，需要反复的输入密码无法连接。重启vscode，删除.ssh文件夹下的内容也都不好使。 解决方法：https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43937790&#x2F;article&#x2F;details&#x2F;128039464 有效策略：通过终端ssh链接服务器。在h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode远程ssh反复输入密码连接不上">
+<meta property="og:url" content="https://samulenzz.github.io/2023/06/04/vscode%E8%BF%9C%E7%A8%8Bssh%E5%8F%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A/index.html">
 <meta property="og:site_name" content="Sam&#39;s blog">
-<meta property="og:description" content="记录一点学习轨迹">
+<meta property="og:description" content="用vscode连接远程服务器时，经常过段时间就出现一个现象。 可以通过终端的命令行正常的连接远程的服务器； 但是通过vscode连接时，需要反复的输入密码无法连接。重启vscode，删除.ssh文件夹下的内容也都不好使。 解决方法：https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43937790&#x2F;article&#x2F;details&#x2F;128039464 有效策略：通过终端ssh链接服务器。在h">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-04T07:47:26.000Z">
+<meta property="article:modified_time" content="2023-06-06T07:57:00.000Z">
 <meta property="article:author" content="samule">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://samulenzz.github.io/archives/2020/08/">
+<link rel="canonical" href="https://samulenzz.github.io/2023/06/04/vscode%E8%BF%9C%E7%A8%8Bssh%E5%8F%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A/">
 
 
 <script id="page-configurations">
@@ -40,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Sam's blog</title>
+  <title>vscode远程ssh反复输入密码连接不上 | Sam's blog</title>
   
 
 
@@ -184,50 +186,104 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 19 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/06/04/vscode%E8%BF%9C%E7%A8%8Bssh%E5%8F%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/baobao.jpg">
+      <meta itemprop="name" content="samule">
+      <meta itemprop="description" content="记录一点学习轨迹">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sam's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          vscode远程ssh反复输入密码连接不上
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-04 15:47:26" itemprop="dateCreated datePublished" datetime="2023-06-04T15:47:26+08:00">2023-06-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-06-06 15:57:00" itemprop="dateModified" datetime="2023-06-06T15:57:00+08:00">2023-06-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>用vscode连接远程服务器时，经常过段时间就出现一个现象。</p>
+<p>可以通过终端的命令行正常的连接远程的服务器；</p>
+<p>但是通过vscode连接时，需要反复的输入密码无法连接。重启vscode，删除<code>.ssh</code>文件夹下的内容也都不好使。</p>
+<p>解决方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43937790/article/details/128039464">https://blog.csdn.net/weixin_43937790/article/details/128039464</a></p>
+<p>有效策略：通过终端ssh链接服务器。在home目录下：<code>rm -rf ./.vscode-server</code>。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+        
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-30T10:58:45+08:00"
-              content="2020-08-30">
-          08-30
-        </time>
-      </div>
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>samule
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://samulenzz.github.io/2023/06/04/vscode%E8%BF%9C%E7%A8%8Bssh%E5%8F%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A/" title="vscode远程ssh反复输入密码连接不上">https://samulenzz.github.io/2023/06/04/vscode远程ssh反复输入密码连接不上/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/30/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" itemprop="url">
-            <span itemprop="name">我的第一篇博客文章</span>
-          </a>
-      </div>
 
-    </header>
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/01/%E5%9B%9E%E6%BA%AF%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" rel="prev" title="回溯问题总结">
+      <i class="fa fa-chevron-left"></i> 回溯问题总结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
