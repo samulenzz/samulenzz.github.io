@@ -22,26 +22,22 @@
     var CONFIG = {"hostname":"samulenzz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。本文会介绍根据仓库名字，readme内容，description内容，star数，语言以及最近推送时间做限制条件来进行搜索。首先以一个仓库的页面来介绍上述名字的意思">
+  <meta name="description" content="主要参考内容，官网文档https:&#x2F;&#x2F;zh-hans.react.dev&#x2F;learn&#x2F;queueing-a-series-of-state-updates 主要讲了两点。 一、对于setXXX，会触发re-render，react会做出什么样的行为？ 二、对于setXXX的参数，有两种形式，他们之间的异同">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GitHub搜索开源项目技巧">
-<meta property="og:url" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:title" content="对react中setState操作的理解">
+<meta property="og:url" content="https://samulenzz.github.io/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Sam&#39;s blog">
-<meta property="og:description" content="本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。本文会介绍根据仓库名字，readme内容，description内容，star数，语言以及最近推送时间做限制条件来进行搜索。首先以一个仓库的页面来介绍上述名字的意思">
+<meta property="og:description" content="主要参考内容，官网文档https:&#x2F;&#x2F;zh-hans.react.dev&#x2F;learn&#x2F;queueing-a-series-of-state-updates 主要讲了两点。 一、对于setXXX，会触发re-render，react会做出什么样的行为？ 二、对于setXXX的参数，有两种形式，他们之间的异同">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic2.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic3.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic4.png">
-<meta property="og:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic5.png">
-<meta property="article:published_time" content="2021-01-23T08:34:34.000Z">
-<meta property="article:modified_time" content="2022-02-08T14:25:13.951Z">
+<meta property="og:image" content="https://samulenzz.github.io/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/%E6%88%AA%E5%B1%8F2023-06-2616.03.18.png">
+<meta property="og:image" content="https://samulenzz.github.io/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/%E6%88%AA%E5%B1%8F2023-06-2616.04.07.png">
+<meta property="article:published_time" content="2023-06-26T08:20:00.000Z">
+<meta property="article:modified_time" content="2023-06-26T08:30:58.000Z">
 <meta property="article:author" content="samule">
-<meta property="article:tag" content="GitHub">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png">
+<meta name="twitter:image" content="https://samulenzz.github.io/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/%E6%88%AA%E5%B1%8F2023-06-2616.03.18.png">
 
-<link rel="canonical" href="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/">
+<link rel="canonical" href="https://samulenzz.github.io/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -54,7 +50,7 @@
   };
 </script>
 
-  <title>GitHub搜索开源项目技巧 | Sam's blog</title>
+  <title>对react中setState操作的理解 | Sam's blog</title>
   
 
 
@@ -200,7 +196,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/baobao.jpg">
@@ -213,7 +209,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GitHub搜索开源项目技巧
+          对react中setState操作的理解
         </h1>
 
         <div class="post-meta">
@@ -222,16 +218,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-01-23 16:34:34" itemprop="dateCreated datePublished" datetime="2021-01-23T16:34:34+08:00">2021-01-23</time>
+              <time title="创建时间：2023-06-26 16:20:00 / 修改时间：16:30:58" itemprop="dateCreated datePublished" datetime="2023-06-26T16:20:00+08:00">2023-06-26</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-02-08 22:25:13" itemprop="dateModified" datetime="2022-02-08T22:25:13+08:00">2022-02-08</time>
-              </span>
 
           
 
@@ -244,19 +234,58 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本文主要介绍使用GitHub搜索栏时的搜索技巧，我们平时搜索时一般在在搜索栏中直接键入内容。<br>本文会介绍根据<strong>仓库名字，readme内容，description内容，star数，语言以及最近推送时间</strong>做限制条件来进行搜索。<br>首先以一个仓库的页面来介绍上述名字的意思<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic1.png" alt="spring_boot仓库界面"></p>
+        <p>主要参考内容，官网文档<a target="_blank" rel="noopener" href="https://zh-hans.react.dev/learn/queueing-a-series-of-state-updates">https://zh-hans.react.dev/learn/queueing-a-series-of-state-updates</a></p>
+<p>主要讲了两点。</p>
+<p>一、对于setXXX，会触发re-render，react会做出什么样的行为？</p>
+<p>二、对于setXXX的参数，有两种形式，他们之间的异同</p>
 <span id="more"></span>
-<p>接下来介绍在搜索框中的操作</p>
-<h2 id="根据仓库名字进行搜索"><a href="#根据仓库名字进行搜索" class="headerlink" title="根据仓库名字进行搜索"></a>根据仓库名字进行搜索</h2><p><code>in:name spring boot</code>表示仓库的名字中带有spring boot</p>
-<h2 id="根据readme内中的内容来进行搜索"><a href="#根据readme内中的内容来进行搜索" class="headerlink" title="根据readme内中的内容来进行搜索"></a>根据readme内中的内容来进行搜索</h2><p><code>in:readme 微服务</code>readme中含有“微服务”的仓库会被搜索</p>
-<h2 id="根据description的内容来进行搜索"><a href="#根据description的内容来进行搜索" class="headerlink" title="根据description的内容来进行搜索"></a>根据description的内容来进行搜索</h2><p>description内容一般是对项目的简单描述，根据description来进行搜索会更加的准确<br><code>in:description spring boot stars:&gt;3000</code>表示在限定仓库描述中含有spring boot的同时，stars数大于3000</p>
-<hr>
-<h2 id="搜索时限定stars数"><a href="#搜索时限定stars数" class="headerlink" title="搜索时限定stars数"></a>搜索时限定stars数</h2><p><code>in:name spring boot stars:&gt;3000</code>表示在限定仓库名字中含有spring boot的同时，要求仓库的stars数大于3000</p>
-<h2 id="搜索时限定语言"><a href="#搜索时限定语言" class="headerlink" title="搜索时限定语言"></a>搜索时限定语言</h2><p><code>in:description spring boot language:Java</code>在限定仓库的description中含有spring boot的同时，限定语言为Java来进行搜索</p>
-<h2 id="搜索时限定最近推送时间"><a href="#搜索时限定最近推送时间" class="headerlink" title="搜索时限定最近推送时间"></a>搜索时限定最近推送时间</h2><p><code>in:description spring boot language:Java pushed:&gt;2019-09-03</code>搜索description中含有spring boot且使用Java语言，且最近一次更新时间在2019-09-03之前进行搜索。</p>
-<hr>
-<h2 id="简单演示"><a href="#简单演示" class="headerlink" title="简单演示"></a>简单演示</h2><p>单独搜索spring boot<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic2.png" alt="pic2"><br>在description中搜索spring boot基础，可以看到spring boot官方那个仓库已被筛除<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic3.png" alt="pic3"><br>加上限制条件，stars数要求大于1000，可以看到上一张图的最后一个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic4.png" alt="pic4"><br>再加上限制条件，要求最后一个push时间要晚于2019-01-01号，可以看到更新与18年的那个仓库被筛除了<br><img src="/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/pic5.png" alt="pic5"></p>
-<p>本文完全参考了B站up主codesheep的视频，来源如下<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yJ411S7Wu?from=search&seid=13430377427568355855">如何高效地在网上找开源项目做！在职程序员实际演示一波视频教程操作</a><br>另，在github的advanced search中有更多的高级搜索选项。</p>
+
+<h2 id="setXXX的参数的两种形式"><a href="#setXXX的参数的两种形式" class="headerlink" title="setXXX的参数的两种形式"></a>setXXX的参数的两种形式</h2><p>如图所示。</p>
+<p><img src="/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/%E6%88%AA%E5%B1%8F2023-06-2616.03.18.png" alt="截屏2023-06-26 16.03.18"></p>
+<p><img src="/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/%E6%88%AA%E5%B1%8F2023-06-2616.04.07.png" alt="截屏2023-06-26 16.04.07"></p>
+<h2 id="setXXX触发re-render时，做了什么？"><a href="#setXXX触发re-render时，做了什么？" class="headerlink" title="setXXX触发re-render时，做了什么？"></a>setXXX触发re-render时，做了什么？</h2><p>以官网中这个例子作为解释最好</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;() =&gt; &#123;</span><br><span class="line">  setNumber(number + 5);</span><br><span class="line">  setNumber(n =&gt; n + 1);</span><br><span class="line">  setNumber(42);</span><br><span class="line">&#125;&#125;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>react在处理这个event handler的时候，大的流程：</p>
+<ol>
+<li>遇到setXXX时，将其放入队列。然后继续向后执行。</li>
+<li>下一渲染时，执行到<code>useState</code>函数，在队列中，从前往后进行执行，最后返回的值给state，用这个state来做snapshot中用来渲染UI的值。</li>
+</ol>
+<p>将setXXX放入队列的过程：</p>
+<p>因为上文提到，纯数值为参数的setXXX，等同于setXXX(n =&gt; a_number)。</p>
+<p>对于函数形式，参数<code>n</code>接收队列中，上一个函数返回的值，或者state的初始状态。</p>
+<p>对上述例子，操作为：</p>
+<ol>
+<li><code>setNumber(number + 5)</code>：<code>number</code> 为 <code>0</code>，所以 <code>setNumber(0 + 5)</code>。React 将 <em>“替换为 <code>5</code>”</em> 添加到其队列中。</li>
+<li><code>setNumber(n =&gt; n + 1)</code>：<code>n =&gt; n + 1</code> 是一个更新函数。React 将该函数添加到其队列中。</li>
+<li><code>setNumber(42)</code>：React 将 <em>“替换为 <code>42</code>”</em> 添加到其队列中。</li>
+</ol>
+<p>下一次渲染时，react遍历state队列：</p>
+<table>
+<thead>
+<tr>
+<th>更新队列</th>
+<th><code>n</code></th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>“替换为 <code>5</code>”</td>
+<td><code>0</code>（未使用）</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><code>n =&gt; n + 1</code></td>
+<td><code>5</code></td>
+<td><code>5 + 1 = 6</code></td>
+</tr>
+<tr>
+<td>“替换为 <code>42</code>”</td>
+<td><code>6</code>（未使用）</td>
+<td><code>42</code></td>
+</tr>
+</tbody></table>
+<p>React 会保存 <code>42</code> 为最终结果并从 <code>useState</code> 中返回。</p>
 
     </div>
 
@@ -272,7 +301,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://samulenzz.github.io/2021/01/23/GitHub%E6%90%9C%E7%B4%A2%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8A%80%E5%B7%A7/" title="GitHub搜索开源项目技巧">https://samulenzz.github.io/2021/01/23/GitHub搜索开源项目技巧/</a>
+    <a href="https://samulenzz.github.io/2023/06/26/%E5%AF%B9react%E4%B8%ADsetState%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/" title="对react中setState操作的理解">https://samulenzz.github.io/2023/06/26/对react中setState操作的理解/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -282,10 +311,6 @@
 
 
       <footer class="post-footer">
-          
-          <div class="post-tags">
-              <a href="/tags/GitHub/" rel="tag"><i class="fa fa-tag"></i> GitHub</a>
-          </div>
 
         
 
@@ -293,13 +318,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/20/2020%E5%8C%97%E8%88%AA%EF%BC%8C%E5%8D%97%E5%A4%A7%E8%BD%AF%E9%99%A2%EF%BC%8C%E8%AE%A1%E7%AE%97%E6%89%80%E5%A4%8F%E4%BB%A4%E8%90%A5%EF%BC%8C%E5%8C%97%E9%82%AE%EF%BC%8C%E8%A5%BF%E4%BA%A4%E4%BA%BA%E6%9C%BA%E6%89%80%E9%A2%84%E6%8E%A8%E5%85%8D%E8%AE%B0%E5%BD%95/" rel="prev" title="2020北航，南大软院，计算所夏令营，北邮，西交人机所预推免记录">
-      <i class="fa fa-chevron-left"></i> 2020北航，南大软院，计算所夏令营，北邮，西交人机所预推免记录
+    <a href="/2023/06/17/npm%E5%AE%89%E8%A3%85%E5%8D%A1%E4%BD%8F/" rel="prev" title="npm安装卡住">
+      <i class="fa fa-chevron-left"></i> npm安装卡住
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/03/05/LaTex%E5%9C%A8%E6%AF%95%E8%AE%BE%E8%AE%BA%E6%96%87%E4%B8%AD%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" rel="next" title="LaTex在毕设论文中的简单使用">
-      LaTex在毕设论文中的简单使用 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -358,7 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E4%BB%93%E5%BA%93%E5%90%8D%E5%AD%97%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2"><span class="nav-number">1.</span> <span class="nav-text">根据仓库名字进行搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AEreadme%E5%86%85%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2"><span class="nav-number">2.</span> <span class="nav-text">根据readme内中的内容来进行搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AEdescription%E7%9A%84%E5%86%85%E5%AE%B9%E6%9D%A5%E8%BF%9B%E8%A1%8C%E6%90%9C%E7%B4%A2"><span class="nav-number">3.</span> <span class="nav-text">根据description的内容来进行搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%97%B6%E9%99%90%E5%AE%9Astars%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">搜索时限定stars数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%97%B6%E9%99%90%E5%AE%9A%E8%AF%AD%E8%A8%80"><span class="nav-number">5.</span> <span class="nav-text">搜索时限定语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%9C%E7%B4%A2%E6%97%B6%E9%99%90%E5%AE%9A%E6%9C%80%E8%BF%91%E6%8E%A8%E9%80%81%E6%97%B6%E9%97%B4"><span class="nav-number">6.</span> <span class="nav-text">搜索时限定最近推送时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E5%8D%95%E6%BC%94%E7%A4%BA"><span class="nav-number">7.</span> <span class="nav-text">简单演示</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#setXXX%E7%9A%84%E5%8F%82%E6%95%B0%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">setXXX的参数的两种形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setXXX%E8%A7%A6%E5%8F%91re-render%E6%97%B6%EF%BC%8C%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">setXXX触发re-render时，做了什么？</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
