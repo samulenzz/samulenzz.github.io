@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -186,6 +186,79 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/07/13/promise%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%8B%E5%86%99promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/baobao.jpg">
+      <meta itemprop="name" content="samule">
+      <meta itemprop="description" content="记录一点学习轨迹">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sam's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/13/promise%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%8B%E5%86%99promise/" class="post-title-link" itemprop="url">promise总结与手写promise</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-13 11:37:02 / 修改时间：11:44:58" itemprop="dateCreated datePublished" datetime="2023-07-13T11:37:02+08:00">2023-07-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>参考：你不知道的JavaScript，掘金，javascriptinfo</p>
+<p>预计从以下几个方面，异步与回调（为什么出现），概念，手写</p>
+<p>参考1：<a target="_blank" rel="noopener" href="https://zh.javascript.info/callbacks">https://zh.javascript.info/callbacks</a></p>
+<p>主要为了解决异步的问题（<code>setTimeout</code> 函数就是一个这样的函数），传统的为了解决比如说等待网络请求之后，再进行处理的操作，一般是通过callback函数回调。</p>
+<p>手写promise参考：</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6945319439772434469#heading-19">https://juejin.cn/post/6945319439772434469#heading-19</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BK4y1D7Wc?p=5&amp;spm_id_from=pageDriver&amp;vd_source=efb533348c9c49f890d33e51a1f3eacc">https://www.bilibili.com/video/BV1BK4y1D7Wc?p=5&amp;spm_id_from=pageDriver&amp;vd_source=efb533348c9c49f890d33e51a1f3eacc</a></p>
+<p>先介绍一下概念吧。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/07/13/promise%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%8B%E5%86%99promise/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -826,83 +899,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/baobao.jpg">
-      <meta itemprop="name" content="samule">
-      <meta itemprop="description" content="记录一点学习轨迹">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sam's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/" class="post-title-link" itemprop="url">一类题型，以对两棵子树的遍历来产生结果</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-12-22 22:42:46" itemprop="dateCreated datePublished" datetime="2022-12-22T22:42:46+08:00">2022-12-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-12-25 11:12:37" itemprop="dateModified" datetime="2022-12-25T11:12:37+08:00">2022-12-25</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一类题型，以对两棵子树的遍历来产生结果"><a href="#一类题型，以对两棵子树的遍历来产生结果" class="headerlink" title="一类题型，以对两棵子树的遍历来产生结果"></a>一类题型，以对两棵子树的遍历来产生结果</h1><p>这一类问题的特点是对树进行递归遍历时，往往是对两棵树同时递归，这就产生了，同一时刻会有对应关系的两个节点，针对不同的题意，采取对两棵树的不同遍历顺序（或者叫对两个节点的不同选择策略），入口如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">traverse</span>(TreeNode* l, TreeNode* r)</span><br></pre></td></tr></table></figure>
-
-<h2 id="leetcode-101-迭代法"><a href="#leetcode-101-迭代法" class="headerlink" title="leetcode 101 迭代法"></a>leetcode 101 迭代法</h2><p>首先以<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/symmetric-tree/description/">leetcode 101. 对称的树为例子</a></p>
-<p>按照上面的说法，这题的本质，是判断一对对对应位置的节点是否是一致的。如题目中的示例树，一共要判断3对节点位置是否相等，<code>2-&gt;2</code>，<code>3-&gt;3</code>，<code>4-&gt;4</code></p>
-<p><img src="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/image-20221221225216709.png" alt="image-20221221225216709"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/12/22/%E4%B8%80%E7%B1%BB%E9%A2%98%E5%9E%8B%EF%BC%8C%E4%BB%A5%E5%AF%B9%E4%B8%A4%E6%A3%B5%E5%AD%90%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86%E6%9D%A5%E4%BA%A7%E7%94%9F%E7%BB%93%E6%9E%9C/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -974,7 +970,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
