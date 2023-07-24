@@ -22,19 +22,19 @@
     var CONFIG = {"hostname":"samulenzz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="为了避免state和props没有变化却重复render带来的性能变化，PureComponent中会对新的props和新的state与老的进行比较，来决定是否进行render。 12345if (ctor.prototype &amp;&amp; ctor.prototype.isPureReactComponent) &amp;#123;    return (      !shallowEqual(">
+  <meta name="description" content="首先是功能分析，一般使用场景为 1export default connect(mapStateToProps, mapDispatchToProps)(Home)  我们可以分析出，connect函数是一个高阶函数，他接收两个函数为入参，然后返回一个高阶组件。对原有组件Home的行为做劫持。 目的是让Home不直接通过store.getState,dispatch，subscribe进行操作。通">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react源码解读--shallowEqual">
-<meta property="og:url" content="https://samulenzz.github.io/2023/07/19/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-shallowEqual/index.html">
+<meta property="og:title" content="手动实现react-redux库中connect函数">
+<meta property="og:url" content="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Sam&#39;s blog">
-<meta property="og:description" content="为了避免state和props没有变化却重复render带来的性能变化，PureComponent中会对新的props和新的state与老的进行比较，来决定是否进行render。 12345if (ctor.prototype &amp;&amp; ctor.prototype.isPureReactComponent) &amp;#123;    return (      !shallowEqual(">
+<meta property="og:description" content="首先是功能分析，一般使用场景为 1export default connect(mapStateToProps, mapDispatchToProps)(Home)  我们可以分析出，connect函数是一个高阶函数，他接收两个函数为入参，然后返回一个高阶组件。对原有组件Home的行为做劫持。 目的是让Home不直接通过store.getState,dispatch，subscribe进行操作。通">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-19T11:48:46.000Z">
-<meta property="article:modified_time" content="2023-07-19T11:49:33.673Z">
+<meta property="article:published_time" content="2023-07-24T07:50:23.000Z">
+<meta property="article:modified_time" content="2023-07-24T07:51:35.456Z">
 <meta property="article:author" content="samule">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://samulenzz.github.io/2023/07/19/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-shallowEqual/">
+<link rel="canonical" href="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>react源码解读--shallowEqual | Sam's blog</title>
+  <title>手动实现react-redux库中connect函数 | Sam's blog</title>
   
 
 
@@ -193,7 +193,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/07/19/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-shallowEqual/">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/baobao.jpg">
@@ -206,7 +206,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          react源码解读--shallowEqual
+          手动实现react-redux库中connect函数
         </h1>
 
         <div class="post-meta">
@@ -217,7 +217,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-07-19 19:48:46 / 修改时间：19:49:33" itemprop="dateCreated datePublished" datetime="2023-07-19T19:48:46+08:00">2023-07-19</time>
+              <time title="创建时间：2023-07-24 15:50:23 / 修改时间：15:51:35" itemprop="dateCreated datePublished" datetime="2023-07-24T15:50:23+08:00">2023-07-24</time>
             </span>
 
           
@@ -231,14 +231,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>为了避免state和props没有变化却重复render带来的性能变化，PureComponent中会对新的props和新的state与老的进行比较，来决定是否进行render。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ctor.<span class="property"><span class="keyword">prototype</span></span> &amp;&amp; ctor.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">isPureReactComponent</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      !<span class="title function_">shallowEqual</span>(oldProps, newProps) || !<span class="title function_">shallowEqual</span>(oldState, newState)</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+        <p>首先是功能分析，一般使用场景为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">connect</span>(mapStateToProps, mapDispatchToProps)(<span class="title class_">Home</span>)</span><br></pre></td></tr></table></figure>
 
-<p>代码来源于<code>shallowEqual.js</code>。</p>
+<p>我们可以分析出，connect函数是一个高阶函数，他接收两个函数为入参，然后返回一个高阶组件。对原有组件Home的行为做劫持。</p>
+<p>目的是让Home不直接通过<code>store.getState</code>,<code>dispatch</code>，<code>subscribe</code>进行操作。通过connect封的高阶组件，来和redux进行通信。Home通过props拿数据就行了。</p>
 <span id="more"></span>
 
-<p>这其实是一个浅层的比较。其实很简单，就是先比较两个传入参数是否相等。如果是对象类型的话，分别取到对应的keys。先判断keys的长度是否相等，如果相等继续判断对应key中的value是否相等。==这是浅层比较，如果对应的value中还有对象的嵌套层级，不会递归进行比较。==</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Performs equality by iterating through keys on an object and returning false</span></span><br><span class="line"><span class="comment"> * when any key has values which are not strictly equal between the arguments.</span></span><br><span class="line"><span class="comment"> * Returns true when the values of all keys are strictly equal.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过迭代对象的key来判断是否相等，如果key对应的value不严格相等，则返回false</span></span><br><span class="line"><span class="comment"> * 否则返回true</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">shallowEqual</span>(<span class="params">objA: mixed, objB: mixed</span>): boolean &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">is</span>(objA, objB)) &#123;  <span class="comment">// 避免浏览器中不兼容，实现了Objec.is()方法，先简单判断两个值是否相等，或者是否同一引用对象</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (  <span class="comment">// 如果两个对象其中一个为空</span></span><br><span class="line">    <span class="keyword">typeof</span> objA !== <span class="string">&#x27;object&#x27;</span> ||</span><br><span class="line">    objA === <span class="literal">null</span> ||</span><br><span class="line">    <span class="keyword">typeof</span> objB !== <span class="string">&#x27;object&#x27;</span> ||</span><br><span class="line">    objB === <span class="literal">null</span></span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取两个对象的key</span></span><br><span class="line">  <span class="keyword">const</span> keysA = <span class="title class_">Object</span>.<span class="title function_">keys</span>(objA);</span><br><span class="line">  <span class="keyword">const</span> keysB = <span class="title class_">Object</span>.<span class="title function_">keys</span>(objB);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (keysA.<span class="property">length</span> !== keysB.<span class="property">length</span>) &#123;  <span class="comment">// 如果两个key长度不相等，直接不用比较</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Test for A&#x27;s keys different from B.</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keysA.<span class="property">length</span>; i++) &#123;  <span class="comment">// 遍历key</span></span><br><span class="line">    <span class="keyword">const</span> currentKey = keysA[i];</span><br><span class="line">    <span class="keyword">if</span> (</span><br><span class="line">      !hasOwnProperty.<span class="title function_">call</span>(objB, currentKey) ||  <span class="comment">// 对象B是否有这个key</span></span><br><span class="line">      <span class="comment">// $FlowFixMe[incompatible-use] lost refinement of `objB`</span></span><br><span class="line">      !<span class="title function_">is</span>(objA[currentKey], objB[currentKey])  <span class="comment">// 如果有的话，两个对象的同一个key对应value是否相等</span></span><br><span class="line">    ) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> shallowEqual;</span><br></pre></td></tr></table></figure>
+<p>设计如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PureComponent</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&quot;../store&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">connect</span>(<span class="params">mapStateToProps, mapDispatchToProps, store</span>) &#123;</span><br><span class="line">  <span class="comment">// 高阶组件: 函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">WrapperComponent</span>) &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">NewComponent</span> <span class="keyword">extends</span> <span class="title class_ inherited__">PureComponent</span> &#123;</span><br><span class="line">      <span class="title function_">constructor</span>(<span class="params">props, store</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(props)</span><br><span class="line">        <span class="comment">// 这里是为了实现dispatch之后重新render才设置的</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">state</span> = <span class="title function_">mapStateToProps</span>(store.<span class="title function_">getState</span>())</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 原来订阅的过程，也在connect中做了实现</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">unsubscribe</span> = <span class="variable language_">this</span>.<span class="property">store</span>.<span class="title function_">subscribe</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 如何完成更新，法一，强制刷新</span></span><br><span class="line">          <span class="comment">// this.forceUpdate()</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">// 法二，这个组件中设置state，然后利用setState刷新</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">setState</span>(<span class="title function_">mapStateToProps</span>(<span class="variable language_">this</span>.<span class="property">store</span>.<span class="title function_">getState</span>()))</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="title function_">componentWillUnmount</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">unsubscribe</span>()</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 这里目的很明确，拿到state和相关dispacth作为props传给组件</span></span><br><span class="line">        <span class="keyword">const</span> stateObj = <span class="title function_">mapStateToProps</span>(<span class="variable language_">this</span>.<span class="property">store</span>.<span class="title function_">getState</span>())</span><br><span class="line">        <span class="keyword">const</span> dispatchObj = <span class="title function_">mapDispatchToProps</span>(<span class="variable language_">this</span>.<span class="property">store</span>.<span class="property">dispatch</span>)</span><br><span class="line">        <span class="comment">// this.props是Wrapper组件原本应该接收的props</span></span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">WrapperComponent</span> &#123;<span class="attr">...this.props</span>&#125; &#123;<span class="attr">...stateObj</span>&#125; &#123;<span class="attr">...dispatchObj</span>&#125;/&gt;</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">NewComponent</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -255,7 +256,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://samulenzz.github.io/2023/07/19/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-shallowEqual/" title="react源码解读--shallowEqual">https://samulenzz.github.io/2023/07/19/react源码解读-shallowEqual/</a>
+    <a href="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/" title="手动实现react-redux库中connect函数">https://samulenzz.github.io/2023/07/24/手动实现react-redux库中connect函数/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -272,13 +273,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/07/13/promise%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%8B%E5%86%99promise/" rel="prev" title="promise总结与手写promise">
-      <i class="fa fa-chevron-left"></i> promise总结与手写promise
+    <a href="/2023/07/19/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-shallowEqual/" rel="prev" title="react源码解读--shallowEqual">
+      <i class="fa fa-chevron-left"></i> react源码解读--shallowEqual
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/" rel="next" title="手动实现react-redux库中connect函数">
-      手动实现react-redux库中connect函数 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
