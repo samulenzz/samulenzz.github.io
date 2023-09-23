@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">28</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">30</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -186,6 +186,157 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/09/23/%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/baobao.jpg">
+      <meta itemprop="name" content="samule">
+      <meta itemprop="description" content="记录一点学习轨迹">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sam's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/23/%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" class="post-title-link" itemprop="url">迭代器与生成器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-23 17:35:14 / 修改时间：17:36:04" itemprop="dateCreated datePublished" datetime="2023-09-23T17:35:14+08:00">2023-09-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="迭代器与生成器"><a href="#迭代器与生成器" class="headerlink" title="迭代器与生成器"></a>迭代器与生成器</h1><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p><a target="_blank" rel="noopener" href="https://zh.javascript.info/iterable%E8%BF%99%E4%B8%AA%E8%AE%B2%E7%9A%84%E5%85%B6%E5%AE%9E%E8%BF%98%E8%A1%8C">https://zh.javascript.info/iterable这个讲的其实还行</a></p>
+<p>先说几个概念，可迭代对象，迭代器（普通对象）</p>
+<ul>
+<li><p>可迭代对象，可以用<code>for...of</code>遍历</p>
+<p>  实现了函数/方法 <code>Symbol.iterator</code>。这个方法，返回一个普通对象，这个对象叫做<strong>迭代器</strong></p>
+</li>
+<li><p>迭代器(iterator)。一个普通对象，实现了<code>next()</code>方法，<code>next</code>方法的返回值，也是一个对象，必须形如</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">done</span>: <span class="literal">false</span>, <span class="attr">value</span>: xxx&#125;  <span class="comment">// 还可以继续迭代</span></span><br><span class="line">&#123;<span class="attr">done</span>: <span class="literal">true</span>, <span class="attr">value</span>: xxx&#125;  <span class="comment">// 迭代已经完成</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/09/23/%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/09/23/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/baobao.jpg">
+      <meta itemprop="name" content="samule">
+      <meta itemprop="description" content="记录一点学习轨迹">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sam's blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/23/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">深浅拷贝</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-23 17:34:06 / 修改时间：17:34:48" itemprop="dateCreated datePublished" datetime="2023-09-23T17:34:06+08:00">2023-09-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h1><h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>实现比较简单</p>
+<ul>
+<li><p>方法一 <code>Object.assign</code>：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newObj = <span class="title class_">Object</span>.<span class="title function_">assign</span>(&#123;&#125;, obj)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法二 spread语法：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;...obj&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/09/23/%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -743,151 +894,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/06/06/js%E4%B8%ADvar%E5%92%8Clet%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/baobao.jpg">
-      <meta itemprop="name" content="samule">
-      <meta itemprop="description" content="记录一点学习轨迹">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sam's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/06/js%E4%B8%ADvar%E5%92%8Clet%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">js中var和let的区别</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-06-06 21:03:29" itemprop="dateCreated datePublished" datetime="2023-06-06T21:03:29+08:00">2023-06-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-07-14 10:24:46" itemprop="dateModified" datetime="2023-07-14T10:24:46+08:00">2023-07-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/379326208">https://zhuanlan.zhihu.com/p/379326208</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43145310/article/details/125737211">https://blog.csdn.net/qq_43145310/article/details/125737211</a></p>
-<p>《JavaScript高级程序设计》</p>
-<p>我觉得主要有四点，作用域问题，变量提升，重复声明，挂载全局对象。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/06/06/js%E4%B8%ADvar%E5%92%8Clet%E7%9A%84%E5%8C%BA%E5%88%AB/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/06/04/vscode%E8%BF%9C%E7%A8%8Bssh%E5%8F%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/baobao.jpg">
-      <meta itemprop="name" content="samule">
-      <meta itemprop="description" content="记录一点学习轨迹">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sam's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/04/vscode%E8%BF%9C%E7%A8%8Bssh%E5%8F%8D%E5%A4%8D%E8%BE%93%E5%85%A5%E5%AF%86%E7%A0%81%E8%BF%9E%E6%8E%A5%E4%B8%8D%E4%B8%8A/" class="post-title-link" itemprop="url">vscode远程ssh反复输入密码连接不上</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-06-04 15:47:26" itemprop="dateCreated datePublished" datetime="2023-06-04T15:47:26+08:00">2023-06-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-06-06 15:57:00" itemprop="dateModified" datetime="2023-06-06T15:57:00+08:00">2023-06-06</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>用vscode连接远程服务器时，经常过段时间就出现一个现象。</p>
-<p>可以通过终端的命令行正常的连接远程的服务器；</p>
-<p>但是通过vscode连接时，需要反复的输入密码无法连接。重启vscode，删除<code>.ssh</code>文件夹下的内容也都不好使。</p>
-<p>解决方法：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43937790/article/details/128039464">https://blog.csdn.net/weixin_43937790/article/details/128039464</a></p>
-<p>有效策略：通过终端ssh链接服务器。在home目录下：<code>rm -rf ./.vscode-server</code>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -959,7 +965,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
