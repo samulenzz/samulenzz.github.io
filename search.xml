@@ -3547,4 +3547,52 @@
 <p>==<strong>结论</strong>：<code>async/await</code>是promise.then和生成器构成的语法糖！！==</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>ESModule和CommonJS的区别</title>
+    <url>/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h1 id="ESModule和CommonJS的区别"><a href="#ESModule和CommonJS的区别" class="headerlink" title="ESModule和CommonJS的区别"></a>ESModule和CommonJS的区别</h1><p>面试问到的一个问题，当时我说CommonJS的方法是指向内存地址的一块空间，然后require指向同一块地址空间，被面试官质疑了。现在重新记录一下。</p>
+<p>两个都是模块化的方案，CommonJS出现的更早，是一种非官方的方法。ESModule由ECMA官方标准提出。</p>
+<p>参考：<a href="https://juejin.cn/post/7094021119560777741">https://juejin.cn/post/7094021119560777741</a></p>
+<p>写的很好。</p>
+<span id="more"></span>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>总结：</strong></p>
+<ol>
+<li><p>commonJS<strong>同步</strong>加载模块（但是多用在服务器，不需要从网路下载js，所以影响不大，除非该js文件有大量的耗时的计算）</p>
+<p> ESModule<strong>异步</strong>加载模块，分为构建，实例化，运行三个阶段。</p>
+</li>
+<li><p>commonJS是<strong>运行时加载的</strong>，的require函数允许动态的加载模块（也就是说，可以写在if里面，也在require里做字符串的拼接，这些在ESModule中都是不行的）</p>
+<p> ESModule加载模块是<strong>编译时加载的</strong>，也就是<strong>静态分析的</strong>。</p>
+</li>
+<li><p>commonJS模块输出的是值的浅拷贝（我的理解，本质是，<code>module.exports</code>对象，指向了一个新的对象。新的对象的属性，就是要导出的值。require函数获取的对象，也是指向同一块地址，通过对象解构来获取相关的变量）</p>
+<p> ESModule模块输出的是值的引用（但是做了限制，只允许export模块修改导出的值，引入的模块相当于只读的引用）</p>
+</li>
+</ol>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="exports的本质原理"><a href="#exports的本质原理" class="headerlink" title="exports的本质原理"></a>exports的本质原理</h3><p>对于<code>exports</code>来说，他是一个空对象<code>&#123;&#125;</code>，指向内存空间的一块地址<code>0x100</code>。</p>
+<p>通过<code>exports.xxx = abc</code>给他赋上其他属性。</p>
+<p>通过<code>const a = require(&#39;a.js&#39;)</code>获取到对象a，其中对象a也指向地址<code>0x100</code>。</p>
+<p>==也就是说exports对象和a对象，是同一个对象，指向同一个地址空间。==</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/Node%E5%AF%BC%E5%85%A5%E5%92%8C%E5%AF%BC%E5%87%BA%E7%9A%84%E6%9C%AC%E8%B4%A8.png" alt="Node导入和导出的本质"></p>
+<p>对于<code>module.exports</code>，==默认情况==，<code>module.exports === exports</code>结果为true。也就是<code>module.exports</code>的地址也为<code>0x100</code></p>
+<p>==实际上每一个模块都是<code>类Module</code>的实例module==</p>
+<p>当是这种写法</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">xxx</span> = abc</span><br></pre></td></tr></table></figure>
+
+<p>这种写法和上面<code>exports</code>的写法没有区别</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/Node%E4%B8%ADmodule%E7%9A%84exports%E7%9A%84%E6%9C%AC%E8%B4%A8.png" alt="Node中module的exports的本质"></p>
+<p>一般采用另一种写法，让module.exports指向一个新的对象，在新的空对象中构造要导出的对象。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    a,</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="esmodule原理"><a href="#esmodule原理" class="headerlink" title="esmodule原理"></a>esmodule原理</h3><p>ESModule分为构建（Construction），实例化（Instantiation），运行（Evaluation）</p>
+<p>构建，下载对应的js文件，对每一个js文件解析parse一个模块记录module record。如果这个js文件有导入语句，继续下载对应的js文件，将其解析为模块记录module record。同事会形成module map，记录了要下载的js的url，和对应的module record的映射关系。</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%88%AA%E5%B1%8F2023-11-3000.01.07.png" alt="截屏2023-11-30 00.01.07"></p>
+<p>实例化和运行，对于每一个模块记录module record，为其分配内存空间，会有一个模块环境记录module environment record</p>
+<p>对于每一条导出语句，会记录下有哪些变量会被导出</p>
+<p>导入同理？？</p>
+<p>代码实际运行时，再实际的为对应的模块环境记录module environment record的变量赋值。先为导出的对应的module environment record模块环境记录中的变量赋值，需要导入的变量可以从中取用？</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%88%AA%E5%B1%8F2023-11-3000.01.16.png" alt="截屏2023-11-30 00.01.16"></p>
+]]></content>
+  </entry>
 </search>

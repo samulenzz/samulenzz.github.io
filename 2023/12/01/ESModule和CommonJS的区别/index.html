@@ -22,19 +22,24 @@
     var CONFIG = {"hostname":"samulenzz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="首先是功能分析，一般使用场景为 1export default connect(mapStateToProps, mapDispatchToProps)(Home)  我们可以分析出，connect函数是一个高阶函数，他接收两个函数为入参，然后返回一个高阶组件。对原有组件Home的行为做劫持。 目的是让Home不直接通过store.getState,dispatch，subscribe进行操作。通">
+  <meta name="description" content="ESModule和CommonJS的区别面试问到的一个问题，当时我说CommonJS的方法是指向内存地址的一块空间，然后require指向同一块地址空间，被面试官质疑了。现在重新记录一下。 两个都是模块化的方案，CommonJS出现的更早，是一种非官方的方法。ESModule由ECMA官方标准提出。 参考：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;7094021119560777741 写的很">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手动实现react-redux库中connect函数">
-<meta property="og:url" content="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:title" content="ESModule和CommonJS的区别">
+<meta property="og:url" content="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="Sam&#39;s blog">
-<meta property="og:description" content="首先是功能分析，一般使用场景为 1export default connect(mapStateToProps, mapDispatchToProps)(Home)  我们可以分析出，connect函数是一个高阶函数，他接收两个函数为入参，然后返回一个高阶组件。对原有组件Home的行为做劫持。 目的是让Home不直接通过store.getState,dispatch，subscribe进行操作。通">
+<meta property="og:description" content="ESModule和CommonJS的区别面试问到的一个问题，当时我说CommonJS的方法是指向内存地址的一块空间，然后require指向同一块地址空间，被面试官质疑了。现在重新记录一下。 两个都是模块化的方案，CommonJS出现的更早，是一种非官方的方法。ESModule由ECMA官方标准提出。 参考：https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;7094021119560777741 写的很">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-07-24T07:50:23.000Z">
-<meta property="article:modified_time" content="2023-07-24T07:51:35.456Z">
+<meta property="og:image" content="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/Node%E5%AF%BC%E5%85%A5%E5%92%8C%E5%AF%BC%E5%87%BA%E7%9A%84%E6%9C%AC%E8%B4%A8.png">
+<meta property="og:image" content="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/Node%E4%B8%ADmodule%E7%9A%84exports%E7%9A%84%E6%9C%AC%E8%B4%A8.png">
+<meta property="og:image" content="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%88%AA%E5%B1%8F2023-11-3000.01.07.png">
+<meta property="og:image" content="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%88%AA%E5%B1%8F2023-11-3000.01.16.png">
+<meta property="article:published_time" content="2023-12-01T07:57:16.000Z">
+<meta property="article:modified_time" content="2023-12-01T08:00:10.832Z">
 <meta property="article:author" content="samule">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/Node%E5%AF%BC%E5%85%A5%E5%92%8C%E5%AF%BC%E5%87%BA%E7%9A%84%E6%9C%AC%E8%B4%A8.png">
 
-<link rel="canonical" href="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/">
+<link rel="canonical" href="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
 
 <script id="page-configurations">
@@ -47,7 +52,7 @@
   };
 </script>
 
-  <title>手动实现react-redux库中connect函数 | Sam's blog</title>
+  <title>ESModule和CommonJS的区别 | Sam's blog</title>
   
 
 
@@ -193,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/baobao.jpg">
@@ -206,7 +211,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          手动实现react-redux库中connect函数
+          ESModule和CommonJS的区别
         </h1>
 
         <div class="post-meta">
@@ -217,7 +222,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-07-24 15:50:23 / 修改时间：15:51:35" itemprop="dateCreated datePublished" datetime="2023-07-24T15:50:23+08:00">2023-07-24</time>
+              <time title="创建时间：2023-12-01 15:57:16 / 修改时间：16:00:10" itemprop="dateCreated datePublished" datetime="2023-12-01T15:57:16+08:00">2023-12-01</time>
             </span>
 
           
@@ -231,16 +236,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>首先是功能分析，一般使用场景为</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">connect</span>(mapStateToProps, mapDispatchToProps)(<span class="title class_">Home</span>)</span><br></pre></td></tr></table></figure>
-
-<p>我们可以分析出，connect函数是一个高阶函数，他接收两个函数为入参，然后返回一个高阶组件。对原有组件Home的行为做劫持。</p>
-<p>目的是让Home不直接通过<code>store.getState</code>,<code>dispatch</code>，<code>subscribe</code>进行操作。通过connect封的高阶组件，来和redux进行通信。Home通过props拿数据就行了。</p>
+        <h1 id="ESModule和CommonJS的区别"><a href="#ESModule和CommonJS的区别" class="headerlink" title="ESModule和CommonJS的区别"></a>ESModule和CommonJS的区别</h1><p>面试问到的一个问题，当时我说CommonJS的方法是指向内存地址的一块空间，然后require指向同一块地址空间，被面试官质疑了。现在重新记录一下。</p>
+<p>两个都是模块化的方案，CommonJS出现的更早，是一种非官方的方法。ESModule由ECMA官方标准提出。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7094021119560777741">https://juejin.cn/post/7094021119560777741</a></p>
+<p>写的很好。</p>
 <span id="more"></span>
 
-<p>设计如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">PureComponent</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&quot;../store&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">connect</span>(<span class="params">mapStateToProps, mapDispatchToProps, store</span>) &#123;</span><br><span class="line">  <span class="comment">// 高阶组件: 函数</span></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">WrapperComponent</span>) &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">NewComponent</span> <span class="keyword">extends</span> <span class="title class_ inherited__">PureComponent</span> &#123;</span><br><span class="line">      <span class="title function_">constructor</span>(<span class="params">props, store</span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>(props)</span><br><span class="line">        <span class="comment">// 这里是为了实现dispatch之后重新render才设置的</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">state</span> = <span class="title function_">mapStateToProps</span>(store.<span class="title function_">getState</span>())</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="title function_">componentDidMount</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 原来订阅的过程，也在connect中做了实现</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">unsubscribe</span> = <span class="variable language_">this</span>.<span class="property">store</span>.<span class="title function_">subscribe</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          <span class="comment">// 如何完成更新，法一，强制刷新</span></span><br><span class="line">          <span class="comment">// this.forceUpdate()</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">// 法二，这个组件中设置state，然后利用setState刷新</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="title function_">setState</span>(<span class="title function_">mapStateToProps</span>(<span class="variable language_">this</span>.<span class="property">store</span>.<span class="title function_">getState</span>()))</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="title function_">componentWillUnmount</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">unsubscribe</span>()</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 这里目的很明确，拿到state和相关dispacth作为props传给组件</span></span><br><span class="line">        <span class="keyword">const</span> stateObj = <span class="title function_">mapStateToProps</span>(<span class="variable language_">this</span>.<span class="property">store</span>.<span class="title function_">getState</span>())</span><br><span class="line">        <span class="keyword">const</span> dispatchObj = <span class="title function_">mapDispatchToProps</span>(<span class="variable language_">this</span>.<span class="property">store</span>.<span class="property">dispatch</span>)</span><br><span class="line">        <span class="comment">// this.props是Wrapper组件原本应该接收的props</span></span><br><span class="line">        <span class="keyword">return</span> <span class="language-xml"><span class="tag">&lt;<span class="name">WrapperComponent</span> &#123;<span class="attr">...this.props</span>&#125; &#123;<span class="attr">...stateObj</span>&#125; &#123;<span class="attr">...dispatchObj</span>&#125;/&gt;</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">NewComponent</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>总结：</strong></p>
+<ol>
+<li><p>commonJS<strong>同步</strong>加载模块（但是多用在服务器，不需要从网路下载js，所以影响不大，除非该js文件有大量的耗时的计算）</p>
+<p> ESModule<strong>异步</strong>加载模块，分为构建，实例化，运行三个阶段。</p>
+</li>
+<li><p>commonJS是<strong>运行时加载的</strong>，的require函数允许动态的加载模块（也就是说，可以写在if里面，也在require里做字符串的拼接，这些在ESModule中都是不行的）</p>
+<p> ESModule加载模块是<strong>编译时加载的</strong>，也就是<strong>静态分析的</strong>。</p>
+</li>
+<li><p>commonJS模块输出的是值的浅拷贝（我的理解，本质是，<code>module.exports</code>对象，指向了一个新的对象。新的对象的属性，就是要导出的值。require函数获取的对象，也是指向同一块地址，通过对象解构来获取相关的变量）</p>
+<p> ESModule模块输出的是值的引用（但是做了限制，只允许export模块修改导出的值，引入的模块相当于只读的引用）</p>
+</li>
+</ol>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="exports的本质原理"><a href="#exports的本质原理" class="headerlink" title="exports的本质原理"></a>exports的本质原理</h3><p>对于<code>exports</code>来说，他是一个空对象<code>&#123;&#125;</code>，指向内存空间的一块地址<code>0x100</code>。</p>
+<p>通过<code>exports.xxx = abc</code>给他赋上其他属性。</p>
+<p>通过<code>const a = require(&#39;a.js&#39;)</code>获取到对象a，其中对象a也指向地址<code>0x100</code>。</p>
+<p>==也就是说exports对象和a对象，是同一个对象，指向同一个地址空间。==</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/Node%E5%AF%BC%E5%85%A5%E5%92%8C%E5%AF%BC%E5%87%BA%E7%9A%84%E6%9C%AC%E8%B4%A8.png" alt="Node导入和导出的本质"></p>
+<p>对于<code>module.exports</code>，==默认情况==，<code>module.exports === exports</code>结果为true。也就是<code>module.exports</code>的地址也为<code>0x100</code></p>
+<p>==实际上每一个模块都是<code>类Module</code>的实例module==</p>
+<p>当是这种写法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">xxx</span> = abc</span><br></pre></td></tr></table></figure>
 
+<p>这种写法和上面<code>exports</code>的写法没有区别</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/Node%E4%B8%ADmodule%E7%9A%84exports%E7%9A%84%E6%9C%AC%E8%B4%A8.png" alt="Node中module的exports的本质"></p>
+<p>一般采用另一种写法，让module.exports指向一个新的对象，在新的空对象中构造要导出的对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    a,</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="esmodule原理"><a href="#esmodule原理" class="headerlink" title="esmodule原理"></a>esmodule原理</h3><p>ESModule分为构建（Construction），实例化（Instantiation），运行（Evaluation）</p>
+<p>构建，下载对应的js文件，对每一个js文件解析parse一个模块记录module record。如果这个js文件有导入语句，继续下载对应的js文件，将其解析为模块记录module record。同事会形成module map，记录了要下载的js的url，和对应的module record的映射关系。</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%88%AA%E5%B1%8F2023-11-3000.01.07.png" alt="截屏2023-11-30 00.01.07"></p>
+<p>实例化和运行，对于每一个模块记录module record，为其分配内存空间，会有一个模块环境记录module environment record</p>
+<p>对于每一条导出语句，会记录下有哪些变量会被导出</p>
+<p>导入同理？？</p>
+<p>代码实际运行时，再实际的为对应的模块环境记录module environment record的变量赋值。先为导出的对应的module environment record模块环境记录中的变量赋值，需要导入的变量可以从中取用？</p>
+<p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%88%AA%E5%B1%8F2023-11-3000.01.16.png" alt="截屏2023-11-30 00.01.16"></p>
 
     </div>
 
@@ -256,7 +294,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://samulenzz.github.io/2023/07/24/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0react-redux%E5%BA%93%E4%B8%ADconnect%E5%87%BD%E6%95%B0/" title="手动实现react-redux库中connect函数">https://samulenzz.github.io/2023/07/24/手动实现react-redux库中connect函数/</a>
+    <a href="https://samulenzz.github.io/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/" title="ESModule和CommonJS的区别">https://samulenzz.github.io/2023/12/01/ESModule和CommonJS的区别/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -273,13 +311,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/07/19/react%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB-shallowEqual/" rel="prev" title="react源码解读--shallowEqual">
-      <i class="fa fa-chevron-left"></i> react源码解读--shallowEqual
+    <a href="/2023/09/23/%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" rel="prev" title="迭代器与生成器">
+      <i class="fa fa-chevron-left"></i> 迭代器与生成器
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/09/02/%E6%9F%AF%E9%87%8C%E5%8C%96-Currying/" rel="next" title="柯里化(Currying)">
-      柯里化(Currying) <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -338,6 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">ESModule和CommonJS的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.1.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#exports%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.1.</span> <span class="nav-text">exports的本质原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#esmodule%E5%8E%9F%E7%90%86"><span class="nav-number">1.2.2.</span> <span class="nav-text">esmodule原理</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
