@@ -3595,4 +3595,108 @@
 <p><img src="/2023/12/01/ESModule%E5%92%8CCommonJS%E7%9A%84%E5%8C%BA%E5%88%AB/%E6%88%AA%E5%B1%8F2023-11-3000.01.16.png" alt="截屏2023-11-30 00.01.16"></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>前端包管理工具</title>
+    <url>/2023/12/02/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h1 id="前端包管理工具"><a href="#前端包管理工具" class="headerlink" title="前端包管理工具"></a>前端包管理工具</h1><p>一些包管理工具的使用，原理。如npm，yarn，pnpm</p>
+<h2 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h2><p>以npm为例子吧</p>
+<span id="more"></span>
+
+<p>Npm：node package manager，现在不仅仅是node包管理，前端的包也用这个管理。包发布到registry，然后通过<code>npm install</code>下载也是从registry下载。</p>
+<p>npm怎么管理下载的包呢？通过<code>package.json</code>，接下来解释一下<code>package.json</code>中的key字段。</p>
+<ul>
+<li>在一个路径下，可以通过<code>npm init</code>来创建一个json文件，不过需要手动输入版本号，项目名称等相关的信息。如果全选默认的话，可以用<code>npm init -y</code>来创建package.json</li>
+</ul>
+<h3 id="package-jsonkey的解读"><a href="#package-jsonkey的解读" class="headerlink" title="package.jsonkey的解读"></a><code>package.json</code>key的解读</h3><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;02_package_demo&quot;</span><span class="punctuation">,</span>  <span class="comment">// 项目名称</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span>  <span class="comment">// 版本化</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span>  <span class="comment">// 当前项目的入口文件，通过require查找时会找到这</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>  <span class="comment">// npm run start时，会执行&quot;node ./src/main.js&quot;这行脚本</span></span><br><span class="line">    <span class="comment">// 自定义配置npm run xxx的语句</span></span><br><span class="line">    <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node ./src/main.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;webpack xxx.js&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>  <span class="comment">// 当前项目依赖的包</span></span><br><span class="line">    <span class="attr">&quot;axios&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.27.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;dayjs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^1.11.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;element-plus&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^2.2.6&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.2.37&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span>  <span class="comment">// 当前项目开发环境依赖的包，生产环境不需要</span></span><br><span class="line">    <span class="attr">&quot;babel&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^6.23.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webpack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.73.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Script：配置Script后，npm run start时，会执行”node ./src/main.js”这行脚本</p>
+<p>  npm run build时，会执行”webpack xxx.js”</p>
+<p>  *对于start, test, stop等可以省略掉<code>run</code>，也就是<code>npm stast</code>*即可</p>
+</li>
+</ul>
+<ul>
+<li><p>版本依赖号的含义</p>
+<p>  <code>^x.y.z</code>，x版本不变（大版本不变），y,z可以改变</p>
+<p>  <code>~x.y.z</code>，x和y版本不变，z可以改变</p>
+</li>
+</ul>
+<h3 id="package-lock-json文件解析"><a href="#package-lock-json文件解析" class="headerlink" title="package-lock.json文件解析"></a><code>package-lock.json</code>文件解析</h3><figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;02_package_demo&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;lockfileVersion&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span>  <span class="comment">// 当前lock文件是哪个版本</span></span><br><span class="line">  <span class="attr">&quot;requires&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span>  <span class="comment">// 可以用requires替换dependencies</span></span><br><span class="line">  <span class="attr">&quot;packages&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;02_package_demo&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;axios&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.27.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;dayjs&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^1.11.3&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;element-plus&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^2.2.6&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.2.37&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;babel&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^6.23.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;webpack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.73.0&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;node_modules/@babel/parser&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;7.18.6&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;resolved&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://registry.npmjs.org/@babel/parser/-/parser-7.18.6.tgz&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;integrity&quot;</span><span class="punctuation">:</span> <span class="string">&quot;sha512-uQVSa9jJUe/G/304lXspfWVpKpK4euFLgGiMQFOCpM/bgcAdeoHwi/OQz23O9GK2osz26ZiXRRV9aV+Yl1O8tw==&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;bin&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;parser&quot;</span><span class="punctuation">:</span> <span class="string">&quot;bin/babel-parser.js&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;engines&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;node&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&gt;=6.0.0&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Resolved，当前这个包是从哪里下载的</li>
+<li>Integrity：当前包的Sha512码，用来做哈希校验的，如果是这个包，就不同重复下载了，直接使用缓存</li>
+</ul>
+<h2 id="npx"><a href="#npx" class="headerlink" title="npx"></a>npx</h2><p>我感觉npx主要用来执行，当前目录（局部目录）下node_modules安装的一些包。</p>
+<blockquote>
+<p>npx会在执行时，检查本地项目中是否安装了对应的依赖，如果没有安装则会自动下载安装，并执行命令。如果本地已经存在该依赖，则直接执行命令。</p>
+<p>npx会在执行完命令后删除下载的包。这是因为npx会在执行命令之前，将需要执行的包下载到一个临时目录中，并在执行完毕后删除该目录。这样可以避免在本地留下不必要的依赖包。</p>
+</blockquote>
+<p>比如说，我们全局安装了webpack5.1.3，项目局部安装了3.1.0</p>
+<p>但是在项目目录下的shell里面调用，<code>webpack --version</code>显示的是全局的</p>
+<p>我们可以通过<code>npx webpack</code>调用当前目录下安装的一些包，而不是全局的</p>
+<p>其他解决方案：</p>
+<p>方案一：绝对路径</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">./node_modules/.<span class="property">bin</span>/webpack --version</span><br></pre></td></tr></table></figure>
+
+<p>方案二：修改<code>package.json</code>中的<code>scripts</code>配置</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;webpack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;webpack --version&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="pnpm"><a href="#pnpm" class="headerlink" title="pnpm"></a>pnpm</h2><p>使用上其实是和npm差不多的，就是在性能上有显著的差异。</p>
+<p>对于npm，yarn来说，如果有多个项目A,B,C，这三个项目都依赖于axios。npm的做法是，对于axios相关文件做<strong>拷贝</strong>，这样A B C项目中各有一份<strong>独立的</strong>axios相关文件。这样会造成空间的浪费。</p>
+<p>pnpm的做法，是对文件建立软硬链接。</p>
+<p>先介绍一下软硬链接和拷贝的区别</p>
+<h3 id="软硬链接以及拷贝"><a href="#软硬链接以及拷贝" class="headerlink" title="软硬链接以及拷贝"></a>软硬链接以及拷贝</h3><p>文件的拷贝</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp foo.js foo_copy.js</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/02/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/%E6%88%AA%E5%B1%8F2023-12-0220.13.49.png" alt="截屏2023-12-02 20.13.49"></p>
+<p>这是两个独立的文件，修改其中一个并不会影响另一个。他们也指向磁盘上的不同区域。</p>
+<p>硬链接</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln foo.js foo_hard.js</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/12/02/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/%E6%88%AA%E5%B1%8F2023-12-0220.15.37.png" alt="截屏2023-12-02 20.15.37"></p>
+<p>他们指向磁盘上同一个区域，<strong>也就是共用了同一份数据。</strong>修改其中一个文件，另一个文件的内容会同步的变化。</p>
+<p>软链接</p>
+<p>软链接是通过路径的形式指向其他文件的引用（相当于一个文件的快捷方式）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ln -s foo.js foo_copy.js</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<ol>
+<li><strong>硬链接</strong>：<ul>
+<li>硬链接是指通过索引节点（inode）来创建的文件链接。当你创建一个硬链接时，实际上是在文件系统中创建了一个新的文件名，但它指向相同的数据块。因此，无论使用哪个文件名进行修改，对另一个文件名也会产生影响。</li>
+<li>硬链接只能在同一个文件系统内创建，并且不能针对目录进行创建。</li>
+<li>删除原始文件并不会影响硬链接，因为实际的数据块仍然存在于磁盘上。只有当所有指向该数据块的硬链接都被删除后，磁盘空间才会被释放。</li>
+</ul>
+</li>
+<li><strong>软链接</strong>（符号连接）：<ul>
+<li>软链接是一种特殊类型的文件，其中包含了指向另一个文件或目录的路径。这意味着软链接并不包含实际的数据，它只是一个指针。</li>
+<li>软链接可以跨越不同的文件系统，并且可以针对目录进行创建。</li>
+<li>如果原始文件被删除或移动，那么软链接将成为“死链接”，即它将指向一个不存在的位置。</li>
+</ul>
+</li>
+</ol>
+<p>总结来说，在使用上主要区别在于：</p>
+<ul>
+<li>硬连接：与原始文件共享inode和数据块；删除原始文件后依然可以访问；不能交叉文件系统使用；不能针对目录使用。</li>
+<li>软连接：类似Windows下快捷方式；删除原始文件后失效；可以跨越不同的文件系统；可以针对目录使用。</li>
+</ul>
+</blockquote>
+<h3 id="pnpm的做法"><a href="#pnpm的做法" class="headerlink" title="pnpm的做法"></a>pnpm的做法</h3><h4 id="优点1-避免文件拷贝造成空间的浪费"><a href="#优点1-避免文件拷贝造成空间的浪费" class="headerlink" title="优点1 避免文件拷贝造成空间的浪费"></a>优点1 避免文件拷贝造成空间的浪费</h4><p>Npm，yarn的做法都是拷贝文件，为了避免了一百个项目，一百个相同的文件。</p>
+<p>pnpm的做法，<strong>将依赖包存到统一的位置</strong></p>
+<p>==当安装软件包时， 其包含的所有文件都会硬链接到此位置，而不会占用 额外的硬盘空间；==</p>
+<h4 id="优点2-没有采取扁平化的node-modules"><a href="#优点2-没有采取扁平化的node-modules" class="headerlink" title="优点2 没有采取扁平化的node_modules"></a>优点2 没有采取扁平化的node_modules</h4><p>npm安装一个包<code>bar</code>时，如果这个包<code>bar</code>有其他的依赖<code>foo</code>，<code>bar</code>和<code>foo</code>是同一层级目录下的。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node_modules</span><br><span class="line"> --| bar</span><br><span class="line"> --| foo</span><br></pre></td></tr></table></figure>
+
+<p>并没有采取嵌套的结构，如下（因为嵌套的结构，可能造成另一个包<code>bar2</code>需要依赖<code>foo</code>，<code>foo</code>在node_modules中需要存两遍）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">node_modules</span><br><span class="line"> --| bar</span><br><span class="line"> 	--| foo</span><br></pre></td></tr></table></figure>
+
+<p>但是这样扁平化的结构，可能存在的问题是，我们可以通过<code>require</code>在代码中取访问到本部属于当前项目所设定依赖的包，如<code>foo</code>包。</p>
+<p>pnpm的解决方法，采取<strong>非扁平化</strong>的结构，但是依然采取软硬链接的方式，避免重复的包</p>
+<p><img src="/2023/12/02/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/%E6%88%AA%E5%B1%8F2023-12-0220.44.15.png" alt="截屏2023-12-02 20.44.15"></p>
+]]></content>
+  </entry>
 </search>
